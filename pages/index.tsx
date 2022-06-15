@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
+import HomePage from "../src/components/templates/HomePage";
+
 const Home: NextPage = () => {
   return (
     <div>
@@ -9,7 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>Audiophile App</div>
+      <HomePage />
     </div>
   );
 };
