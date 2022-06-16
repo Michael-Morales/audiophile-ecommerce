@@ -5,13 +5,21 @@ import CategoryCard from "../modules/CategoryCard";
 
 const HomePage: NextPage = () => {
   return (
-    <main>
-      <Hero />
+    <>
+      <main>
+        <Hero />
 
-      <section>
-        <CategoryCard />
-      </section>
-    </main>
+        <section>
+          <CategoryCard />
+        </section>
+      </main>
+
+      <style jsx>{`
+        section {
+          margin: 48px 24px;
+        }
+      `}</style>
+    </>
   );
 };
 
