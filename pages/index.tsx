@@ -5,14 +5,14 @@ import HomePage from "../src/components/templates/HomePage";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>Audiophile</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <HomePage />
-    </div>
+    </>
   );
 };
 

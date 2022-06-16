@@ -22,7 +22,7 @@ export const globalStyles = global`
     margin: 0;
   }
 
-  html, body, #__next, #__next > * {
+  html, body, #__next, main {
     height: 100%;
   }
 
@@ -86,5 +86,11 @@ export const dynamicGlobalStyles = global`
     font-size: ${sizes.mobile.text.h5};
     line-height: ${sizes.mobile.lineHeight.h5};
     letter-spacing: ${sizes.mobile.letterSpacing.h5};
+  }
+
+  h6  {
+    font-size: ${sizes.mobile.text.h6};
+    line-height: ${sizes.mobile.lineHeight.h6};
+    letter-spacing: ${sizes.mobile.letterSpacing.h6};
   }
 `;

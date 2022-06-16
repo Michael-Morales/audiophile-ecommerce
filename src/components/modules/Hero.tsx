@@ -14,7 +14,7 @@ const Hero: NextPage = () => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <Button />
+        <Button title="see product" route="/" />
       </div>
 
       <style jsx>{`
@@ -36,6 +36,7 @@ const Hero: NextPage = () => {
           margin-bottom: 16px;
           font-weight: 400;
           text-transform: uppercase;
+          opacity: 0.5;
         }
 
         h1 {
@@ -45,6 +46,7 @@ const Hero: NextPage = () => {
         .subtitle {
           margin-bottom: 28px;
           font-weight: 400;
+          opacity: 0.75;
         }
       `}</style>
       <style jsx>{`
