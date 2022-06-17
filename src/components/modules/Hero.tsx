@@ -24,12 +24,12 @@ const Hero: NextPage = () => {
           justify-content: center;
           align-items: center;
           padding: 90px 24px 0;
-          height: 100%;
+          height: 100vh;
           text-align: center;
           background-image: url("/images/mobile/image-header.webp");
           background-repeat: no-repeat;
           background-size: cover;
-          background-position: top center;
+          background-position: center;
         }
 
         .overline {

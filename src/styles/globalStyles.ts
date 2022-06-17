@@ -22,10 +22,6 @@ export const globalStyles = global`
     margin: 0;
   }
 
-  html, body, #__next, main {
-    height: 100%;
-  }
-
   body {
     font-family: "Manrope", Arial, sans-serif;
     font-weight: 500;
