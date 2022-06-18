@@ -1,5 +1,6 @@
 import PrimaryShowcaseCard from "./PrimaryShowcaseCard";
 import SecondaryShowcaseCard from "./SecondaryShowcaseCard";
+import TertiaryShowcaseCard from "./TertiaryShowcaseCard";
 
 const ShowcaseSection = () => {
   return (
@@ -7,6 +8,7 @@ const ShowcaseSection = () => {
       <section>
         <PrimaryShowcaseCard />
         <SecondaryShowcaseCard />
+        <TertiaryShowcaseCard />
       </section>
 
       <style jsx>{`
