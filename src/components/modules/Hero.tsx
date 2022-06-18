@@ -1,10 +1,8 @@
-import type { NextPage } from "next";
-
 import Button from "../elements/Button";
 
 import { sizes, colors } from "../../styles/theme";
 
-const Hero: NextPage = () => {
+const Hero = () => {
   return (
     <>
       <div>
