@@ -11,6 +11,9 @@ const ShowcaseSection = () => {
 
       <style jsx>{`
         section {
+          display: flex;
+          flex-direction: column;
+          gap: 2.4rem;
           margin: 9.6rem 2.4rem;
         }
       `}</style>

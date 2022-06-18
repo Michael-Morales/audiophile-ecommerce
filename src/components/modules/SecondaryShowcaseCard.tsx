@@ -3,9 +3,26 @@ import Button from "../elements/Button";
 const SecondaryShowcaseCard = () => {
   return (
     <>
-      <div></div>
+      <div>
+        <h3>zx7 speaker</h3>
+        <Button title="see product" route="/" light />
+      </div>
 
-      <style jsx>{``}</style>
+      <style jsx>{`
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 3.2rem;
+          padding: 0 2.4rem;
+          height: 320px;
+          border-radius: 8px;
+          background-image: url("/images/mobile/image-speaker-zx7.webp");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      `}</style>
     </>
   );
 };
