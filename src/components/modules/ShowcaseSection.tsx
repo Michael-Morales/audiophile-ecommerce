@@ -18,6 +18,13 @@ const ShowcaseSection = () => {
           gap: 2.4rem;
           margin: 9.6rem 2.4rem;
         }
+
+        @media screen and (min-width: 600px) {
+          section {
+            gap: 3.2rem;
+            margin-inline: 4rem;
+          }
+        }
       `}</style>
     </>
   );

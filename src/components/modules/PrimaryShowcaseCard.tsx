@@ -63,18 +63,36 @@ const PrimaryShowcaseCard = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 2.4rem;
           max-width: 349px;
           text-align: center;
+          z-index: 2;
         }
 
         h2 {
+          margin-bottom: 2.4rem;
           font-size: 3.6rem;
           line-height: 4rem;
         }
 
         p {
+          margin-bottom: 2.4rem;
           opacity: 0.75;
+        }
+
+        @media screen and (min-width: 600px) {
+          .container {
+            padding-top: 5.2rem;
+            padding-bottom: 6.4rem;
+          }
+
+          .img-wrapper::before {
+            width: 472%;
+            height: 472%;
+          }
+
+          p {
+            margin-bottom: 4rem;
+          }
         }
       `}</style>
       <style jsx>{`
@@ -85,6 +103,14 @@ const PrimaryShowcaseCard = () => {
 
         .h2 {
           letter-spacing: ${sizes.mobile.letterSpacing.h5};
+        }
+
+        @media screen and (min-width: 600px) {
+          h2 {
+            font-size: ${sizes.desktop.text.h1};
+            line-height: ${sizes.desktop.lineHeight.h1};
+            letter-spacing: ${sizes.desktop.letterSpacing.h1};
+          }
         }
       `}</style>
     </>

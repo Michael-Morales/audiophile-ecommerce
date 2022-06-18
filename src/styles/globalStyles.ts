@@ -126,6 +126,5 @@ export const dynamicGlobalStyles = global`
       line-height: ${sizes.desktop.lineHeight.h6};
       letter-spacing: ${sizes.desktop.letterSpacing.h6};
     }
-  
   }
 `;
