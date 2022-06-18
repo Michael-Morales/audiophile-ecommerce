@@ -33,8 +33,8 @@ const PrimaryShowcaseCard = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 32px;
-          padding: 3.67rem 1.6rem;
+          gap: 4.8rem;
+          padding: 5.5rem 2.4rem;
           border-radius: 8px;
           overflow: hidden;
         }
@@ -63,14 +63,14 @@ const PrimaryShowcaseCard = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 1.6rem;
+          gap: 2.4rem;
           max-width: 349px;
           text-align: center;
         }
 
         h2 {
-          font-size: 2.4rem;
-          line-height: 2.67rem;
+          font-size: 3.6rem;
+          line-height: 4rem;
         }
 
         p {

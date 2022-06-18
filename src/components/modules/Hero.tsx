@@ -23,7 +23,7 @@ const Hero: NextPage = () => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          padding: 90px 24px 0;
+          padding: 9rem 2.4rem 0;
           height: 100vh;
           text-align: center;
           background-image: url("/images/mobile/image-header.webp");
@@ -33,18 +33,18 @@ const Hero: NextPage = () => {
         }
 
         .overline {
-          margin-bottom: 16px;
+          margin-bottom: 1.6rem;
           font-weight: 400;
           text-transform: uppercase;
           opacity: 0.5;
         }
 
         h1 {
-          margin-bottom: 24px;
+          margin-bottom: 2.4rem;
         }
 
         .subtitle {
-          margin-bottom: 28px;
+          margin-bottom: 2.8rem;
           font-weight: 400;
           opacity: 0.75;
         }

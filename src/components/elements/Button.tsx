@@ -31,8 +31,8 @@ const Button = ({ title, route, secondary, light, dark }: Props) => {
 
       <style jsx>{`
         a {
-          padding: 1rem 2rem;
-          font-size: 0.87rem;
+          padding: 1.5rem 3rem;
+          font-size: 1.3rem;
           font-weight: 700;
           letter-spacing: 1px;
           text-decoration: none;

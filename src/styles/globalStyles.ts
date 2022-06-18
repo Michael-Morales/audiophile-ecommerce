@@ -11,7 +11,7 @@ export const globalStyles = global`
   }
 
   :root {
-    font-size: 15px;
+    font-size: 62.5%;
   }
 
   *, *::before, *::after {

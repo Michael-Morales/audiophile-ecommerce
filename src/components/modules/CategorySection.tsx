@@ -34,8 +34,8 @@ const CategorySection = () => {
         section {
           display: flex;
           flex-direction: column;
-          gap: 16px;
-          margin: 48px 24px;
+          gap: 1.6rem;
+          margin: 4.8rem 2.4rem;
         }
       `}</style>
     </>

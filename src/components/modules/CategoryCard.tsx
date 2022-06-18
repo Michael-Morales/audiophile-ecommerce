@@ -43,7 +43,7 @@ const CategoryCard = ({
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-top: 60px;
+          margin-top: 6rem;
           height: 165px;
           border-radius: 8px;
         }
