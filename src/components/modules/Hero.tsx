@@ -55,6 +55,14 @@ const Hero: NextPage = () => {
           div {
             background-image: url("/images/tablet/image-header.webp");
           }
+
+          .overline {
+            margin-bottom: 2.4rem;
+          }
+
+          .subtitle {
+            margin-bottom: 4rem;
+          }
         }
       `}</style>
       <style jsx>{`
