@@ -43,14 +43,14 @@ const CategoryCard = ({
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-top: 6rem;
+          margin-top: 5.2rem;
           height: 165px;
           border-radius: 8px;
         }
 
         .img-wrapper {
           position: absolute;
-          top: -60px;
+          top: -52px;
           left: 50%;
           background-color: transparent;
           transform: translateX(-50%);
@@ -58,6 +58,12 @@ const CategoryCard = ({
 
         h6 {
           margin-top: auto;
+        }
+
+        @media screen and (min-width: 600px) {
+          .container {
+            flex: 1;
+          }
         }
       `}</style>
       <style jsx>{`
