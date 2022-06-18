@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 
 import Hero from "../modules/Hero";
 import CategorySection from "../modules/CategorySection";
+import ShowcaseSection from "../modules/ShowcaseSection";
 
 const HomePage: NextPage = () => {
   return (
@@ -9,6 +10,7 @@ const HomePage: NextPage = () => {
       <main>
         <Hero />
         <CategorySection />
+        <ShowcaseSection />
       </main>
     </>
   );

@@ -31,9 +31,6 @@ const Button = ({ title, route, secondary, light, dark }: Props) => {
 
       <style jsx>{`
         a {
-          display: flex;
-          align-items: center;
-          gap: 13px;
           padding: 1rem 2rem;
           font-size: 0.87rem;
           font-weight: 700;
@@ -45,17 +42,18 @@ const Button = ({ title, route, secondary, light, dark }: Props) => {
       `}</style>
       <style jsx>{`
         a {
+          display: ${secondary ? "flex" : "inline-block"};
+          align-items: ${secondary ? "center" : "unset"};
+          gap: ${secondary ? "13px" : "unset"};
           color: ${light
             ? colors.black
             : secondary
             ? colors.secondaryButton
             : colors.white};
-          background-color: ${light
-            ? colors.white
+          background-color: ${light || secondary
+            ? "transparent"
             : dark
             ? colors.black
-            : secondary
-            ? "transparent"
             : colors.primary};
           border: ${light ? `1px solid ${colors.black}` : "none"};
         }
