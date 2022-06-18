@@ -41,12 +41,20 @@ const Hero: NextPage = () => {
 
         h1 {
           margin-bottom: 2.4rem;
+          max-width: 400px;
         }
 
         .subtitle {
           margin-bottom: 2.8rem;
+          max-width: 350px;
           font-weight: 400;
           opacity: 0.75;
+        }
+
+        @media screen and (min-width: 600px) {
+          div {
+            background-image: url("/images/tablet/image-header.webp");
+          }
         }
       `}</style>
       <style jsx>{`

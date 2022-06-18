@@ -89,4 +89,43 @@ export const dynamicGlobalStyles = global`
     line-height: ${sizes.mobile.lineHeight.h6};
     letter-spacing: ${sizes.mobile.letterSpacing.h6};
   }
+
+  @media screen and (min-width: 600px) {
+    h1 {
+      font-size: ${sizes.desktop.text.h1};
+      line-height: ${sizes.desktop.lineHeight.h1};
+      letter-spacing: ${sizes.desktop.letterSpacing.h1};
+    }
+  
+    h2 {
+      font-size: ${sizes.desktop.text.h2};
+      line-height: ${sizes.desktop.lineHeight.h2};
+      letter-spacing: ${sizes.desktop.letterSpacing.h2};
+    }
+  
+    h3 {
+      font-size: ${sizes.desktop.text.h3};
+      line-height: ${sizes.desktop.lineHeight.h3};
+      letter-spacing: ${sizes.desktop.letterSpacing.h3};
+    }
+  
+    h4 {
+      font-size: ${sizes.desktop.text.h4};
+      line-height: ${sizes.desktop.lineHeight.h4};
+      letter-spacing: ${sizes.desktop.letterSpacing.h4};
+    }
+  
+    h5  {
+      font-size: ${sizes.desktop.text.h5};
+      line-height: ${sizes.desktop.lineHeight.h5};
+      letter-spacing: ${sizes.desktop.letterSpacing.h5};
+    }
+  
+    h6  {
+      font-size: ${sizes.desktop.text.h6};
+      line-height: ${sizes.desktop.lineHeight.h6};
+      letter-spacing: ${sizes.desktop.letterSpacing.h6};
+    }
+  
+  }
 `;
