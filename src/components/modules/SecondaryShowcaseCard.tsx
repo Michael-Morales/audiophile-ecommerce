@@ -1,5 +1,7 @@
 import Button from "../elements/Button";
 
+import { sizes } from "../../styles/theme";
+
 const SecondaryShowcaseCard = () => {
   return (
     <>
@@ -27,6 +29,15 @@ const SecondaryShowcaseCard = () => {
           div {
             padding-left: 6.2rem;
             background-image: url("/images/tablet/image-speaker-zx7.webp");
+          }
+        }
+      `}</style>
+      <style jsx>{`
+        @media screen and (min-width: 600px) {
+          h3 {
+            font-size: ${sizes.mobile.text.h3};
+            line-height: ${sizes.mobile.lineHeight.h3};
+            letter-spacing: ${sizes.mobile.letterSpacing.h3};
           }
         }
       `}</style>
