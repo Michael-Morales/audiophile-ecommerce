@@ -22,6 +22,13 @@ const SecondaryShowcaseCard = () => {
           background-repeat: no-repeat;
           background-size: cover;
         }
+
+        @media screen and (min-width: 600px) {
+          div {
+            padding-left: 6.2rem;
+            background-image: url("/images/tablet/image-speaker-zx7.webp");
+          }
+        }
       `}</style>
     </>
   );
