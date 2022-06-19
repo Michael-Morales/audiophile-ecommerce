@@ -10,10 +10,10 @@ const PrimaryShowcaseCard = () => {
       <div className="container">
         <div className="img-wrapper">
           <Image
-            src="/images/shared/image-speaker-zx9.webp"
+            src="/images/shared/image-speaker-zx9.png"
             alt=""
-            width={410}
-            height={493}
+            width={756}
+            height={918}
           />
         </div>
         <div className="content">

@@ -26,7 +26,7 @@ const CategoryCard = ({
       <div className="container">
         <div className="img-wrapper">
           <Image
-            src={`/images/shared/image-category-thumbnail-${title}.webp`}
+            src={`/images/shared/image-category-thumbnail-${title}.png`}
             alt=""
             width={imgWidth * imgRatio}
             height={imgHeight * imgRatio}

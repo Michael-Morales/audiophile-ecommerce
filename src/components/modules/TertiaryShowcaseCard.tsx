@@ -1,12 +1,28 @@
+import Image from "next/image";
+
 import Button from "../elements/Button";
+
+import useViewportWidth from "../../hooks/useViewportWidth";
 
 import { colors, sizes } from "../../styles/theme";
 
+import mobileImg from "../../../public/images/mobile/image-earphones-yx1.jpg";
+import tabletImg from "../../../public/images/tablet/image-earphones-yx1.jpg";
+
 const TertiaryShowcaseCard = () => {
+  const [width] = useViewportWidth();
+
   return (
     <>
       <div className="container">
-        <div className="bg-img" />
+        <div className="img-wrapper">
+          <Image
+            src={width && width < 600 ? mobileImg : tabletImg}
+            alt=""
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
         <div className="content">
           <h3>yx1 earphones</h3>
           <Button title="see product" route="/" light />
@@ -20,14 +36,11 @@ const TertiaryShowcaseCard = () => {
           gap: 2.4rem;
         }
 
-        .bg-img {
+        .img-wrapper {
+          position: relative;
           height: 200px;
           border-radius: 8px;
           overflow: hidden;
-          background-image: url("/images/mobile/image-earphones-yx1.webp");
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center;
         }
 
         .content {
@@ -47,10 +60,9 @@ const TertiaryShowcaseCard = () => {
             gap: 1rem;
           }
 
-          .bg-img {
+          .img-wrapper {
             flex: 50%;
             height: 320px;
-            background-image: url("/images/tablet/image-earphones-yx1.webp");
           }
 
           .content {
