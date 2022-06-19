@@ -1,17 +1,24 @@
 import Image from "next/image";
 
-import { colors } from "../../styles/theme";
+import useViewportWidth from "../../hooks/useViewportWidth";
+
+import { colors, sizes } from "../../styles/theme";
+
+import mobileImg from "../../../public/images/mobile/image-best-gear.jpg";
+import tabletImg from "../../../public/images/tablet/image-best-gear.jpg";
 
 const DescriptionSection = () => {
+  const [width] = useViewportWidth();
+
   return (
     <>
       <section>
         <div className="img-wrapper">
           <Image
-            src="/images/mobile/image-best-gear.webp"
+            src={width && width < 600 ? mobileImg : tabletImg}
             alt=""
-            width={654}
-            height={600}
+            layout="fill"
+            objectFit="cover"
           />
         </div>
         <h3>
@@ -29,11 +36,14 @@ const DescriptionSection = () => {
 
       <style jsx>{`
         section {
+          display: flex;
+          flex-direction: column;
           margin: 12rem 2.4rem;
           text-align: center;
         }
 
         .img-wrapper {
+          position: relative;
           margin-bottom: 4rem;
           height: 300px;
           border-radius: 8px;
@@ -47,10 +57,34 @@ const DescriptionSection = () => {
         p {
           opacity: 0.5;
         }
+
+        h3,
+        p {
+          align-self: center;
+        }
+
+        @media screen and (min-width: 600px) {
+          .img-wrapper {
+            margin-bottom: 6.3rem;
+          }
+
+          h3,
+          p {
+            width: 80%;
+          }
+        }
       `}</style>
       <style jsx>{`
         span {
           color: ${colors.primary};
+        }
+
+        @media screen and (min-width: 600px) {
+          h3 {
+            font-size: ${sizes.desktop.text.h2};
+            line-height: ${sizes.desktop.lineHeight.h2};
+            letter-spacing: ${sizes.desktop.letterSpacing.h2};
+          }
         }
       `}</style>
     </>
