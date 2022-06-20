@@ -34,7 +34,7 @@ const CategoryCard = ({
           />
         </div>
         <h6>{title}</h6>
-        <Button title={linkTitle} route={route} secondary />
+        <Button title={linkTitle} route={route} type="secondary" />
       </div>
 
       <style jsx>{`

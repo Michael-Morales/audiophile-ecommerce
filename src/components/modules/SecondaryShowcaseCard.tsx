@@ -24,7 +24,7 @@ const SecondaryShowcaseCard = () => {
           />
         </div>
         <h3>zx7 speaker</h3>
-        <Button title="see product" route="/" light />
+        <Button title="see product" route="/" type="light" />
       </div>
 
       <style jsx>{`

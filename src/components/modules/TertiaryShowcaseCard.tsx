@@ -25,7 +25,7 @@ const TertiaryShowcaseCard = () => {
         </div>
         <div className="content">
           <h3>yx1 earphones</h3>
-          <Button title="see product" route="/" light />
+          <Button title="see product" route="/" type="light" />
         </div>
       </div>
 

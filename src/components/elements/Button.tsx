@@ -6,18 +6,55 @@ import { colors } from "../../styles/theme";
 type Props = {
   title: string;
   route: string;
-  secondary?: boolean;
-  light?: boolean;
-  dark?: boolean;
+  type?: keyof typeof buttonOptions;
 };
 
-const Button = ({ title, route, secondary, light, dark }: Props) => {
+type ButtonOption = {
+  color: string;
+  backgroundColor: string;
+  hoverColor: string;
+  hoverBackgroundColor: string;
+};
+
+const buttonOptions: {
+  primary: ButtonOption;
+  secondary: ButtonOption;
+  light: ButtonOption;
+  dark: ButtonOption;
+} = {
+  primary: {
+    color: colors.white,
+    backgroundColor: colors.primary,
+    hoverColor: colors.white,
+    hoverBackgroundColor: colors.primaryHover,
+  },
+  secondary: {
+    color: colors.secondaryButton,
+    backgroundColor: "transparent",
+    hoverColor: colors.primary,
+    hoverBackgroundColor: "transparent",
+  },
+  light: {
+    color: colors.black,
+    backgroundColor: "transparent",
+    hoverColor: colors.white,
+    hoverBackgroundColor: colors.black,
+  },
+  dark: {
+    color: colors.white,
+    backgroundColor: colors.black,
+    hoverColor: colors.white,
+    hoverBackgroundColor: colors.darkHover,
+  },
+};
+
+const Button = ({ title, route, type = "primary" }: Props) => {
   return (
     <>
       <Link href={route}>
         <a>
           {title}
-          {secondary && (
+          {type === "secondary" && (
             <Image
               src="/images/icons/icon-arrow-right.svg"
               alt=""
@@ -42,31 +79,17 @@ const Button = ({ title, route, secondary, light, dark }: Props) => {
       `}</style>
       <style jsx>{`
         a {
-          display: ${secondary ? "flex" : "inline-block"};
-          align-items: ${secondary ? "center" : "unset"};
-          gap: ${secondary ? "13px" : "unset"};
-          color: ${light
-            ? colors.black
-            : secondary
-            ? colors.secondaryButton
-            : colors.white};
-          background-color: ${light || secondary
-            ? "transparent"
-            : dark
-            ? colors.black
-            : colors.primary};
-          border: ${light ? `1px solid ${colors.black}` : "none"};
+          display: ${type === "secondary" ? "flex" : "inline-block"};
+          align-items: ${type === "secondary" ? "center" : "unset"};
+          gap: ${type === "secondary" ? "13px" : "unset"};
+          color: ${buttonOptions[type].color};
+          background-color: ${buttonOptions[type].backgroundColor};
+          border: ${type === "light" ? `1px solid ${colors.black}` : "none"};
         }
 
         a:hover {
-          color: ${secondary ? colors.primary : colors.white};
-          background-color: ${light
-            ? colors.black
-            : dark
-            ? colors.darkHover
-            : secondary
-            ? "transparent"
-            : colors.primaryHover};
+          color: ${buttonOptions[type].hoverColor};
+          background-color: ${buttonOptions[type].hoverBackgroundColor};
         }
       `}</style>
     </>
