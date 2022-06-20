@@ -8,6 +8,7 @@ import { sizes } from "../../styles/theme";
 
 import mobileImg from "../../../public/images/mobile/image-speaker-zx7.jpg";
 import tabletImg from "../../../public/images/tablet/image-speaker-zx7.jpg";
+import desktopImg from "../../../public/images/desktop/image-speaker-zx7.jpg";
 
 const SecondaryShowcaseCard = () => {
   const [width] = useViewportWidth();
@@ -17,7 +18,13 @@ const SecondaryShowcaseCard = () => {
       <div className="container">
         <div className="img-wrapper">
           <Image
-            src={width && width < 600 ? mobileImg : tabletImg}
+            src={
+              width && width < 600
+                ? mobileImg
+                : width && width < 1240
+                ? tabletImg
+                : desktopImg
+            }
             alt=""
             layout="fill"
             objectFit="cover"
@@ -53,6 +60,12 @@ const SecondaryShowcaseCard = () => {
         @media screen and (min-width: 600px) {
           .container {
             padding-left: 6.2rem;
+          }
+        }
+
+        @media screen and (min-width: 1240px) {
+          .container {
+            padding-left: 9.5rem;
           }
         }
       `}</style>

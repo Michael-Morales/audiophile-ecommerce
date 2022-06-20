@@ -8,6 +8,7 @@ import { colors, sizes } from "../../styles/theme";
 
 import mobileImg from "../../../public/images/mobile/image-earphones-yx1.jpg";
 import tabletImg from "../../../public/images/tablet/image-earphones-yx1.jpg";
+import desktopImg from "../../../public/images/desktop/image-earphones-yx1.jpg";
 
 const TertiaryShowcaseCard = () => {
   const [width] = useViewportWidth();
@@ -17,7 +18,13 @@ const TertiaryShowcaseCard = () => {
       <div className="container">
         <div className="img-wrapper">
           <Image
-            src={width && width < 600 ? mobileImg : tabletImg}
+            src={
+              width && width < 600
+                ? mobileImg
+                : width && width < 1240
+                ? tabletImg
+                : desktopImg
+            }
             alt=""
             layout="fill"
             objectFit="cover"
@@ -73,6 +80,16 @@ const TertiaryShowcaseCard = () => {
 
           h3 {
             font-size: 2.8rem;
+          }
+        }
+
+        @media screen and (min-width: 1240px) {
+          .container {
+            gap: 3rem;
+          }
+
+          .content {
+            padding-left: 9.5rem;
           }
         }
       `}</style>
