@@ -91,6 +91,34 @@ const PrimaryShowcaseCard = () => {
             margin-bottom: 4rem;
           }
         }
+
+        @media screen and (min-width: 1240px) {
+          .container {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 14rem;
+            padding-left: 12rem;
+            padding-right: 9.5rem;
+            height: 560px;
+          }
+
+          .img-wrapper {
+            position: relative;
+            bottom: -75px;
+            width: 100%;
+            max-width: 375px;
+          }
+
+          .img-wrapper::before {
+            width: 250%;
+            height: 250%;
+          }
+
+          .content {
+            align-items: flex-start;
+            text-align: left;
+          }
+        }
       `}</style>
       <style jsx>{`
         .container {

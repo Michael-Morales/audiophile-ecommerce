@@ -16,13 +16,12 @@ const ShowcaseSection = () => {
           display: flex;
           flex-direction: column;
           gap: 2.4rem;
-          margin: 9.6rem 2.4rem;
+          margin-block: 9.6rem;
         }
 
         @media screen and (min-width: 600px) {
           section {
             gap: 3.2rem;
-            margin-inline: 4rem;
           }
         }
       `}</style>
