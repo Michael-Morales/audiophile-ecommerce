@@ -35,14 +35,21 @@ const CategorySection = () => {
           display: flex;
           flex-direction: column;
           gap: 1.6rem;
-          margin: 4rem 2.4rem 12rem;
+          margin-block: 4rem 12rem;
         }
 
         @media screen and (min-width: 600px) {
           section {
             flex-direction: row;
             gap: 1rem;
-            margin: 9.6rem 4rem;
+            margin-block: 9.6rem;
+          }
+        }
+
+        @media screen and (min-width: 1240px) {
+          section {
+            gap: 3rem;
+            margin-block: 12rem;
           }
         }
       `}</style>
