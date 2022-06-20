@@ -1,4 +1,8 @@
-const ContainerMargins = ({ children }: { children: JSX.Element }) => {
+type Props = {
+  children: JSX.Element;
+};
+
+const ContainerMargins = ({ children }: Props) => {
   return (
     <>
       <div>{children}</div>
