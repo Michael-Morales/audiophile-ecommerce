@@ -60,7 +60,6 @@ const Button = ({ title, route, type = "primary" }: Props) => {
               alt=""
               height={12}
               width={8}
-              className="img"
             />
           )}
         </a>

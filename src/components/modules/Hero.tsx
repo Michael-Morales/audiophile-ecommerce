@@ -1,11 +1,35 @@
+import Image from "next/image";
+
 import Button from "../elements/Button";
+
+import useViewportWidth from "../../hooks/useViewportWidth";
 
 import { sizes, colors } from "../../styles/theme";
 
+import mobileImage from "../../../public/images/mobile/image-header.jpg";
+import tabletImage from "../../../public/images/tablet/image-header.jpg";
+import desktopImage from "../../../public/images/desktop/image-hero.jpg";
+
 const Hero = () => {
+  const [width] = useViewportWidth();
+
   return (
     <>
-      <div>
+      <div className="container">
+        <div className="img-wrapper">
+          <Image
+            src={
+              width && width < 600
+                ? mobileImage
+                : width && width < 1240
+                ? tabletImage
+                : desktopImage
+            }
+            alt=""
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
         <p className="overline">new product</p>
         <h1>XX99 mark II headphones</h1>
         <p className="subtitle">
@@ -16,18 +40,21 @@ const Hero = () => {
       </div>
 
       <style jsx>{`
-        div {
+        .container {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          padding: 9rem 2.4rem 0;
+          padding-top: 9rem;
+          margin: 0 2.4rem;
           height: 100vh;
           text-align: center;
-          background-image: url("/images/mobile/image-header.webp");
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
+        }
+
+        .img-wrapper {
+          position: absolute;
+          inset: 0;
+          z-index: -1;
         }
 
         .overline {
@@ -50,8 +77,8 @@ const Hero = () => {
         }
 
         @media screen and (min-width: 600px) {
-          div {
-            background-image: url("/images/tablet/image-header.webp");
+          .container {
+            margin: 0 4rem;
           }
 
           .overline {
@@ -60,6 +87,30 @@ const Hero = () => {
 
           .subtitle {
             margin-bottom: 4rem;
+          }
+        }
+
+        @media screen and (min-width: 905px) {
+          .container {
+            margin: 0 auto;
+            max-width: 840px;
+          }
+        }
+
+        @media screen and (min-width: 1240px) {
+          .container {
+            align-items: flex-start;
+            padding-top: 9.6rem;
+            margin: 0 200px;
+            max-width: unset;
+            text-align: left;
+          }
+        }
+
+        @media screen and (min-width: 1440px) {
+          .container {
+            margin: 0 auto;
+            max-width: 1110px;
           }
         }
       `}</style>

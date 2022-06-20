@@ -4,17 +4,14 @@ import Button from "../elements/Button";
 
 import { colors, sizes } from "../../styles/theme";
 
+import imageSrc from "../../../public/images/shared/image-speaker-zx9.png";
+
 const PrimaryShowcaseCard = () => {
   return (
     <>
       <div className="container">
         <div className="img-wrapper">
-          <Image
-            src="/images/shared/image-speaker-zx9.png"
-            alt=""
-            width={756}
-            height={918}
-          />
+          <Image src={imageSrc} alt="" />
         </div>
         <div className="content">
           <h2>
