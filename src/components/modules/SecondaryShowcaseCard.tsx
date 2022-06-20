@@ -30,7 +30,7 @@ const SecondaryShowcaseCard = () => {
             objectFit="cover"
           />
         </div>
-        <h3>zx7 speaker</h3>
+        <h2>zx7 speaker</h2>
         <Button title="see product" route="/" type="light" />
       </div>
 
@@ -70,12 +70,10 @@ const SecondaryShowcaseCard = () => {
         }
       `}</style>
       <style jsx>{`
-        @media screen and (min-width: 600px) {
-          h3 {
-            font-size: ${sizes.mobile.text.h3};
-            line-height: ${sizes.mobile.lineHeight.h3};
-            letter-spacing: ${sizes.mobile.letterSpacing.h3};
-          }
+        h2 {
+          font-size: ${sizes.mobile.text.h3};
+          line-height: ${sizes.mobile.lineHeight.h3};
+          letter-spacing: ${sizes.mobile.letterSpacing.h3};
         }
       `}</style>
     </>

@@ -31,9 +31,9 @@ const DescriptionSection = () => {
           </div>
         </div>
         <div className="content">
-          <h3>
+          <h2>
             bringing you the <span>best</span> audio gear
-          </h3>
+          </h2>
           <p>
             Located at the heart of New York City, Audiophile is the premier
             store for high end headphones, earphones, speakers, and audio
@@ -68,7 +68,7 @@ const DescriptionSection = () => {
           text-align: center;
         }
 
-        h3 {
+        h2 {
           margin-bottom: 3.2rem;
         }
 
@@ -107,7 +107,7 @@ const DescriptionSection = () => {
             text-align: left;
           }
 
-          h3,
+          h2,
           p {
             max-width: 445px;
           }
@@ -118,8 +118,14 @@ const DescriptionSection = () => {
           color: ${colors.primary};
         }
 
+        h2 {
+          font-size: ${sizes.mobile.text.h3};
+          line-height: ${sizes.mobile.lineHeight.h3};
+          letter-spacing: ${sizes.mobile.letterSpacing.h3};
+        }
+
         @media screen and (min-width: 600px) {
-          h3 {
+          h2 {
             font-size: ${sizes.desktop.text.h2};
             line-height: ${sizes.desktop.lineHeight.h2};
             letter-spacing: ${sizes.desktop.letterSpacing.h2};

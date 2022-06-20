@@ -31,7 +31,7 @@ const TertiaryShowcaseCard = () => {
           />
         </div>
         <div className="content">
-          <h3>yx1 earphones</h3>
+          <h2>yx1 earphones</h2>
           <Button title="see product" route="/" type="light" />
         </div>
       </div>
@@ -98,12 +98,10 @@ const TertiaryShowcaseCard = () => {
           background-color: ${colors.grey};
         }
 
-        @media screen and (min-width: 600px) {
-          h3 {
-            font-size: ${sizes.mobile.text.h3};
-            line-height: ${sizes.mobile.lineHeight.h3};
-            letter-spacing: ${sizes.mobile.letterSpacing.h3};
-          }
+        h2 {
+          font-size: ${sizes.mobile.text.h3};
+          line-height: ${sizes.mobile.lineHeight.h3};
+          letter-spacing: ${sizes.mobile.letterSpacing.h3};
         }
       `}</style>
     </>

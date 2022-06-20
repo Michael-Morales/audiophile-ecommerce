@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Button from "../elements/Button";
 
-import { colors } from "../../styles/theme";
+import { colors, sizes } from "../../styles/theme";
 
 type Props = {
   title: string;
@@ -33,7 +33,7 @@ const CategoryCard = ({
             layout="fixed"
           />
         </div>
-        <h6>{title}</h6>
+        <h3>{title}</h3>
         <Button title={linkTitle} route={route} type="secondary" />
       </div>
 
@@ -56,7 +56,7 @@ const CategoryCard = ({
           transform: translateX(-50%);
         }
 
-        h6 {
+        h3 {
           margin-top: auto;
         }
 
@@ -69,6 +69,12 @@ const CategoryCard = ({
       <style jsx>{`
         div {
           background-color: ${colors.grey};
+        }
+
+        h3 {
+          font-size: ${sizes.mobile.text.h6};
+          line-height: ${sizes.mobile.lineHeight.h6};
+          letter-spacing: ${sizes.mobile.letterSpacing.h6};
         }
       `}</style>
     </>
