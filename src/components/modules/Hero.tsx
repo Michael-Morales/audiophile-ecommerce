@@ -46,7 +46,6 @@ const Hero = () => {
           justify-content: center;
           align-items: center;
           padding-top: 9rem;
-          margin: 0 2.4rem;
           height: 100vh;
           text-align: center;
         }
@@ -77,10 +76,6 @@ const Hero = () => {
         }
 
         @media screen and (min-width: 600px) {
-          .container {
-            margin: 0 4rem;
-          }
-
           .overline {
             margin-bottom: 2.4rem;
           }
@@ -90,27 +85,11 @@ const Hero = () => {
           }
         }
 
-        @media screen and (min-width: 905px) {
-          .container {
-            margin: 0 auto;
-            max-width: 840px;
-          }
-        }
-
         @media screen and (min-width: 1240px) {
           .container {
             align-items: flex-start;
             padding-top: 9.6rem;
-            margin: 0 200px;
-            max-width: unset;
             text-align: left;
-          }
-        }
-
-        @media screen and (min-width: 1440px) {
-          .container {
-            margin: 0 auto;
-            max-width: 1110px;
           }
         }
       `}</style>
