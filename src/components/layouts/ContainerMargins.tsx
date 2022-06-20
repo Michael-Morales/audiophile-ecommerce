@@ -6,6 +6,7 @@ const ContainerMargins = ({ children }: { children: JSX.Element }) => {
       <style jsx>{`
         div {
           margin: 0 2.4rem;
+          overflow-x: hidden;
         }
 
         @media screen and (min-width: 600px) {
