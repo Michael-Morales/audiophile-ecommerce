@@ -68,5 +68,4 @@ export const colors = {
   darkHover: "#4C4C4C",
   white: "#FFF",
   black: "#000",
-  whiteFade: "rgba(255, 255, 255, 0.1)",
 };

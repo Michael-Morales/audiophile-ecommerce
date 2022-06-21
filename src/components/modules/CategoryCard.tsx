@@ -11,6 +11,7 @@ type Props = {
   imgRatio: number;
   route: string;
   linkTitle: string;
+  type?: string;
 };
 
 const CategoryCard = ({
@@ -20,6 +21,7 @@ const CategoryCard = ({
   imgRatio,
   route,
   linkTitle,
+  type,
 }: Props) => {
   return (
     <>
@@ -43,14 +45,11 @@ const CategoryCard = ({
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-top: 5.2rem;
-          height: 165px;
           border-radius: 8px;
         }
 
         .img-wrapper {
           position: absolute;
-          top: -52px;
           left: 50%;
           background-color: transparent;
           transform: translateX(-50%);
@@ -69,6 +68,15 @@ const CategoryCard = ({
       <style jsx>{`
         div {
           background-color: ${colors.grey};
+        }
+
+        .container {
+          margin-top: ${type === "small" ? "4.7rem" : "5.2rem"};
+          height: ${type === "small" ? "105px" : "165px"};
+        }
+
+        .img-wrapper {
+          top: ${type === "small" ? "-47px" : "-52px"};
         }
 
         h3 {

@@ -18,6 +18,7 @@ const NavLink = ({ name, route }: Props) => {
         a {
           display: inline-block;
           font-size: 1.3rem;
+          font-weight: 700;
           line-height: 2.5rem;
           letter-spacing: 2px;
           text-transform: uppercase;

@@ -33,7 +33,7 @@ const Footer = () => {
             and visit our demo facility - we’re open 7 days a week.
           </p>
           <div className="socials-section">
-            <p>Copyright 2021. All Rights Reserved</p>
+            <p>Copyright 2022. All Rights Reserved</p>
             <div className="socials-links">
               <Link href="/">
                 <a>
