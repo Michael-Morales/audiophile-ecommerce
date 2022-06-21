@@ -200,7 +200,7 @@ const Footer = () => {
       `}</style>
       <style jsx>{`
         footer {
-          background-color: ${colors.black};
+          background-color: ${colors.dark};
         }
 
         footer::before {

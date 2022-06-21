@@ -1,9 +1,10 @@
+import NavBar from "../modules/NavBar";
 import Footer from "../modules/Footer";
 
 const Default = ({ children }: { children: JSX.Element }) => {
   return (
     <>
-      <header></header>
+      <NavBar />
 
       {children}
 

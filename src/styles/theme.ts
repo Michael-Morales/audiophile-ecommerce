@@ -61,11 +61,12 @@ export const sizes = {
 export const colors = {
   primary: "#D87D4A",
   light: "#FAFAFA",
-  dark: "#101010",
+  dark: "#151515",
   grey: "#F1F1F1",
   secondaryButton: "rgba(0, 0, 0, 0.5)",
   primaryHover: "#FBAF85",
   darkHover: "#4C4C4C",
   white: "#FFF",
   black: "#000",
+  whiteFade: "rgba(255, 255, 255, 0.1)",
 };
