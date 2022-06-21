@@ -14,47 +14,49 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className="links-section">
-          <div className="img-wrapper">
-            <Image src={logo} alt="" />
+        <div className="container">
+          <div className="links-section">
+            <div className="img-wrapper">
+              <Image src={logo} alt="" />
+            </div>
+            <div className="links">
+              <NavLink name="home" route="/" />
+              <NavLink name="headphones" route="/" />
+              <NavLink name="speakers" route="/" />
+              <NavLink name="earphones" route="/" />
+            </div>
           </div>
-          <div className="links">
-            <NavLink name="home" route="/" />
-            <NavLink name="headphones" route="/" />
-            <NavLink name="speakers" route="/" />
-            <NavLink name="earphones" route="/" />
-          </div>
-        </div>
-        <p className="description">
-          Audiophile is an all in one stop to fulfill your audio needs.
-          We&apos;re a small team of music lovers and sound specialists who are
-          devoted to helping you get the most out of personal audio. Come and
-          visit our demo facility - we’re open 7 days a week.
-        </p>
-        <div className="socials-section">
-          <p>Copyright 2021. All Rights Reserved</p>
-          <div className="socials-links">
-            <Link href="/">
-              <a>
-                <FacebookIcon />
-              </a>
-            </Link>
-            <Link href="/">
-              <a>
-                <TwitterIcon />
-              </a>
-            </Link>
-            <Link href="/">
-              <a>
-                <InstagramIcon />
-              </a>
-            </Link>
+          <p className="description">
+            Audiophile is an all in one stop to fulfill your audio needs.
+            We&apos;re a small team of music lovers and sound specialists who
+            are devoted to helping you get the most out of personal audio. Come
+            and visit our demo facility - we’re open 7 days a week.
+          </p>
+          <div className="socials-section">
+            <p>Copyright 2021. All Rights Reserved</p>
+            <div className="socials-links">
+              <Link href="/">
+                <a>
+                  <FacebookIcon />
+                </a>
+              </Link>
+              <Link href="/">
+                <a>
+                  <TwitterIcon />
+                </a>
+              </Link>
+              <Link href="/">
+                <a>
+                  <InstagramIcon />
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
 
       <style jsx>{`
-        footer,
+        .container,
         .links-section,
         .links,
         .socials-section {
@@ -78,6 +80,10 @@ const Footer = () => {
           transform: translateX(-50%);
         }
 
+        .container {
+          margin: 0 2.4rem;
+        }
+
         .links-section,
         .socials-section {
           gap: 4.8rem;
@@ -88,8 +94,7 @@ const Footer = () => {
         }
 
         .description {
-          margin: 4.8rem 2.4rem;
-          max-width: 540px;
+          margin-block: 4.8rem;
           text-align: center;
         }
 
@@ -104,7 +109,7 @@ const Footer = () => {
 
         @media screen and (min-width: 600px) {
           footer {
-            align-items: flex-start;
+            padding: 6rem 0 4.8rem;
           }
 
           footer::before {
@@ -112,10 +117,14 @@ const Footer = () => {
             transform: unset;
           }
 
+          .container {
+            align-items: flex-start;
+            margin: 0 4rem;
+          }
+
           .links-section {
             align-items: flex-start;
             gap: 3.2rem;
-            margin: 0 4rem;
           }
 
           .links {
@@ -124,7 +133,7 @@ const Footer = () => {
           }
 
           .description {
-            margin: 3.2rem 4rem 8rem;
+            margin-block: 3.2rem 8rem;
             text-align: left;
           }
 
@@ -132,8 +141,60 @@ const Footer = () => {
             flex-direction: row;
             justify-content: space-between;
             align-self: flex-start;
-            margin: 0 4rem;
-            width: calc(100% - 8rem);
+            width: 100%;
+          }
+        }
+
+        @media screen and (min-width: 905px) {
+          footer {
+            padding-top: 7.5rem;
+          }
+
+          footer::before {
+            left: calc((100% - 840px) / 2);
+          }
+
+          .container {
+            margin: 0 auto;
+            max-width: 840px;
+          }
+
+          .links-section {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+          }
+
+          .description {
+            margin-block: 3.6rem 5.6rem;
+            max-width: 540px;
+          }
+
+          .socials-links {
+            position: relative;
+            bottom: 88px;
+          }
+        }
+
+        @media screen and (min-width: 1240px) {
+          footer::before {
+            left: 200px;
+          }
+
+          .container {
+            margin: 0 200px;
+            max-width: unset;
+          }
+        }
+
+        @media screen and (min-width: 1440px) {
+          footer::before {
+            left: calc((100% - 1110px) / 2);
+          }
+
+          .container {
+            margin: 0 auto;
+            max-width: 1110px;
           }
         }
       `}</style>
