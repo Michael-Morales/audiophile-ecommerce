@@ -66,7 +66,6 @@ const Footer = () => {
         footer {
           position: relative;
           padding: 5.2rem 0 3.8rem;
-          gap: 4.8rem;
         }
 
         footer::before {
@@ -88,15 +87,54 @@ const Footer = () => {
           gap: 1.6rem;
         }
 
+        .description {
+          margin: 4.8rem 2.4rem;
+          max-width: 540px;
+          text-align: center;
+        }
+
         .socials-links {
           display: flex;
           gap: 1.6rem;
         }
 
         p {
-          margin: 0 2.4rem;
-          text-align: center;
           opacity: 0.5;
+        }
+
+        @media screen and (min-width: 600px) {
+          footer {
+            align-items: flex-start;
+          }
+
+          footer::before {
+            left: 4rem;
+            transform: unset;
+          }
+
+          .links-section {
+            align-items: flex-start;
+            gap: 3.2rem;
+            margin: 0 4rem;
+          }
+
+          .links {
+            flex-direction: row;
+            gap: 3.4rem;
+          }
+
+          .description {
+            margin: 3.2rem 4rem 8rem;
+            text-align: left;
+          }
+
+          .socials-section {
+            flex-direction: row;
+            justify-content: space-between;
+            align-self: flex-start;
+            margin: 0 4rem;
+            width: calc(100% - 8rem);
+          }
         }
       `}</style>
       <style jsx>{`
