@@ -9,7 +9,7 @@ const CategorySection = () => {
           imgWidth={438}
           imgHeight={422}
           imgRatio={0.35}
-          route="/"
+          route="/category/headphones"
           linkTitle="shop"
         />
         <CategoryCard
@@ -17,7 +17,7 @@ const CategorySection = () => {
           imgWidth={438}
           imgHeight={408}
           imgRatio={0.35}
-          route="/"
+          route="/category/speakers"
           linkTitle="shop"
         />
         <CategoryCard
@@ -25,7 +25,7 @@ const CategorySection = () => {
           imgWidth={438}
           imgHeight={380}
           imgRatio={0.4}
-          route="/"
+          route="/category/earphones"
           linkTitle="shop"
         />
       </section>

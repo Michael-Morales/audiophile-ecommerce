@@ -21,9 +21,9 @@ const Footer = () => {
             </div>
             <div className="links">
               <NavLink name="home" route="/" />
-              <NavLink name="headphones" route="/" />
-              <NavLink name="speakers" route="/" />
-              <NavLink name="earphones" route="/" />
+              <NavLink name="headphones" route="/category/headphones" />
+              <NavLink name="speakers" route="/category/speakers" />
+              <NavLink name="earphones" route="/category/earphones" />
             </div>
           </div>
           <p className="description">

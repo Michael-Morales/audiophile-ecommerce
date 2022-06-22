@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import MenuIcon from "../elements/MenuIcon";
 import CartIcon from "../elements/CartIcon";
@@ -16,6 +17,19 @@ import logo from "../../../public/images/icons/logo.svg";
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [width] = useViewportWidth();
+  const router = useRouter();
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    router.events.on("routeChangeComplete", closeMenu);
+
+    return () => {
+      router.events.off("routeChangeComplete", closeMenu);
+    };
+  }, [router]);
 
   return (
     <>
@@ -31,9 +45,9 @@ const NavBar = () => {
           </Link>
           <nav className="desktop-nav">
             <NavLink name="home" route="/" />
-            <NavLink name="headphones" route="/" />
-            <NavLink name="speakers" route="/" />
-            <NavLink name="earphones" route="/" />
+            <NavLink name="headphones" route="/category/headphones" />
+            <NavLink name="speakers" route="/category/speakers" />
+            <NavLink name="earphones" route="/category/earphones" />
           </nav>
           <CartIcon />
         </div>
@@ -44,7 +58,7 @@ const NavBar = () => {
               imgWidth={438}
               imgHeight={422}
               imgRatio={width && width < 600 ? 0.2 : 0.35}
-              route="/"
+              route="/category/headphones"
               linkTitle="shop"
               type={width && width < 600 ? "small" : ""}
             />
@@ -53,7 +67,7 @@ const NavBar = () => {
               imgWidth={438}
               imgHeight={408}
               imgRatio={width && width < 600 ? 0.2 : 0.35}
-              route="/"
+              route="/category/speakers"
               linkTitle="shop"
               type={width && width < 600 ? "small" : ""}
             />
@@ -62,7 +76,7 @@ const NavBar = () => {
               imgWidth={438}
               imgHeight={380}
               imgRatio={width && width < 600 ? 0.22 : 0.4}
-              route="/"
+              route="/category/earphones"
               linkTitle="shop"
               type={width && width < 600 ? "small" : ""}
             />
