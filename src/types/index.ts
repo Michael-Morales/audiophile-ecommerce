@@ -1,36 +1,45 @@
-type ImagePaths = {
+type ImagePathsType = {
   mobile: string;
   tablet: string;
   desktop: string;
 };
 
-type IncludedItem = {
+type IncludedItemType = {
   quantity: number;
   item: string;
 };
 
-type OtherProduct = {
+type OtherProductType = {
   slug: string;
   name: string;
-  image: ImagePaths;
+  image: ImagePathsType;
 };
 
-export type Product = {
+export type ProductType = {
   id: number;
   slug: string;
   name: string;
-  image: ImagePaths;
+  image: ImagePathsType;
   category: string;
-  categoryImage: ImagePaths;
-  new: boolean;
+  categoryImage: ImagePathsType;
+  isNew: boolean;
   price: number;
   description: string;
   features: string;
-  includes: Array<IncludedItem>;
+  includes: Array<IncludedItemType>;
   gallery: {
-    first: ImagePaths;
-    second: ImagePaths;
-    third: ImagePaths;
+    first: ImagePathsType;
+    second: ImagePathsType;
+    third: ImagePathsType;
   };
-  others: Array<OtherProduct>;
+  others: Array<OtherProductType>;
+};
+
+export type CategoryProductType = {
+  id: number;
+  slug: string;
+  name: string;
+  categoryImage: ImagePathsType;
+  isNew: boolean;
+  description: string;
 };

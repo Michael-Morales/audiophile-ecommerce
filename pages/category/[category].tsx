@@ -1,5 +1,7 @@
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import type { Product } from "../../src/types";
+import type { ProductType } from "../../src/types";
+
+import CategoryPage from "../../src/components/templates/CategoryPage";
 
 import data from "../../src/data.json";
 
@@ -8,13 +10,13 @@ const Category = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <>
-      <h1>Category</h1>
+      <CategoryPage products={products} />
     </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const products: Array<Product> = data
+  const products: Array<ProductType> = data
     .filter((product) => product.category === params?.category)
     .sort((x, y) => (x === y ? 0 : x ? -1 : 1));
 
