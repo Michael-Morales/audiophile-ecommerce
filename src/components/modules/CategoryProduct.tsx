@@ -61,7 +61,6 @@ const CategoryProduct = ({
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 2.4rem;
           text-align: center;
         }
 
@@ -69,8 +68,33 @@ const CategoryProduct = ({
           text-transform: uppercase;
         }
 
+        h2 {
+          max-width: 360px;
+        }
+
         .description {
+          max-width: 570px;
           opacity: 0.5;
+        }
+
+        .overline,
+        h2,
+        .description {
+          margin-bottom: 2.4rem;
+        }
+
+        @media screen and (min-width: 600px) {
+          article {
+            gap: 5.2rem;
+          }
+
+          .overline {
+            margin-bottom: 1.6rem;
+          }
+
+          h2 {
+            margin-bottom: 3.2rem;
+          }
         }
       `}</style>
       <style jsx>{`
@@ -85,6 +109,14 @@ const CategoryProduct = ({
           font-size: ${sizes.mobile.text.h3};
           line-height: ${sizes.mobile.lineHeight.h3};
           letter-spacing: ${sizes.mobile.letterSpacing.h3};
+        }
+
+        @media screen and (min-width: 600px) {
+          h2 {
+            font-size: ${sizes.desktop.text.h2};
+            line-height: ${sizes.desktop.lineHeight.h2};
+            letter-spacing: ${sizes.desktop.letterSpacing.h2};
+          }
         }
       `}</style>
     </>

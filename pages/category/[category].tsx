@@ -1,11 +1,15 @@
-import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+import type {
+  InferGetServerSidePropsType,
+  GetServerSideProps,
+  NextPage,
+} from "next";
 import type { ProductType } from "../../src/types";
 
 import CategoryPage from "../../src/components/templates/CategoryPage";
 
 import data from "../../src/data.json";
 
-const Category = ({
+const Category: NextPage = ({
   products,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (

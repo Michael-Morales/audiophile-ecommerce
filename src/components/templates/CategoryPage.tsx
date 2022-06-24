@@ -45,6 +45,13 @@ const CategoryPage = ({ products }: Props) => {
           margin-bottom: 6.4rem;
           text-align: center;
         }
+
+        @media screen and (min-width: 600px) {
+          h1 {
+            padding: calc(9rem * 2) 0 9rem;
+            margin-bottom: 12rem;
+          }
+        }
       `}</style>
       <style jsx>{`
         h1 {
