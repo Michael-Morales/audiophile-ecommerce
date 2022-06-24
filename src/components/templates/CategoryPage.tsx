@@ -30,8 +30,12 @@ const CategoryPage = ({ products }: Props) => {
 
         <ContainerMargins>
           <>
-            {categoryProducts.map((product) => (
-              <CategoryProduct key={product.id} {...product} />
+            {categoryProducts.map((product, i) => (
+              <CategoryProduct
+                key={product.id}
+                {...product}
+                reversed={i % 2 !== 0}
+              />
             ))}
             <CategorySection />
             <DescriptionSection />
@@ -52,6 +56,12 @@ const CategoryPage = ({ products }: Props) => {
             margin-bottom: 12rem;
           }
         }
+
+        @media screen and (min-width: 1240px) {
+          h1 {
+            margin-bottom: 16rem;
+          }
+        }
       `}</style>
       <style jsx>{`
         h1 {
@@ -60,6 +70,14 @@ const CategoryPage = ({ products }: Props) => {
           letter-spacing: ${sizes.desktop.letterSpacing.h3};
           color: ${colors.white};
           background-color: ${colors.dark};
+        }
+
+        @media screen and (min-width: 600px) {
+          h1 {
+            font-size: ${sizes.desktop.text.h2};
+            line-height: ${sizes.desktop.lineHeight.h2};
+            letter-spacing: ${sizes.desktop.letterSpacing.h2};
+          }
         }
       `}</style>
     </>

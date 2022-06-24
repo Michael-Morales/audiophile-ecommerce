@@ -14,8 +14,11 @@ const CategoryProduct = ({
   categoryImage: { mobile, tablet, desktop },
   isNew,
   description,
-}: CategoryProductType) => {
+  reversed,
+}: CategoryProductType & { reversed?: boolean }) => {
   const [width] = useViewportWidth();
+
+  console.log(reversed);
 
   return (
     <>
@@ -96,6 +99,33 @@ const CategoryProduct = ({
             margin-bottom: 3.2rem;
           }
         }
+
+        @media screen and (min-width: 1240px) {
+          article {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 3rem;
+            margin-bottom: 16rem;
+          }
+
+          .img-wrapper {
+            flex: 1;
+            height: 560px;
+            max-width: 540px;
+          }
+
+          .content {
+            flex: 1;
+            align-items: flex-start;
+            justify-content: center;
+            max-width: 445px;
+            text-align: left;
+          }
+
+          .description {
+            margin-bottom: 4rem;
+          }
+        }
       `}</style>
       <style jsx>{`
         .overline {
@@ -116,6 +146,12 @@ const CategoryProduct = ({
             font-size: ${sizes.desktop.text.h2};
             line-height: ${sizes.desktop.lineHeight.h2};
             letter-spacing: ${sizes.desktop.letterSpacing.h2};
+          }
+        }
+
+        @media screen and (min-width: 1240px) {
+          .img-wrapper {
+            order: ${reversed ? "1" : "0"};
           }
         }
       `}</style>
