@@ -6,6 +6,7 @@ import BackButton from "../elements/BackButton";
 import ProductCard from "../modules/ProductCard";
 import ProductContent from "../modules/ProductContent";
 import GallerySection from "../modules/GallerySection";
+import SuggestionSection from "../modules/SuggestionSection";
 
 import { sizes } from "../../styles/theme";
 
@@ -24,6 +25,7 @@ const ProductPage = ({ product }: Props) => {
     features,
     includes,
     gallery,
+    others,
   } = product;
 
   return (
@@ -46,6 +48,7 @@ const ProductPage = ({ product }: Props) => {
           <ProductContent items={includes} />
           <GallerySection {...gallery} />
         </section>
+        <SuggestionSection suggestions={others} />
         <CategorySection />
         <DescriptionSection />
       </main>

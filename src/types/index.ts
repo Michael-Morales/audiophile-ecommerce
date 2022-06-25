@@ -9,7 +9,7 @@ export type IncludedItemType = {
   item: string;
 };
 
-type OtherProductType = {
+export type OtherProductType = {
   slug: string;
   name: string;
   image: ImagePathsType;
