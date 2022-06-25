@@ -1,6 +1,6 @@
 import type { ImagePathsType } from "../../types";
 
-import { useState, useCallback, memo } from "react";
+import { useState, memo } from "react";
 import Image from "next/image";
 
 import Button from "../elements/Button";

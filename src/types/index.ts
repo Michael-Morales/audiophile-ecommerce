@@ -4,7 +4,7 @@ export type ImagePathsType = {
   desktop: string;
 };
 
-type IncludedItemType = {
+export type IncludedItemType = {
   quantity: number;
   item: string;
 };
