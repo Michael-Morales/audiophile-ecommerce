@@ -1,4 +1,4 @@
-type ImagePathsType = {
+export type ImagePathsType = {
   mobile: string;
   tablet: string;
   desktop: string;
