@@ -108,11 +108,16 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            gap: 7%;
+            gap: 5%;
           }
 
           .img-wrapper {
             height: 480px;
+            flex: 0.4;
+          }
+
+          .content {
+            flex: 0.6;
           }
 
           .overline {
