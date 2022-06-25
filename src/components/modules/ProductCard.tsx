@@ -77,6 +77,10 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
           text-transform: uppercase;
         }
 
+        h1 {
+          max-width: 300px;
+        }
+
         .description {
           opacity: 0.5;
         }
@@ -97,6 +101,28 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
         .add-to-cart {
           display: flex;
           gap: 1.6rem;
+        }
+
+        @media screen and (min-width: 600px) {
+          article {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10%;
+          }
+
+          .img-wrapper {
+            height: 480px;
+          }
+
+          .overline {
+            margin-bottom: 1.6rem;
+          }
+
+          h1,
+          .description {
+            margin-bottom: 3.2rem;
+          }
         }
       `}</style>
       <style jsx>{`

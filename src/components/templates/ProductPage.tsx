@@ -75,6 +75,12 @@ const ProductPage = ({ product }: Props) => {
         h2 {
           font-size: ${sizes.mobile.text.h4};
         }
+
+        @media screen and (min-width: 600px) {
+          main {
+            margin-top: calc(9rem + 3.2rem);
+          }
+        }
       `}</style>
     </>
   );
