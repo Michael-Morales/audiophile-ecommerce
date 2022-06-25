@@ -12,11 +12,7 @@ import data from "../../src/data.json";
 const Category: NextPage = ({
   products,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  return (
-    <>
-      <CategoryPage products={products} />
-    </>
-  );
+  return <CategoryPage products={products} />;
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {

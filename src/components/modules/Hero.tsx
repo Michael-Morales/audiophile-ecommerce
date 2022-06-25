@@ -36,7 +36,7 @@ const Hero = () => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <Button title="see product" route="/" />
+        <Button title="see product" route="/product/xx99-mark-two-headphones" />
       </div>
 
       <style jsx>{`

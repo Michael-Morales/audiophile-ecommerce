@@ -32,7 +32,11 @@ const TertiaryShowcaseCard = () => {
         </div>
         <div className="content">
           <h2>yx1 earphones</h2>
-          <Button title="see product" route="/" type="light" />
+          <Button
+            title="see product"
+            route="/product/yx1-earphones"
+            type="light"
+          />
         </div>
       </div>
 

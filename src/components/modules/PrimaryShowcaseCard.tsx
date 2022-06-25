@@ -21,7 +21,11 @@ const PrimaryShowcaseCard = () => {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <Button title="see product" route="/" type="dark" />
+          <Button
+            title="see product"
+            route="/product/zx9-speaker"
+            type="dark"
+          />
         </div>
       </div>
 
