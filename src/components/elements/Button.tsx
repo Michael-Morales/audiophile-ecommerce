@@ -5,8 +5,9 @@ import { colors } from "../../styles/theme";
 
 type Props = {
   title: string;
-  route: string;
+  route?: string;
   type?: keyof typeof buttonOptions;
+  action?: () => void;
 };
 
 type ButtonOption = {
@@ -48,11 +49,26 @@ const buttonOptions: {
   },
 };
 
-const Button = ({ title, route, type = "primary" }: Props) => {
+const Button = ({ title, route, type = "primary", action }: Props) => {
   return (
     <>
-      <Link href={route}>
-        <a>
+      {route && (
+        <Link href={route}>
+          <a>
+            {title}
+            {type === "secondary" && (
+              <Image
+                src="/images/icons/icon-arrow-right.svg"
+                alt=""
+                height={12}
+                width={8}
+              />
+            )}
+          </a>
+        </Link>
+      )}
+      {action && (
+        <button onClick={action}>
           {title}
           {type === "secondary" && (
             <Image
@@ -62,11 +78,12 @@ const Button = ({ title, route, type = "primary" }: Props) => {
               width={8}
             />
           )}
-        </a>
-      </Link>
+        </button>
+      )}
 
       <style jsx>{`
-        a {
+        a,
+        button {
           padding: 1.5rem 3rem;
           font-size: 1.3rem;
           font-weight: 700;
@@ -75,9 +92,14 @@ const Button = ({ title, route, type = "primary" }: Props) => {
           text-transform: uppercase;
           transition: ease 0.3s;
         }
+
+        button {
+          cursor: pointer;
+        }
       `}</style>
       <style jsx>{`
-        a {
+        a,
+        button {
           display: ${type === "secondary" ? "flex" : "inline-block"};
           align-items: ${type === "secondary" ? "center" : "unset"};
           gap: ${type === "secondary" ? "13px" : "unset"};
@@ -86,7 +108,8 @@ const Button = ({ title, route, type = "primary" }: Props) => {
           border: ${type === "light" ? `1px solid ${colors.black}` : "none"};
         }
 
-        a:hover {
+        a:hover,
+        button:hover {
           color: ${buttonOptions[type].hoverColor};
           background-color: ${buttonOptions[type].hoverBackgroundColor};
         }

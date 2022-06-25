@@ -1,8 +1,10 @@
 import type { ImagePathsType } from "../../types";
 
+import { useState, useCallback, memo } from "react";
 import Image from "next/image";
 
 import Button from "../elements/Button";
+import ProductQuantity from "./ProductQuantity";
 
 import useViewPortWidth from "../../hooks/useViewportWidth";
 
@@ -21,6 +23,7 @@ type Props = {
 
 const ProductCard = ({ image, isNew, name, description, price }: Props) => {
   const [width] = useViewPortWidth();
+  const [count, setCount] = useState(1);
 
   return (
     <>
@@ -44,8 +47,15 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
           <h1>{name}</h1>
           <p className="description">{description}</p>
           <p className="price">{formatPrice(price)}</p>
+          <div className="add-to-cart">
+            <ProductQuantity
+              quantity={count}
+              decrement={() => setCount(count - 1)}
+              increment={() => setCount(count + 1)}
+            />
+            <Button title="add to cart" action={() => console.log("ADDED")} />
+          </div>
         </div>
-        <div className="add-to-cart"></div>
       </article>
 
       <style jsx>{`
@@ -72,6 +82,7 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
         }
 
         .price {
+          margin-bottom: 3.2rem;
           font-size: 1.8rem;
           font-weight: 700;
           letter-spacing: 1.3px;
@@ -81,6 +92,11 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
         h1,
         .description {
           margin-bottom: 2.4rem;
+        }
+
+        .add-to-cart {
+          display: flex;
+          gap: 1.6rem;
         }
       `}</style>
       <style jsx>{`
@@ -101,4 +117,4 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
   );
 };
 
-export default ProductCard;
+export default memo(ProductCard);
