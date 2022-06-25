@@ -32,6 +32,7 @@ const ProductQuantity = ({ quantity, increment, decrement }: Props) => {
           border: unset;
           outline: none;
           cursor: pointer;
+          transition: ease 0.3s;
         }
       `}</style>
       <style jsx>{`

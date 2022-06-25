@@ -29,21 +29,23 @@ const ProductPage = ({ product }: Props) => {
   return (
     <>
       <main>
-        <BackButton />
-        <ProductCard
-          id={id}
-          name={name}
-          isNew={isNew}
-          description={description}
-          price={price}
-          image={image}
-        />
-        <div>
-          <h2>features</h2>
-          <p>{features}</p>
-        </div>
-        <ProductContent items={includes} />
-        <GallerySection {...gallery} />
+        <section>
+          <BackButton />
+          <ProductCard
+            id={id}
+            name={name}
+            isNew={isNew}
+            description={description}
+            price={price}
+            image={image}
+          />
+          <div>
+            <h2>features</h2>
+            <p>{features}</p>
+          </div>
+          <ProductContent items={includes} />
+          <GallerySection {...gallery} />
+        </section>
         <CategorySection />
         <DescriptionSection />
       </main>
