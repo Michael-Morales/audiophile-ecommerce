@@ -5,6 +5,7 @@ import DescriptionSection from "../modules/DescriptionSection";
 import BackButton from "../elements/BackButton";
 import ProductCard from "../modules/ProductCard";
 import ProductContent from "../modules/ProductContent";
+import GallerySection from "../modules/GallerySection";
 
 import { sizes } from "../../styles/theme";
 
@@ -13,8 +14,17 @@ type Props = {
 };
 
 const ProductPage = ({ product }: Props) => {
-  const { id, name, isNew, description, price, image, features, includes } =
-    product;
+  const {
+    id,
+    name,
+    isNew,
+    description,
+    price,
+    image,
+    features,
+    includes,
+    gallery,
+  } = product;
 
   return (
     <>
@@ -33,6 +43,7 @@ const ProductPage = ({ product }: Props) => {
           <p>{features}</p>
         </div>
         <ProductContent items={includes} />
+        <GallerySection {...gallery} />
         <CategorySection />
         <DescriptionSection />
       </main>
