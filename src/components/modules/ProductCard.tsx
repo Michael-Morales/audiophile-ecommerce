@@ -108,7 +108,7 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            gap: 10%;
+            gap: 7%;
           }
 
           .img-wrapper {

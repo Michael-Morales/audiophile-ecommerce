@@ -22,8 +22,10 @@ const ProductContent = ({ items }: Props) => {
       </div>
 
       <style jsx>{`
-        h2 {
-          margin-bottom: 2.4rem;
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 2.4rem;
         }
 
         ul {
@@ -46,6 +48,18 @@ const ProductContent = ({ items }: Props) => {
           text-transform: capitalize;
           opacity: 0.5;
         }
+
+        @media screen and (min-width: 600px) {
+          div {
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          h2,
+          ul {
+            flex: 1;
+          }
+        }
       `}</style>
       <style jsx>{`
         h2 {
@@ -54,6 +68,14 @@ const ProductContent = ({ items }: Props) => {
 
         .quantity {
           color: ${colors.primary};
+        }
+
+        @media screen and (min-width: 600px) {
+          h2 {
+            font-size: ${sizes.desktop.text.h3};
+            line-height: ${sizes.desktop.lineHeight.h3};
+            letter-spacing: ${sizes.desktop.letterSpacing.h3};
+          }
         }
       `}</style>
     </>

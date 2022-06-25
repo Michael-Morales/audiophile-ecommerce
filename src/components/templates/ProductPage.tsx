@@ -66,6 +66,16 @@ const ProductPage = ({ product }: Props) => {
           opacity: 0.5;
           white-space: pre-wrap;
         }
+
+        @media screen and (min-width: 600px) {
+          div {
+            margin-block: 12rem;
+          }
+
+          h2 {
+            margin-bottom: 3.2rem;
+          }
+        }
       `}</style>
       <style jsx>{`
         main {
@@ -79,6 +89,12 @@ const ProductPage = ({ product }: Props) => {
         @media screen and (min-width: 600px) {
           main {
             margin-top: calc(9rem + 3.2rem);
+          }
+
+          h2 {
+            font-size: ${sizes.desktop.text.h3};
+            line-height: ${sizes.desktop.lineHeight.h3};
+            letter-spacing: ${sizes.desktop.letterSpacing.h3};
           }
         }
       `}</style>
