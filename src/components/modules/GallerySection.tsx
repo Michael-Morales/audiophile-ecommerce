@@ -74,6 +74,29 @@ const GallerySection = ({ first, second, third }: Props) => {
           border-radius: 8px;
           overflow: hidden;
         }
+
+        @media screen and (min-width: 600px) {
+          .container {
+            grid-template-rows: repeat(2, 174px);
+            grid-template-columns: repeat(5, 1fr);
+            margin-block: 12rem;
+          }
+
+          .img-wrapper:first-child {
+            grid-row: 1 / 2;
+            grid-column: 1 / 3;
+          }
+
+          .img-wrapper:nth-child(2) {
+            grid-row: 2 / 3;
+            grid-column: 1 / 3;
+          }
+
+          .img-wrapper:nth-child(3) {
+            grid-row: 1 / 3;
+            grid-column: 3 / 6;
+          }
+        }
       `}</style>
     </>
   );
