@@ -6,9 +6,9 @@ import FacebookIcon from "../../elements/FacebookIcon";
 import TwitterIcon from "../../elements/TwitterIcon";
 import InstagramIcon from "../../elements/InstagramIcon";
 
-import { styles, dynamicStyles } from "./styles";
+import logo from "../../../../public/images/icons/logo.svg";
 
-import logo from "../../../public/images/icons/logo.svg";
+import { styles, dynamicStyles } from "./styles";
 
 const Footer = () => {
   return (

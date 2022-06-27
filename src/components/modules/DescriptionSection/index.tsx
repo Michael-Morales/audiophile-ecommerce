@@ -2,11 +2,11 @@ import Image from "next/image";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
-import { styles, dynamicStyles } from "./styles";
+import mobileImg from "../../../../public/images/mobile/image-best-gear.jpg";
+import tabletImg from "../../../../public/images/tablet/image-best-gear.jpg";
+import desktopImg from "../../../../public/images/desktop/image-best-gear.jpg";
 
-import mobileImg from "../../../public/images/mobile/image-best-gear.jpg";
-import tabletImg from "../../../public/images/tablet/image-best-gear.jpg";
-import desktopImg from "../../../public/images/desktop/image-best-gear.jpg";
+import { styles, dynamicStyles } from "./styles";
 
 const DescriptionSection = () => {
   const [width] = useViewportWidth();
