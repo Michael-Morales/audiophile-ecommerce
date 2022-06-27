@@ -41,11 +41,13 @@ const ProductPage = ({ product }: Props) => {
             price={price}
             image={image}
           />
-          <div>
-            <h2>features</h2>
-            <p>{features}</p>
+          <div className="features-container">
+            <div className="features">
+              <h2>features</h2>
+              <p>{features}</p>
+            </div>
+            <ProductContent items={includes} />
           </div>
-          <ProductContent items={includes} />
           <GallerySection {...gallery} />
         </section>
         <SuggestionSection suggestions={others} />
@@ -54,7 +56,11 @@ const ProductPage = ({ product }: Props) => {
       </main>
 
       <style jsx>{`
-        div {
+        main {
+          margin-top: calc(9rem + 1.6rem);
+        }
+
+        .features {
           margin-block: 8.8rem;
         }
 
@@ -68,7 +74,11 @@ const ProductPage = ({ product }: Props) => {
         }
 
         @media screen and (min-width: 600px) {
-          div {
+          main {
+            margin-top: calc(9rem + 3.2rem);
+          }
+
+          .features {
             margin-block: 12rem;
           }
 
@@ -76,21 +86,31 @@ const ProductPage = ({ product }: Props) => {
             margin-bottom: 3.2rem;
           }
         }
+
+        @media screen and (min-width: 1240px) {
+          main {
+            margin-top: calc(9rem + 8rem);
+          }
+
+          .features {
+            flex: 2;
+            margin-block: unset;
+          }
+
+          .features-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10%;
+            margin-block: 16rem;
+          }
+        }
       `}</style>
       <style jsx>{`
-        main {
-          margin-top: calc(9rem + 1.6rem);
-        }
-
         h2 {
           font-size: ${sizes.mobile.text.h4};
         }
 
         @media screen and (min-width: 600px) {
-          main {
-            margin-top: calc(9rem + 3.2rem);
-          }
-
           h2 {
             font-size: ${sizes.desktop.text.h3};
             line-height: ${sizes.desktop.lineHeight.h3};

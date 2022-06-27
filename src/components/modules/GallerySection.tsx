@@ -97,6 +97,14 @@ const GallerySection = ({ first, second, third }: Props) => {
             grid-column: 3 / 6;
           }
         }
+
+        @media screen and (min-width: 1240px) {
+          .container {
+            grid-template-rows: repeat(2, 280px);
+            gap: 3.2rem 3rem;
+            margin-block: 16rem;
+          }
+        }
       `}</style>
     </>
   );

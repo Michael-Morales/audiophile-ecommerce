@@ -22,6 +22,12 @@ const BackButton = () => {
           cursor: pointer;
           transition: ease 0.3s;
         }
+
+        @media screen and (min-width: 1240px) {
+          button {
+            margin-bottom: 5.6rem;
+          }
+        }
       `}</style>
       <style jsx>{`
         button:hover {

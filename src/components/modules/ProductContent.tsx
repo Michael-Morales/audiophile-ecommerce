@@ -60,6 +60,20 @@ const ProductContent = ({ items }: Props) => {
             flex: 1;
           }
         }
+
+        @media screen and (min-width: 1240px) {
+          div {
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 3.2rem;
+            flex: 1;
+          }
+
+          h2,
+          ul {
+            flex: unset;
+          }
+        }
       `}</style>
       <style jsx>{`
         h2 {

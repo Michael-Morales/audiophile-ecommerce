@@ -112,8 +112,8 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
           }
 
           .img-wrapper {
-            height: 480px;
             flex: 0.4;
+            height: 480px;
           }
 
           .content {
@@ -129,6 +129,25 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
             margin-bottom: 3.2rem;
           }
         }
+
+        @media screen and (min-width: 1240px) {
+          article {
+            gap: 10%;
+          }
+
+          .img-wrapper {
+            flex: 1;
+            height: 560px;
+          }
+
+          .content {
+            flex: 1;
+          }
+
+          .price {
+            margin-bottom: 4.8rem;
+          }
+        }
       `}</style>
       <style jsx>{`
         .overline {
@@ -142,6 +161,14 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
           font-size: ${sizes.mobile.text.h3};
           line-height: ${sizes.mobile.lineHeight.h3};
           letter-spacing: ${sizes.mobile.letterSpacing.h3};
+        }
+
+        @media screen and (min-width: 1240px) {
+          h1 {
+            font-size: ${sizes.desktop.text.h2};
+            line-height: ${sizes.desktop.lineHeight.h2};
+            letter-spacing: ${sizes.desktop.letterSpacing.h2};
+          }
         }
       `}</style>
     </>

@@ -46,6 +46,20 @@ const SuggestionSection = ({ suggestions }: Props) => {
             gap: 1rem;
           }
         }
+
+        @media screen and (min-width: 1240px) {
+          section {
+            margin-block: 16rem;
+          }
+
+          h2 {
+            margin-bottom: 6.4rem;
+          }
+
+          div {
+            gap: 3rem;
+          }
+        }
       `}</style>
       <style jsx>{`
         h2 {
