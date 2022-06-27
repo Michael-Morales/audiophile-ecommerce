@@ -35,10 +35,27 @@ const SuggestionSection = ({ suggestions }: Props) => {
           flex-direction: column;
           gap: 5.6rem;
         }
+
+        @media screen and (min-width: 600px) {
+          h2 {
+            margin-bottom: 5.6rem;
+          }
+
+          div {
+            flex-direction: row;
+            gap: 1rem;
+          }
+        }
       `}</style>
       <style jsx>{`
         h2 {
           font-size: ${sizes.mobile.text.h4};
+        }
+
+        @media screen and (min-width: 600px) {
+          h2 {
+            font-size: ${sizes.desktop.text.h3};
+          }
         }
       `}</style>
     </>

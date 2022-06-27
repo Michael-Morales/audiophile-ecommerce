@@ -44,6 +44,7 @@ const SuggestionCard = ({ suggestion }: Props) => {
           display: flex;
           flex-direction: column;
           gap: 3.2rem;
+          width: 100%;
         }
 
         .img-wrapper {
@@ -63,6 +64,16 @@ const SuggestionCard = ({ suggestion }: Props) => {
 
         p {
           font-weight: 700;
+        }
+
+        @media screen and (min-width: 600px) {
+          .container {
+            gap: 4rem;
+          }
+
+          .img-wrapper {
+            height: 318px;
+          }
         }
       `}</style>
       <style jsx>{`
