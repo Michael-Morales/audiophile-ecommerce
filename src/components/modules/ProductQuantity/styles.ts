@@ -12,6 +12,7 @@ export const styles = css`
 
   button {
     padding: 0 0.8rem;
+    font-weight: bold;
     background-color: unset;
     opacity: 0.25;
     border: unset;
