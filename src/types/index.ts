@@ -43,3 +43,8 @@ export type CategoryProductType = {
   isNew: boolean;
   description: string;
 };
+
+export type CartItem = {
+  id: number;
+  quantity: number;
+};
