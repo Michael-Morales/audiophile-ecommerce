@@ -1,12 +1,14 @@
 import type { ImagePathsType } from "../../../types";
 
-import { useState, memo } from "react";
+import { useState, memo, useContext } from "react";
 import Image from "next/image";
 
 import Button from "../../elements/Button";
 import ProductQuantity from "../ProductQuantity";
 
 import useViewPortWidth from "../../../hooks/useViewportWidth";
+
+import { Context as CartContext } from "../../../context/cartContext";
 
 import formatPrice from "../../../utils/formatPrice";
 
@@ -21,9 +23,14 @@ type Props = {
   image: ImagePathsType;
 };
 
-const ProductCard = ({ image, isNew, name, description, price }: Props) => {
+const ProductCard = ({ id, image, isNew, name, description, price }: Props) => {
   const [width] = useViewPortWidth();
   const [count, setCount] = useState(1);
+  const { dispatch } = useContext(CartContext);
+
+  const addToCart = () => {
+    dispatch({ type: "add_item", payload: { id, quantity: count } });
+  };
 
   return (
     <>
@@ -53,7 +60,7 @@ const ProductCard = ({ image, isNew, name, description, price }: Props) => {
               decrement={() => setCount(count - 1)}
               increment={() => setCount(count + 1)}
             />
-            <Button title="add to cart" action={() => console.log("ADDED")} />
+            <Button title="add to cart" action={addToCart} />
           </div>
         </div>
       </article>
