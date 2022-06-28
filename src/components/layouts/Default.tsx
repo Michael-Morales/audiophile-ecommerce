@@ -5,10 +5,9 @@ const Default = ({ children }: { children: JSX.Element }) => {
   return (
     <>
       <NavBar />
-
       {children}
-
       <Footer />
+      <div id="modal" />
     </>
   );
 };

@@ -7,6 +7,7 @@ import MenuIcon from "../../elements/MenuIcon";
 import CartIcon from "../../elements/CartIcon";
 import CategoryCard from "../CategoryCard";
 import NavLink from "../../elements/NavLink";
+import Modal from "../Modal";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
@@ -16,11 +17,24 @@ import logo from "../../../../public/images/icons/logo.svg";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [width] = useViewportWidth();
   const router = useRouter();
 
+  const toggleMenu = () => {
+    if (showModal) setShowModal(false);
+
+    setIsOpen(!isOpen);
+  };
+
   const closeMenu = () => {
     setIsOpen(false);
+  };
+
+  const toggleCart = () => {
+    if (isOpen) setIsOpen(false);
+
+    setShowModal(!showModal);
   };
 
   useEffect(() => {
@@ -35,7 +49,7 @@ const NavBar = () => {
     <>
       <header>
         <div className="top-bar">
-          <button onClick={() => setIsOpen(!isOpen)} className="mobile-menu">
+          <button onClick={toggleMenu} className="mobile-menu">
             <MenuIcon />
           </button>
           <Link href="/">
@@ -49,7 +63,14 @@ const NavBar = () => {
             <NavLink name="speakers" route="/category/speakers" />
             <NavLink name="earphones" route="/category/earphones" />
           </nav>
-          <CartIcon />
+          <button onClick={toggleCart} className="cart-icon">
+            <CartIcon active={showModal} />
+          </button>
+          {showModal && (
+            <Modal show={showModal} onClose={() => setShowModal(false)}>
+              <div>MODAL</div>
+            </Modal>
+          )}
         </div>
         <nav className="mobile-nav">
           <div className="links-container">

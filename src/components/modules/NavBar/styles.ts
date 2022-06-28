@@ -64,6 +64,14 @@ export const styles = css`
     z-index: -2;
   }
 
+  .cart-icon {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background-color: unset;
+    border: unset;
+  }
+
   @media screen and (min-width: 600px) {
     header::before {
       left: 4rem;

@@ -1,6 +1,12 @@
 import { styles, dynamicStyles } from "../../../styles/iconStyles";
 
-const CartIcon = () => {
+import { colors } from "../../../styles/theme";
+
+type Props = {
+  active: boolean;
+};
+
+const CartIcon = ({ active }: Props) => {
   return (
     <>
       <svg width="23" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -13,6 +19,11 @@ const CartIcon = () => {
 
       <style jsx>{styles}</style>
       <style jsx>{dynamicStyles}</style>
+      <style jsx>{`
+        svg path {
+          fill: ${active ? colors.primary : "#FFF"};
+        }
+      `}</style>
     </>
   );
 };
