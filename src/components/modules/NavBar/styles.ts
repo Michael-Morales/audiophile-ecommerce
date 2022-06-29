@@ -9,7 +9,7 @@ export const styles = css`
     align-items: center;
     width: 100%;
     height: 9rem;
-    z-index: 999;
+    z-index: 99999;
   }
 
   header::before {

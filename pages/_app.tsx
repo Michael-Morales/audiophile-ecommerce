@@ -6,13 +6,13 @@ import { Provider as CartProvider } from "../src/context/cartContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <GlobalStyles>
-      <Default>
-        <CartProvider>
+    <CartProvider>
+      <GlobalStyles>
+        <Default>
           <Component {...pageProps} />
-        </CartProvider>
-      </Default>
-    </GlobalStyles>
+        </Default>
+      </GlobalStyles>
+    </CartProvider>
   );
 }
 

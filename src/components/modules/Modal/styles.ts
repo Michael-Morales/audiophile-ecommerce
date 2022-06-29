@@ -7,7 +7,7 @@ export const styles = css`
     position: fixed;
     inset: 0;
     margin-top: 9rem;
-    z-index: 998;
+    z-index: 999;
   }
 
   @media screen and (min-width: 1240px) {

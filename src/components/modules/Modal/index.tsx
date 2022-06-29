@@ -18,9 +18,8 @@ const Modal = ({ children, show, onClose }: Props) => {
 
   const ModalContent = show ? (
     <>
-      <div className="overlay" onClick={onClose}>
-        {children}
-      </div>
+      <div className="overlay" onClick={onClose} />
+      {children}
 
       <style jsx>{styles}</style>
       <style jsx>{dynamicStyles}</style>

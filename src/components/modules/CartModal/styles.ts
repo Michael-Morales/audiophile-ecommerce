@@ -4,13 +4,15 @@ import { colors } from "../../../styles/theme";
 
 export const styles = css`
   .container {
-    position: absolute;
+    position: fixed;
     top: 24px;
     right: 24px;
     padding: 3.2rem 2.8rem;
+    margin-top: 9rem;
     width: calc(100% - 24px * 2);
     max-width: 377px;
     border-radius: 8px;
+    z-index: 9999;
   }
 
   .header {
@@ -43,6 +45,15 @@ export const styles = css`
 
   .header button:hover {
     opacity: 1;
+  }
+
+  .empty {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3.2rem;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    opacity: 0.5;
   }
 
   .footer {

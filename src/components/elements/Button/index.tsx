@@ -9,6 +9,7 @@ type Props = {
   route?: string;
   type?: keyof typeof buttonOptions;
   action?: () => void;
+  disabled?: boolean;
 };
 
 type ButtonOption = {
@@ -50,7 +51,13 @@ const buttonOptions: {
   },
 };
 
-const Button = ({ title, route, type = "primary", action }: Props) => {
+const Button = ({
+  title,
+  route,
+  type = "primary",
+  action,
+  disabled,
+}: Props) => {
   return (
     <>
       {route && (
@@ -88,8 +95,11 @@ const Button = ({ title, route, type = "primary", action }: Props) => {
         button {
           gap: ${type === "secondary" ? "13px" : "unset"};
           color: ${buttonOptions[type].color};
-          background-color: ${buttonOptions[type].backgroundColor};
+          background-color: ${disabled
+            ? colors.primaryHover
+            : buttonOptions[type].backgroundColor};
           border: ${type === "light" ? `1px solid ${colors.black}` : "none"};
+          pointer-events: ${disabled ? "none" : "initial"};
         }
 
         a:hover,
