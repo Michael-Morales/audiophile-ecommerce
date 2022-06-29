@@ -3,6 +3,9 @@ import css from "styled-jsx/css";
 export const styles = css`
   a,
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1.5rem 3rem;
     font-size: 1.3rem;
     font-weight: 700;

@@ -4,9 +4,10 @@ type Props = {
   quantity: number;
   increment: () => void;
   decrement: () => void;
+  small?: boolean;
 };
 
-const ProductQuantity = ({ quantity, increment, decrement }: Props) => {
+const ProductQuantity = ({ quantity, increment, decrement, small }: Props) => {
   return (
     <>
       <div>
@@ -19,6 +20,12 @@ const ProductQuantity = ({ quantity, increment, decrement }: Props) => {
 
       <style jsx>{styles}</style>
       <style jsx>{dynamicStyles}</style>
+      <style jsx>{`
+        div {
+          padding: ${small ? "0.7rem 1.2rem" : "1.5rem"};
+          min-width: ${small ? "96px" : "120px"};
+        }
+      `}</style>
     </>
   );
 };

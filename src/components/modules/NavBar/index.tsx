@@ -8,6 +8,7 @@ import CartIcon from "../../elements/CartIcon";
 import CategoryCard from "../CategoryCard";
 import NavLink from "../../elements/NavLink";
 import Modal from "../Modal";
+import CartModal from "../CartModal";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
@@ -29,6 +30,7 @@ const NavBar = () => {
 
   const closeMenu = () => {
     setIsOpen(false);
+    setShowModal(false);
   };
 
   const toggleCart = () => {
@@ -68,7 +70,7 @@ const NavBar = () => {
           </button>
           {showModal && (
             <Modal show={showModal} onClose={() => setShowModal(false)}>
-              <div>MODAL</div>
+              <CartModal />
             </Modal>
           )}
         </div>

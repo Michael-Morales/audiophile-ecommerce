@@ -86,8 +86,6 @@ const Button = ({ title, route, type = "primary", action }: Props) => {
       <style jsx>{`
         a,
         button {
-          display: ${type === "secondary" ? "flex" : "inline-block"};
-          align-items: ${type === "secondary" ? "center" : "unset"};
           gap: ${type === "secondary" ? "13px" : "unset"};
           color: ${buttonOptions[type].color};
           background-color: ${buttonOptions[type].backgroundColor};

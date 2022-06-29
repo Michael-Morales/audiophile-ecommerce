@@ -6,8 +6,6 @@ export const styles = css`
   div {
     display: flex;
     justify-content: space-between;
-    padding: 1.5rem;
-    min-width: 120px;
   }
 
   button {
