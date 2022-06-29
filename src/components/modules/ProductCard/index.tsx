@@ -18,18 +18,36 @@ type Props = {
   id: number;
   isNew: boolean;
   name: string;
+  cartName: string;
   description: string;
   price: number;
   image: ImagePathsType;
 };
 
-const ProductCard = ({ id, image, isNew, name, description, price }: Props) => {
+const ProductCard = ({
+  id,
+  image,
+  isNew,
+  name,
+  cartName,
+  description,
+  price,
+}: Props) => {
   const [width] = useViewPortWidth();
   const [count, setCount] = useState(1);
   const { dispatch } = useContext(CartContext);
 
   const addToCart = () => {
-    dispatch({ type: "add_item", payload: { id, quantity: count } });
+    dispatch({
+      type: "add_item",
+      payload: {
+        id,
+        quantity: count,
+        price,
+        name: cartName,
+        image: image.mobile,
+      },
+    });
   };
 
   return (

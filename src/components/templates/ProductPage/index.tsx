@@ -18,6 +18,7 @@ const ProductPage = ({ product }: Props) => {
   const {
     id,
     name,
+    cartName,
     isNew,
     description,
     price,
@@ -36,6 +37,7 @@ const ProductPage = ({ product }: Props) => {
           <ProductCard
             id={id}
             name={name}
+            cartName={cartName}
             isNew={isNew}
             description={description}
             price={price}

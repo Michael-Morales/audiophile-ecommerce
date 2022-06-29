@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
 import Button from "../../elements/Button";
+import CartItem from "../CartItem";
 
 import { Context as CartContext } from "../../../context/cartContext";
 
@@ -21,7 +22,13 @@ const CartModal = () => {
         {!state.length ? (
           <div className="empty">your cart is empty</div>
         ) : (
-          <ul></ul>
+          <ul>
+            {state.map((item) => (
+              <li key={item.id}>
+                <CartItem {...item} />
+              </li>
+            ))}
+          </ul>
         )}
         <div className="footer">
           <p>total</p>
