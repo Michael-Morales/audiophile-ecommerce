@@ -45,10 +45,11 @@ export type CategoryProductType = {
   description: string;
 };
 
-export type CartItem = {
+export type CartItemType = {
   id: number;
   quantity: number;
   name: string;
   price: number;
   image: string;
+  slug: string;
 };

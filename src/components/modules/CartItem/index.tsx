@@ -1,5 +1,8 @@
+import type { CartItemType } from "../../../types";
+
 import { useContext } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import ProductQuantity from "../ProductQuantity";
 
@@ -7,17 +10,11 @@ import { Context as CartContext } from "../../../context/cartContext";
 
 import formatPrice from "../../../utils/formatPrice";
 
-import { styles } from "./styles";
+import { styles, dynamicStyles } from "./styles";
 
-type Props = {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  quantity: number;
-};
+type Props = CartItemType;
 
-const CartItem = ({ id, image, name, price, quantity }: Props) => {
+const CartItem = ({ id, image, name, price, quantity, slug }: Props) => {
   const { dispatch } = useContext(CartContext);
 
   return (
@@ -27,7 +24,9 @@ const CartItem = ({ id, image, name, price, quantity }: Props) => {
           <Image src={image} alt="" layout="fill" objectFit="cover" />
         </div>
         <div className="informations">
-          <p>{name}</p>
+          <Link href={`/product/${slug}`}>
+            <a>{name}</a>
+          </Link>
           <p className="price">{formatPrice(price)}</p>
         </div>
         <ProductQuantity
@@ -39,6 +38,7 @@ const CartItem = ({ id, image, name, price, quantity }: Props) => {
       </div>
 
       <style jsx>{styles}</style>
+      <style jsx>{dynamicStyles}</style>
     </>
   );
 };

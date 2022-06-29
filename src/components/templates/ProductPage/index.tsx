@@ -19,6 +19,7 @@ const ProductPage = ({ product }: Props) => {
     id,
     name,
     cartName,
+    slug,
     isNew,
     description,
     price,
@@ -42,6 +43,7 @@ const ProductPage = ({ product }: Props) => {
             description={description}
             price={price}
             image={image}
+            slug={slug}
           />
           <div className="features-container">
             <div className="features">

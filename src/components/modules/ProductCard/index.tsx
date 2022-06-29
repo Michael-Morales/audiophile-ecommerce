@@ -22,6 +22,7 @@ type Props = {
   description: string;
   price: number;
   image: ImagePathsType;
+  slug: string;
 };
 
 const ProductCard = ({
@@ -32,6 +33,7 @@ const ProductCard = ({
   cartName,
   description,
   price,
+  slug,
 }: Props) => {
   const [width] = useViewPortWidth();
   const [count, setCount] = useState(1);
@@ -46,6 +48,7 @@ const ProductCard = ({
         price,
         name: cartName,
         image: image.mobile,
+        slug,
       },
     });
   };

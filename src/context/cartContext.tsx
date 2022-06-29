@@ -1,5 +1,5 @@
 import type { Dispatch } from "react";
-import type { CartItem } from "../types";
+import type { CartItemType } from "../types";
 
 import { createContext, useReducer } from "react";
 
@@ -8,7 +8,7 @@ type Props = {
 };
 
 type ActionsMap = {
-  add_item: CartItem;
+  add_item: CartItemType;
   remove_item: number;
   remove_all: undefined;
   increase_quantity: number;
@@ -22,9 +22,9 @@ type Actions = {
   };
 }[keyof ActionsMap];
 
-const initialState: Array<CartItem> = [];
+const initialState: Array<CartItemType> = [];
 
-const reducer = (state: Array<CartItem>, action: Actions) => {
+const reducer = (state: Array<CartItemType>, action: Actions) => {
   switch (action.type) {
     case "add_item":
       return [...state, action.payload];
@@ -63,7 +63,7 @@ export const Provider = ({ children }: Props) => {
 };
 
 export const Context = createContext<{
-  state: Array<CartItem>;
+  state: Array<CartItemType>;
   dispatch: Dispatch<any>;
 }>({
   state: initialState,

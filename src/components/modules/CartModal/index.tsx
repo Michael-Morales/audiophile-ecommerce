@@ -5,10 +5,14 @@ import CartItem from "../CartItem";
 
 import { Context as CartContext } from "../../../context/cartContext";
 
+import formatPrice from "../../../utils/formatPrice";
+
 import { styles, dynamicStyles } from "./styles";
 
 const CartModal = () => {
   const { state, dispatch } = useContext(CartContext);
+
+  const totalPrice = state.map(({ price }) => price).reduce((a, b) => a + b, 0);
 
   return (
     <>
@@ -32,7 +36,7 @@ const CartModal = () => {
         )}
         <div className="footer">
           <p>total</p>
-          <p className="price">5396 €</p>
+          <p className="price">{formatPrice(totalPrice)}</p>
         </div>
         <Button
           title="checkout"
