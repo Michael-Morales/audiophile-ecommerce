@@ -84,6 +84,31 @@ export const styles = css`
     font-size: 1.8rem;
     font-weight: 700;
   }
+
+  @media screen and (min-width: 600px) {
+    .container {
+      right: 4rem;
+      padding: 3.2rem;
+    }
+  }
+
+  @media screen and (min-width: 905px) {
+    .container {
+      right: calc((100% - 840px) / 2);
+    }
+  }
+
+  @media screen and (min-width: 1240px) {
+    .container {
+      right: 200px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .container {
+      right: calc((100% - 1110px) / 2);
+    }
+  }
 `;
 
 export const dynamicStyles = css`
