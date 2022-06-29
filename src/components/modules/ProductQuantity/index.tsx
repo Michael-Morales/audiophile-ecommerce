@@ -5,13 +5,23 @@ type Props = {
   increment: () => void;
   decrement: () => void;
   small?: boolean;
+  remove?: () => void;
 };
 
-const ProductQuantity = ({ quantity, increment, decrement, small }: Props) => {
+const ProductQuantity = ({
+  quantity,
+  increment,
+  decrement,
+  small,
+  remove,
+}: Props) => {
   return (
     <>
       <div>
-        <button onClick={decrement} disabled={quantity <= 1}>
+        <button
+          onClick={quantity <= 1 && remove ? remove : decrement}
+          disabled={!remove && quantity <= 1}
+        >
           -
         </button>
         <span>{quantity}</span>

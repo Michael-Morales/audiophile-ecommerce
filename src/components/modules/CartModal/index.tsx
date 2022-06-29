@@ -12,7 +12,9 @@ import { styles, dynamicStyles } from "./styles";
 const CartModal = () => {
   const { state, dispatch } = useContext(CartContext);
 
-  const totalPrice = state.map(({ price }) => price).reduce((a, b) => a + b, 0);
+  const totalPrice = state
+    .map(({ price, quantity }) => price * quantity)
+    .reduce((a, b) => a + b, 0);
 
   return (
     <>

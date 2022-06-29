@@ -33,6 +33,7 @@ const CartItem = ({ id, image, name, price, quantity, slug }: Props) => {
           quantity={quantity}
           increment={() => dispatch({ type: "increase_quantity", payload: id })}
           decrement={() => dispatch({ type: "decrease_quantity", payload: id })}
+          remove={() => dispatch({ type: "remove_item", payload: id })}
           small
         />
       </div>
