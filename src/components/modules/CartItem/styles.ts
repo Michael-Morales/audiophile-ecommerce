@@ -30,6 +30,11 @@ export const styles = css`
     font-weight: 700;
     opacity: 0.5;
   }
+
+  .quantity {
+    font-weight: 700;
+    opacity: 0.5;
+  }
 `;
 
 export const dynamicStyles = css`

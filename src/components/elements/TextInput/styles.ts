@@ -7,6 +7,7 @@ export const styles = css`
     display: flex;
     flex-direction: column;
     gap: 0.9rem;
+    min-width: 100px;
   }
 
   span {
@@ -18,6 +19,7 @@ export const styles = css`
 
   input {
     padding: 1.8rem 2.4rem;
+    min-width: 0;
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1;

@@ -56,18 +56,6 @@ export const styles = css`
     opacity: 0.5;
   }
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem;
-    padding: 0;
-    margin-bottom: 3.2rem;
-  }
-
-  li {
-    list-style: none;
-  }
-
   .footer {
     display: flex;
     align-items: center;

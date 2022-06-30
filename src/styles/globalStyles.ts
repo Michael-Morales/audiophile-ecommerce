@@ -44,6 +44,18 @@ export const globalStyles = global`
     font-weight: 700;
     text-transform: uppercase;
   }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 0;
+    margin-bottom: 3.2rem;
+  }
+
+  li {
+    list-style: none;
+  }
 `;
 
 export const dynamicGlobalStyles = global`
