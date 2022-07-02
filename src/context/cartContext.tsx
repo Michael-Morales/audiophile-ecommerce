@@ -27,7 +27,15 @@ const initialState: Array<CartItemType> = [];
 const reducer = (state: Array<CartItemType>, action: Actions) => {
   switch (action.type) {
     case "add_item":
-      return [...state, action.payload];
+      if (state.find(({ id }) => action.payload.id === id)) {
+        return state.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity + action.payload.quantity }
+            : item
+        );
+      } else {
+        return [...state, action.payload];
+      }
 
     case "remove_item":
       return state.filter(({ id }) => id !== action.payload);
