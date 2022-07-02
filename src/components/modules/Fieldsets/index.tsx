@@ -1,13 +1,20 @@
-import type { UseFormRegister } from "react-hook-form";
+import type { UseFormRegister, UseFormWatch } from "react-hook-form";
 import type { FormValuesType } from "../../../types";
+
+import Image from "next/image";
+
+import cashLogo from "../../../../public/images/icons/icon-cash-on-delivery.svg";
 
 import { styles, dynamicStyles } from "./styles";
 
 type Props = {
   register: UseFormRegister<FormValuesType>;
+  watch: UseFormWatch<FormValuesType>;
 };
 
-const Fieldsets = ({ register }: Props) => {
+const Fieldsets = ({ register, watch }: Props) => {
+  const paymentMethod = watch("paymentMethod");
+
   return (
     <>
       <div className="container">
@@ -52,14 +59,50 @@ const Fieldsets = ({ register }: Props) => {
         <fieldset>
           <legend>payment details</legend>
           <div className="inputs-container">
-            <label>
-              <span>e-money number</span>
-              <input type="text" {...register("eMoneyNumber")} />
-            </label>
-            <label>
-              <span>e-money PIN</span>
-              <input type="text" {...register("eMoneyPin")} />
-            </label>
+            <div className="radio-container">
+              <span>payment method</span>
+              <div className="radio-options">
+                <label>
+                  <input
+                    type="radio"
+                    {...register("paymentMethod")}
+                    value="e-money"
+                  />
+                  e-money
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    {...register("paymentMethod")}
+                    value="cash on delivery"
+                  />
+                  cash on delivery
+                </label>
+              </div>
+            </div>
+            {paymentMethod === "e-money" && (
+              <>
+                <label>
+                  <span>e-money number</span>
+                  <input type="text" {...register("eMoneyNumber")} />
+                </label>
+                <label>
+                  <span>e-money PIN</span>
+                  <input type="text" {...register("eMoneyPin")} />
+                </label>
+              </>
+            )}
+            {paymentMethod === "cash on delivery" && (
+              <div className="cash-on-delivery">
+                <Image src={cashLogo} alt="" />
+                <p>
+                  The &apos;Cash on Delivery&apos; option enables you to pay in
+                  cash when our delivery courier arrives at your residence. Just
+                  make sure your address is correct so that your order will not
+                  be cancelled.
+                </p>
+              </div>
+            )}
           </div>
         </fieldset>
       </div>

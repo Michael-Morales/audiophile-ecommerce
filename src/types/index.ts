@@ -62,6 +62,7 @@ export type FormValuesType = {
   zip: string;
   city: string;
   country: string;
+  paymentMethod: string;
   eMoneyNumber: string;
   eMoneyPin: string;
 };

@@ -16,7 +16,11 @@ import { styles, dynamicStyles } from "./styles";
 
 const CheckoutForm = () => {
   const { state } = useContext(CartContext);
-  const { register, handleSubmit } = useForm<FormValuesType>();
+  const { register, handleSubmit, watch } = useForm<FormValuesType>({
+    defaultValues: {
+      paymentMethod: "e-money",
+    },
+  });
 
   const totalPrice = getTotalPrice(state);
 
@@ -27,7 +31,7 @@ const CheckoutForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="container">
           <h1>checkout</h1>
-          <Fieldsets register={register} />
+          <Fieldsets register={register} watch={watch} />
         </div>
 
         <div className="container">
