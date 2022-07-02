@@ -53,3 +53,15 @@ export type CartItemType = {
   image: string;
   slug: string;
 };
+
+export type FormValuesType = {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  zip: string;
+  city: string;
+  country: string;
+  eMoneyNumber: string;
+  eMoneyPin: string;
+};

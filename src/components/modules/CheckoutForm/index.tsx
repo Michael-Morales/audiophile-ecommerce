@@ -1,6 +1,9 @@
-import { useContext } from "react";
+import type { FormValuesType } from "../../../types";
 
-import TextInput from "../../elements/TextInput";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+
+import Fieldsets from "../Fieldsets";
 import CartItem from "../CartItem";
 import Button from "../../elements/Button";
 
@@ -13,40 +16,18 @@ import { styles, dynamicStyles } from "./styles";
 
 const CheckoutForm = () => {
   const { state } = useContext(CartContext);
+  const { register, handleSubmit } = useForm<FormValuesType>();
 
   const totalPrice = getTotalPrice(state);
 
+  const onSubmit = (data: FormValuesType) => console.log(data);
+
   return (
     <>
-      <div className="container-wrapper">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="container">
           <h1>checkout</h1>
-          <form>
-            <fieldset>
-              <legend>billing details</legend>
-              <div className="inputs-container">
-                <TextInput title="name" />
-                <TextInput title="email address" type="email" />
-                <TextInput title="phone number" type="tel" />
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>shipping info</legend>
-              <div className="inputs-container">
-                <TextInput title="your address" />
-                <TextInput title="ZIP code" />
-                <TextInput title="city" />
-                <TextInput title="country" />
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>payment details</legend>
-              <div className="inputs-container">
-                <TextInput title="e-money number" />
-                <TextInput title="e-money PIN" />
-              </div>
-            </fieldset>
-          </form>
+          <Fieldsets register={register} />
         </div>
 
         <div className="container">
@@ -79,7 +60,7 @@ const CheckoutForm = () => {
             action={() => console.log("PAYING")}
           />
         </div>
-      </div>
+      </form>
 
       <style jsx>{styles}</style>
       <style jsx>{dynamicStyles}</style>

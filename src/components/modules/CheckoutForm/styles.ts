@@ -3,7 +3,7 @@ import css from "styled-jsx/css";
 import { colors, sizes } from "../../../styles/theme";
 
 export const styles = css`
-  .container-wrapper {
+  form {
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
@@ -23,7 +23,7 @@ export const styles = css`
     margin-bottom: 3.2rem;
   }
 
-  form {
+  .fieldsets-container {
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
