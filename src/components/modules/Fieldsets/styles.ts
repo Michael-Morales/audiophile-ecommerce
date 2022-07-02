@@ -34,28 +34,11 @@ export const styles = css`
     gap: 0.8rem;
   }
 
-  label div {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  label span,
   .radio-container span {
     font-size: 1.2rem;
     font-weight: 700;
     line-height: 1;
     text-transform: capitalize;
-  }
-
-  input {
-    padding: 1.8rem 2.4rem;
-    font-size: 1.4rem;
-    font-weight: 700;
-    line-height: 1;
-    border-radius: 8px;
-    border-width: 1px;
-    border-style: solid;
-    outline: none;
   }
 
   .radio-container,
@@ -126,10 +109,6 @@ export const styles = css`
       column-gap: 1.6rem;
     }
 
-    fieldset:nth-child(2) label:first-child {
-      grid-column: 1 / 3;
-    }
-
     .radio-container {
       grid-column: 1 / 3;
       flex-direction: row;
@@ -158,16 +137,11 @@ export const dynamicStyles = css`
     color: ${colors.primary};
   }
 
-  .error {
-    color: ${colors.error};
-  }
-
   input,
   .radio-options label {
     border-color: ${colors.inputBorder};
   }
 
-  input:focus,
   .radio-options label:hover {
     border-color: ${colors.primary};
   }

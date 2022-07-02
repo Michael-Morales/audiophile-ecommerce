@@ -8,6 +8,8 @@ import type { FormValuesType } from "../../../types";
 
 import Image from "next/image";
 
+import Input from "../Input";
+
 import cashLogo from "../../../../public/images/icons/icon-cash-on-delivery.svg";
 
 import { styles, dynamicStyles } from "./styles";
@@ -21,112 +23,91 @@ type Props = {
 const Fieldsets = ({ register, watch, errors }: Props) => {
   const paymentMethod = watch("paymentMethod");
 
-  console.log(errors);
-
   return (
     <>
       <div className="container">
         <fieldset>
           <legend>billing details</legend>
           <div className="inputs-container">
-            <label>
-              <div>
-                <span>name</span>
-                {errors.name && <span className="error">required</span>}
-              </div>
-              <input
-                type="text"
-                {...register("name", {
-                  required: true,
-                })}
-              />
-            </label>
-            <label>
-              <div>
-                <span>email address</span>
-                {errors.email?.type === "required" && (
-                  <span className="error">required</span>
-                )}
-                {errors.email?.type === "pattern" && (
-                  <span className="error">{errors.email?.message}</span>
-                )}
-              </div>
-              <input
-                type="email"
-                {...register("email", {
-                  required: true,
-                  pattern: {
-                    value: /\S+@\S+\.\S+/,
-                    message: "Invalid e-mail format.",
-                  },
-                })}
-              />
-            </label>
-            <label>
-              <div>
-                <span>phone number</span>
-                {errors.phone && <span className="error">required</span>}
-              </div>
-              <input
-                type="tel"
-                {...register("phone", {
-                  required: true,
-                })}
-              />
-            </label>
+            <Input
+              label="name"
+              register={register}
+              formValue="name"
+              options={{
+                required: true,
+              }}
+              error={errors.name}
+            />
+            <Input
+              label="email address"
+              inputType="email"
+              register={register}
+              formValue="email"
+              options={{
+                required: true,
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "Invalid e-mail format",
+                },
+              }}
+              error={errors.email}
+            />
+            <Input
+              label="phone number"
+              inputType="tel"
+              register={register}
+              formValue="phone"
+              options={{
+                required: true,
+                minLength: {
+                  value: 6,
+                  message: "Must be at least 6 numbers",
+                },
+              }}
+              error={errors.phone}
+            />
           </div>
         </fieldset>
         <fieldset>
           <legend>shipping info</legend>
           <div className="inputs-container">
-            <label>
-              <div>
-                <span>your address</span>
-                {errors.address && <span className="error">required</span>}
-              </div>
-              <input
-                type="text"
-                {...register("address", {
-                  required: true,
-                })}
-              />
-            </label>
-            <label>
-              <div>
-                <span>ZIP code</span>
-                {errors.zip && <span className="error">required</span>}
-              </div>
-              <input
-                type="text"
-                {...register("zip", {
-                  required: true,
-                })}
-              />
-            </label>
-            <label>
-              <div>
-                <span>city</span>
-                {errors.city && <span className="error">required</span>}
-              </div>
-              <input
-                type="text"
-                {...register("city", {
-                  required: true,
-                })}
-              />
-            </label>
-            <label>
-              <div>
-                <span>country</span>
-                {errors.country && <span className="error">required</span>}
-              </div>
-              <input
-                type="text"
-                {...register("country", {
-                  required: true,
-                })}
-              />
-            </label>
+            <Input
+              label="your address"
+              register={register}
+              formValue="address"
+              options={{
+                required: true,
+              }}
+              error={errors.address}
+              size="fullWidth"
+            />
+            <Input
+              label="ZIP code"
+              register={register}
+              formValue="zip"
+              options={{
+                required: true,
+              }}
+              error={errors.zip}
+            />
+            <Input
+              label="city"
+              register={register}
+              formValue="city"
+              options={{
+                required: true,
+              }}
+              error={errors.city}
+            />
+            <Input
+              label="country"
+              register={register}
+              formValue="country"
+              options={{
+                required: true,
+              }}
+              error={errors.country}
+            />
           </div>
         </fieldset>
         <fieldset>
@@ -155,34 +136,32 @@ const Fieldsets = ({ register, watch, errors }: Props) => {
             </div>
             {paymentMethod === "e-money" && (
               <>
-                <label>
-                  <div>
-                    <span>e-money number</span>
-                    {errors.eMoneyNumber && (
-                      <span className="error">required</span>
-                    )}
-                  </div>
-                  <input
-                    type="text"
-                    {...register("eMoneyNumber", {
-                      required: true,
-                    })}
-                  />
-                </label>
-                <label>
-                  <div>
-                    <span>e-money PIN</span>
-                    {errors.eMoneyPin && (
-                      <span className="error">required</span>
-                    )}
-                  </div>
-                  <input
-                    type="text"
-                    {...register("eMoneyPin", {
-                      required: true,
-                    })}
-                  />
-                </label>
+                <Input
+                  label="e-money number"
+                  register={register}
+                  formValue="eMoneyNumber"
+                  options={{
+                    required: true,
+                    pattern: {
+                      value: /[0-9]{10}/,
+                      message: "Must be 10 numbers",
+                    },
+                  }}
+                  error={errors.eMoneyNumber}
+                />
+                <Input
+                  label="e-money PIN"
+                  register={register}
+                  formValue="eMoneyPin"
+                  options={{
+                    required: true,
+                    pattern: {
+                      value: /[0-9]{4}/,
+                      message: "Must be 4 numbers",
+                    },
+                  }}
+                  error={errors.eMoneyPin}
+                />
               </>
             )}
             {paymentMethod === "cash on delivery" && (
@@ -202,7 +181,6 @@ const Fieldsets = ({ register, watch, errors }: Props) => {
 
       <style jsx>{styles}</style>
       <style jsx>{dynamicStyles}</style>
-      <style jsx>{``}</style>
     </>
   );
 };
