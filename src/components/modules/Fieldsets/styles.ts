@@ -6,7 +6,7 @@ export const styles = css`
   .container {
     display: flex;
     flex-direction: column;
-    gap: 3.2rem;
+    gap: 5.6rem;
   }
 
   fieldset {
@@ -50,6 +50,19 @@ export const styles = css`
     border-width: 1px;
     border-style: solid;
     outline: none;
+  }
+
+  @media screen and (min-width: 600px) {
+    .inputs-container {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1.6rem;
+    }
+
+    fieldset:nth-child(2) label:first-child {
+      grid-column: 1 / 3;
+    }
   }
 `;
 

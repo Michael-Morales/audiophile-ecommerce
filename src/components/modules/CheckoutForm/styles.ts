@@ -77,6 +77,34 @@ export const styles = css`
   .total-rate {
     margin-block: 2.4rem 3.2rem;
   }
+
+  @media screen and (min-width: 600px) {
+    .container {
+      padding: 3rem 2.8rem;
+    }
+
+    h1 {
+      margin-bottom: 4rem;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    form {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3rem;
+    }
+
+    .container:first-child {
+      flex: 2;
+      padding: 5.4rem 4.8rem 4.8rem;
+    }
+
+    .container:nth-child(2) {
+      flex: 1;
+      padding: 3.2rem;
+    }
+  }
 `;
 
 export const dynamicStyles = css`
