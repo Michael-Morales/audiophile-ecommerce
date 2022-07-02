@@ -1,4 +1,9 @@
-import type { UseFormRegister, UseFormWatch } from "react-hook-form";
+import type {
+  UseFormRegister,
+  UseFormWatch,
+  FieldErrorsImpl,
+  DeepRequired,
+} from "react-hook-form";
 import type { FormValuesType } from "../../../types";
 
 import Image from "next/image";
@@ -10,10 +15,13 @@ import { styles, dynamicStyles } from "./styles";
 type Props = {
   register: UseFormRegister<FormValuesType>;
   watch: UseFormWatch<FormValuesType>;
+  errors: FieldErrorsImpl<DeepRequired<FormValuesType>>;
 };
 
-const Fieldsets = ({ register, watch }: Props) => {
+const Fieldsets = ({ register, watch, errors }: Props) => {
   const paymentMethod = watch("paymentMethod");
+
+  console.log(errors);
 
   return (
     <>
@@ -22,16 +30,49 @@ const Fieldsets = ({ register, watch }: Props) => {
           <legend>billing details</legend>
           <div className="inputs-container">
             <label>
-              <span>name</span>
-              <input type="text" {...register("name")} />
+              <div>
+                <span>name</span>
+                {errors.name && <span className="error">required</span>}
+              </div>
+              <input
+                type="text"
+                {...register("name", {
+                  required: true,
+                })}
+              />
             </label>
             <label>
-              <span>email address</span>
-              <input type="email" {...register("email")} />
+              <div>
+                <span>email address</span>
+                {errors.email?.type === "required" && (
+                  <span className="error">required</span>
+                )}
+                {errors.email?.type === "pattern" && (
+                  <span className="error">{errors.email?.message}</span>
+                )}
+              </div>
+              <input
+                type="email"
+                {...register("email", {
+                  required: true,
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Invalid e-mail format.",
+                  },
+                })}
+              />
             </label>
             <label>
-              <span>phone number</span>
-              <input type="tel" {...register("phone")} />
+              <div>
+                <span>phone number</span>
+                {errors.phone && <span className="error">required</span>}
+              </div>
+              <input
+                type="tel"
+                {...register("phone", {
+                  required: true,
+                })}
+              />
             </label>
           </div>
         </fieldset>
@@ -39,20 +80,52 @@ const Fieldsets = ({ register, watch }: Props) => {
           <legend>shipping info</legend>
           <div className="inputs-container">
             <label>
-              <span>your address</span>
-              <input type="text" {...register("address")} />
+              <div>
+                <span>your address</span>
+                {errors.address && <span className="error">required</span>}
+              </div>
+              <input
+                type="text"
+                {...register("address", {
+                  required: true,
+                })}
+              />
             </label>
             <label>
-              <span>ZIP code</span>
-              <input type="text" {...register("zip")} />
+              <div>
+                <span>ZIP code</span>
+                {errors.zip && <span className="error">required</span>}
+              </div>
+              <input
+                type="text"
+                {...register("zip", {
+                  required: true,
+                })}
+              />
             </label>
             <label>
-              <span>city</span>
-              <input type="text" {...register("city")} />
+              <div>
+                <span>city</span>
+                {errors.city && <span className="error">required</span>}
+              </div>
+              <input
+                type="text"
+                {...register("city", {
+                  required: true,
+                })}
+              />
             </label>
             <label>
-              <span>country</span>
-              <input type="text" {...register("country")} />
+              <div>
+                <span>country</span>
+                {errors.country && <span className="error">required</span>}
+              </div>
+              <input
+                type="text"
+                {...register("country", {
+                  required: true,
+                })}
+              />
             </label>
           </div>
         </fieldset>
@@ -83,12 +156,32 @@ const Fieldsets = ({ register, watch }: Props) => {
             {paymentMethod === "e-money" && (
               <>
                 <label>
-                  <span>e-money number</span>
-                  <input type="text" {...register("eMoneyNumber")} />
+                  <div>
+                    <span>e-money number</span>
+                    {errors.eMoneyNumber && (
+                      <span className="error">required</span>
+                    )}
+                  </div>
+                  <input
+                    type="text"
+                    {...register("eMoneyNumber", {
+                      required: true,
+                    })}
+                  />
                 </label>
                 <label>
-                  <span>e-money PIN</span>
-                  <input type="text" {...register("eMoneyPin")} />
+                  <div>
+                    <span>e-money PIN</span>
+                    {errors.eMoneyPin && (
+                      <span className="error">required</span>
+                    )}
+                  </div>
+                  <input
+                    type="text"
+                    {...register("eMoneyPin", {
+                      required: true,
+                    })}
+                  />
                 </label>
               </>
             )}
@@ -109,6 +202,7 @@ const Fieldsets = ({ register, watch }: Props) => {
 
       <style jsx>{styles}</style>
       <style jsx>{dynamicStyles}</style>
+      <style jsx>{``}</style>
     </>
   );
 };

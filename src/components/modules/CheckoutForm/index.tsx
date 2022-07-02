@@ -16,9 +16,23 @@ import { styles, dynamicStyles } from "./styles";
 
 const CheckoutForm = () => {
   const { state } = useContext(CartContext);
-  const { register, handleSubmit, watch } = useForm<FormValuesType>({
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormValuesType>({
     defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+      zip: "",
+      city: "",
+      country: "",
       paymentMethod: "e-money",
+      eMoneyNumber: "",
+      eMoneyPin: "",
     },
   });
 
@@ -31,7 +45,7 @@ const CheckoutForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="container">
           <h1>checkout</h1>
-          <Fieldsets register={register} watch={watch} />
+          <Fieldsets register={register} watch={watch} errors={errors} />
         </div>
 
         <div className="container">
@@ -59,10 +73,7 @@ const CheckoutForm = () => {
             <span>grand total</span>
             <span>{formatPrice(totalPrice + 50)}</span>
           </div>
-          <Button
-            title="continue &amp; pay"
-            action={() => console.log("PAYING")}
-          />
+          <Button title="continue &amp; pay" action={() => {}} />
         </div>
       </form>
 

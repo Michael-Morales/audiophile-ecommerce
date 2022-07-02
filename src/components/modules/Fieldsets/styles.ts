@@ -34,6 +34,11 @@ export const styles = css`
     gap: 0.8rem;
   }
 
+  label div {
+    display: flex;
+    justify-content: space-between;
+  }
+
   label span,
   .radio-container span {
     font-size: 1.2rem;
@@ -151,6 +156,10 @@ export const styles = css`
 export const dynamicStyles = css`
   legend {
     color: ${colors.primary};
+  }
+
+  .error {
+    color: ${colors.error};
   }
 
   input,
