@@ -11,6 +11,7 @@ export const styles = css`
     margin-top: 9rem;
     width: calc(100% - 24px * 2);
     max-width: 377px;
+    max-height: calc(100vh - 9rem - 3.2rem - 2.4rem);
     border-radius: 8px;
     z-index: 9999;
   }
@@ -54,6 +55,11 @@ export const styles = css`
     letter-spacing: 1.3px;
     text-transform: uppercase;
     opacity: 0.5;
+  }
+
+  ul {
+    max-height: calc(100vh - 403px);
+    overflow-y: auto;
   }
 
   .footer {
