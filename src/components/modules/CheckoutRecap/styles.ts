@@ -4,6 +4,8 @@ import { colors } from "../../../styles/theme";
 
 export const styles = css`
   .container {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 2.4rem;
     border-radius: 8px;
     overflow: hidden;
@@ -28,6 +30,25 @@ export const styles = css`
     font-weight: 500;
     text-transform: uppercase;
     opacity: 0.5;
+  }
+
+  @media screen and (min-width: 600px) {
+    .container {
+      flex-direction: row;
+      margin-bottom: 4.8rem;
+    }
+
+    .items {
+      flex: 0.6;
+    }
+
+    .footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      flex: 0.4;
+      padding: 3.2rem;
+    }
   }
 `;
 

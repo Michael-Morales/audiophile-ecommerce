@@ -24,6 +24,20 @@ export const styles = css`
     margin-bottom: 2.4rem;
     opacity: 0.5;
   }
+
+  @media screen and (min-width: 600px) {
+    .container {
+      padding: 4.8rem;
+    }
+
+    h2 {
+      margin-block: 3.2rem 2.4rem;
+    }
+
+    p {
+      margin-bottom: 3.2rem;
+    }
+  }
 `;
 
 export const dynamicStyles = css`
@@ -33,5 +47,12 @@ export const dynamicStyles = css`
 
   h2 {
     font-size: ${sizes.mobile.text.h4};
+  }
+
+  @media screen and (min-width: 600px) {
+    h2 {
+      font-size: ${sizes.desktop.text.h3};
+      line-height: ${sizes.desktop.lineHeight.h3};
+    }
   }
 `;
