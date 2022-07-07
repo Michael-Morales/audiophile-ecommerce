@@ -12,6 +12,8 @@ export const styles = css`
   }
 
   .items {
+    display: flex;
+    flex-direction: column;
     padding: 2.4rem;
   }
 
@@ -30,6 +32,25 @@ export const styles = css`
     font-weight: 500;
     text-transform: uppercase;
     opacity: 0.5;
+  }
+
+  ul {
+    gap: 1.6rem;
+    margin-bottom: 0;
+  }
+
+  button {
+    padding-top: 1.2rem;
+    margin-top: 1.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: unset;
+    border: none;
+    border-top-width: 1px;
+    border-top-style: solid;
+    outline: none;
+    opacity: 0.5;
+    cursor: pointer;
   }
 
   @media screen and (min-width: 600px) {
@@ -63,5 +84,9 @@ export const dynamicStyles = css`
 
   .footer p {
     color: ${colors.white};
+  }
+
+  button {
+    border-color: ${colors.secondaryButton};
   }
 `;

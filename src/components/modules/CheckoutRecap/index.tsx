@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { Context as CartContext } from "../../../context/cartContext";
 
@@ -11,6 +11,7 @@ import { styles, dynamicStyles } from "./styles";
 
 const CheckoutRecap = () => {
   const { state } = useContext(CartContext);
+  const [open, setOpen] = useState(false);
 
   const totalPrice = getTotalPrice(state) + 50;
 
@@ -18,10 +19,22 @@ const CheckoutRecap = () => {
     <>
       <div className="container">
         <div className="items">
-          {state.length === 1 && <CartItem {...state[0]} checkout />}
-          {/* {state.map((item) => (
-            <CartItem key={item.id} {...item} checkout />
-          ))} */}
+          <ul>
+            <li>
+              <CartItem {...state[0]} checkout />
+            </li>
+            {open &&
+              state.slice(1).map((item) => (
+                <li key={item.id}>
+                  <CartItem {...item} checkout />
+                </li>
+              ))}
+          </ul>
+          {state.length > 1 && (
+            <button onClick={() => setOpen(!open)}>
+              {open ? "view less" : `and ${state.length - 1} other item(s)`}
+            </button>
+          )}
         </div>
         <div className="footer">
           <p>grand total</p>
