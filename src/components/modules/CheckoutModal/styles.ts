@@ -8,7 +8,7 @@ export const styles = css`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 3.2rem;
+    padding: 2.4rem;
     width: calc(100% - 2.4rem * 2);
     max-width: 540px;
     border-radius: 8px;

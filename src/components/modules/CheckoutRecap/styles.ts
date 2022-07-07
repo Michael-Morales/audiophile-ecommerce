@@ -16,6 +16,19 @@ export const styles = css`
   .footer {
     padding: 1.6rem 2.4rem;
   }
+
+  .footer p {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  .footer p:first-child {
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
 `;
 
 export const dynamicStyles = css`
@@ -25,5 +38,9 @@ export const dynamicStyles = css`
 
   .footer {
     background-color: ${colors.dark};
+  }
+
+  .footer p {
+    color: ${colors.white};
   }
 `;

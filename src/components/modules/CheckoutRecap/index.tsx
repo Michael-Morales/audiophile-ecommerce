@@ -18,9 +18,10 @@ const CheckoutRecap = () => {
     <>
       <div className="container">
         <div className="items">
-          {state.map((item) => (
+          {state.length === 1 && <CartItem {...state[0]} checkout />}
+          {/* {state.map((item) => (
             <CartItem key={item.id} {...item} checkout />
-          ))}
+          ))} */}
         </div>
         <div className="footer">
           <p>grand total</p>
