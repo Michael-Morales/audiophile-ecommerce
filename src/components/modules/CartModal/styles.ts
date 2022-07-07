@@ -11,7 +11,6 @@ export const styles = css`
     margin-top: 9rem;
     width: calc(100% - 24px * 2);
     max-width: 377px;
-    max-height: calc(100vh - 9rem - 3.2rem - 2.4rem);
     border-radius: 8px;
     z-index: 9999;
   }

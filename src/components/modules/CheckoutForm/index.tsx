@@ -1,11 +1,13 @@
 import type { FormValuesType } from "../../../types";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import Fieldsets from "../Fieldsets";
 import CartItem from "../CartItem";
 import Button from "../../elements/Button";
+import Modal from "../Modal";
+import CheckoutModal from "../CheckoutModal";
 
 import { Context as CartContext } from "../../../context/cartContext";
 
@@ -35,10 +37,13 @@ const CheckoutForm = () => {
       eMoneyPin: "",
     },
   });
+  const [showModal, setShowModal] = useState(false);
 
   const totalPrice = getTotalPrice(state);
 
-  const onSubmit = (data: FormValuesType) => console.log(data);
+  const onSubmit = () => {
+    // setShowModal(true);
+  };
 
   return (
     <>
@@ -73,7 +78,13 @@ const CheckoutForm = () => {
             <span>grand total</span>
             <span>{formatPrice(totalPrice + 50)}</span>
           </div>
-          <Button title="continue &amp; pay" action={() => {}} />
+          <Button
+            title="continue &amp; pay"
+            action={() => setShowModal(true)}
+          />
+          <Modal show={showModal} onClose={() => {}}>
+            <CheckoutModal />
+          </Modal>
         </div>
       </form>
 

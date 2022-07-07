@@ -47,7 +47,7 @@ const Fieldsets = ({ register, watch, errors }: Props) => {
                 required: true,
                 pattern: {
                   value: /\S+@\S+\.\S+/,
-                  message: "Invalid e-mail format",
+                  message: "Invalid email format",
                 },
               }}
               error={errors.email}
