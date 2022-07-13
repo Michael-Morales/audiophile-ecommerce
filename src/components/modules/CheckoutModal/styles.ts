@@ -5,14 +5,16 @@ import { colors, sizes } from "../../../styles/theme";
 export const styles = css`
   .container {
     position: fixed;
-    top: 50%;
+    top: calc(9rem + 2.4rem);
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     padding: 2.4rem;
     width: calc(100% - 2.4rem * 2);
     max-width: 540px;
+    max-height: calc(100vh - 9rem - 4.8rem);
     border-radius: 8px;
     z-index: 9999;
+    overflow-y: auto;
   }
 
   h2 {
