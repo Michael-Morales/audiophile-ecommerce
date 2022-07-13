@@ -65,7 +65,11 @@ const NavBar = () => {
             <NavLink name="speakers" route="/category/speakers" />
             <NavLink name="earphones" route="/category/earphones" />
           </nav>
-          <button onClick={toggleCart} className="cart-icon">
+          <button
+            onClick={toggleCart}
+            className="cart-icon"
+            disabled={router.pathname === "/checkout"}
+          >
             <CartIcon active={showModal} />
           </button>
           {showModal && (

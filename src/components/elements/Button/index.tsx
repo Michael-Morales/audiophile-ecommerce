@@ -10,6 +10,7 @@ type Props = {
   type?: keyof typeof buttonOptions;
   action?: () => void;
   disabled?: boolean;
+  fullWidth?: boolean;
 };
 
 type ButtonOption = {
@@ -57,6 +58,7 @@ const Button = ({
   type = "primary",
   action,
   disabled,
+  fullWidth,
 }: Props) => {
   return (
     <>
@@ -94,6 +96,7 @@ const Button = ({
         a,
         button {
           gap: ${type === "secondary" ? "13px" : "unset"};
+          width: ${fullWidth ? "100%" : "initial"};
           color: ${buttonOptions[type].color};
           background-color: ${disabled
             ? colors.primaryHover

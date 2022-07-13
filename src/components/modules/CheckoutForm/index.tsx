@@ -42,7 +42,7 @@ const CheckoutForm = () => {
   const totalPrice = getTotalPrice(state);
 
   const onSubmit = () => {
-    // setShowModal(true);
+    setShowModal(true);
   };
 
   return (
@@ -78,10 +78,7 @@ const CheckoutForm = () => {
             <span>grand total</span>
             <span>{formatPrice(totalPrice + 50)}</span>
           </div>
-          <Button
-            title="continue &amp; pay"
-            action={() => setShowModal(true)}
-          />
+          <Button title="continue &amp; pay" action={() => {}} />
           <Modal show={showModal} onClose={() => {}}>
             <CheckoutModal />
           </Modal>
