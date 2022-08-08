@@ -4,6 +4,7 @@ const Document = () => {
   return (
     <Html lang="en">
       <Head>
+        <link rel="icon" href="/favicon.ico" />
         <link
           rel="preload"
           href="/fonts/Manrope-VariableFont_wght.woff2"
