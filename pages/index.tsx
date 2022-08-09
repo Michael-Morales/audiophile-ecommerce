@@ -1,28 +1,18 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 
 import HomePage from "../src/components/templates/HomePage";
 import ContainerMargins from "../src/components/layouts/ContainerMargins";
+import SEO from "../src/components/modules/SEO";
 
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Audiophile | Bringing you the best audio gear</title>
-        <meta
-          name="description"
-          content="Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories."
-        />
-        <meta
-          name="og:title"
-          content="Audiophile | Bringing you the best audio gear"
-        />
-        <meta
-          name="og:description"
-          content="Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories."
-        />
-        <meta name="og:image" content="/images/desktop/img-best-gear.jpg" />
-      </Head>
+      <SEO
+        title="Bringing you the best audio gear"
+        description="Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories."
+        image="/images/desktop/img-best-gear.jpg"
+        url="http://localhost:3000"
+      />
 
       <ContainerMargins>
         <HomePage />
