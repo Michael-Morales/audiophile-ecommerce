@@ -25,7 +25,7 @@ const TertiaryShowcaseCard = () => {
                 ? tabletImg
                 : desktopImg
             }
-            alt=""
+            alt="earphones in a charging pod"
             layout="fill"
             objectFit="cover"
           />

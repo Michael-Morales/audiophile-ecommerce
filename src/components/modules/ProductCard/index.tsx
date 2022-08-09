@@ -65,7 +65,7 @@ const ProductCard = ({
                 ? image.tablet
                 : image.desktop
             }
-            alt=""
+            alt={name}
             layout="fill"
             objectFit="cover"
           />

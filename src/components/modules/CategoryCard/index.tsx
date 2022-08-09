@@ -29,7 +29,7 @@ const CategoryCard = ({
         <div className="img-wrapper">
           <Image
             src={`/images/shared/image-category-thumbnail-${title}.png`}
-            alt=""
+            alt={title}
             width={imgWidth * imgRatio}
             height={imgHeight * imgRatio}
             layout="fixed"

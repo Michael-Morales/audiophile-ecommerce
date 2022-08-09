@@ -24,7 +24,7 @@ const DescriptionSection = () => {
                   ? tabletImg
                   : desktopImg
               }
-              alt=""
+              alt="a man listening to music with headphones"
               layout="fill"
               objectFit="cover"
             />

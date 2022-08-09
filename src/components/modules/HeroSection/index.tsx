@@ -25,7 +25,7 @@ const Hero = () => {
                 ? tabletImage
                 : desktopImage
             }
-            alt=""
+            alt="black headphones"
             layout="fill"
             objectFit="cover"
           />

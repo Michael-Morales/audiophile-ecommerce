@@ -28,7 +28,7 @@ const SuggestionCard = ({ suggestion }: Props) => {
                 ? image.tablet
                 : image.desktop
             }
-            alt=""
+            alt={name}
             layout="fill"
             objectFit="cover"
           />

@@ -52,7 +52,7 @@ const ProductPage = ({ product }: Props) => {
             </div>
             <ProductContent items={includes} />
           </div>
-          <GallerySection {...gallery} />
+          <GallerySection {...gallery} productName={name} />
         </section>
         <SuggestionSection suggestions={others} />
         <CategorySection />

@@ -30,7 +30,7 @@ const CategoryProduct = ({
                 ? tablet
                 : desktop
             }
-            alt=""
+            alt={name}
             layout="fill"
             objectFit="cover"
           />

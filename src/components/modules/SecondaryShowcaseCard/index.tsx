@@ -25,7 +25,7 @@ const SecondaryShowcaseCard = () => {
                 ? tabletImg
                 : desktopImg
             }
-            alt=""
+            alt="a speaker on a table"
             layout="fill"
             objectFit="cover"
           />

@@ -29,7 +29,7 @@ const CartItem = ({
     <>
       <div className="container">
         <div className="img-wrapper">
-          <Image src={image} alt="" layout="fill" objectFit="cover" />
+          <Image src={image} alt={name} layout="fill" objectFit="cover" />
         </div>
         <div className="informations">
           <Link href={`/product/${slug}`}>

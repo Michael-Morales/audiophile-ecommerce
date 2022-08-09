@@ -11,7 +11,7 @@ const PrimaryShowcaseCard = () => {
     <>
       <div className="container">
         <div className="img-wrapper">
-          <Image src={imageSrc} alt="" />
+          <Image src={imageSrc} alt="a speaker" />
         </div>
         <div className="content">
           <h2>

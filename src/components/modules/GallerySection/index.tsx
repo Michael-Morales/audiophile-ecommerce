@@ -10,9 +10,10 @@ type Props = {
   first: ImagePathsType;
   second: ImagePathsType;
   third: ImagePathsType;
+  productName: string;
 };
 
-const GallerySection = ({ first, second, third }: Props) => {
+const GallerySection = ({ first, second, third, productName }: Props) => {
   const [width] = useViewportWidth();
 
   return (
@@ -27,7 +28,7 @@ const GallerySection = ({ first, second, third }: Props) => {
                 ? first.tablet
                 : first.desktop
             }
-            alt=""
+            alt={`${productName} being used`}
             layout="fill"
             objectFit="cover"
           />
@@ -41,7 +42,7 @@ const GallerySection = ({ first, second, third }: Props) => {
                 ? second.tablet
                 : second.desktop
             }
-            alt=""
+            alt={`${productName} being used`}
             layout="fill"
             objectFit="cover"
           />
@@ -55,7 +56,7 @@ const GallerySection = ({ first, second, third }: Props) => {
                 ? third.tablet
                 : third.desktop
             }
-            alt=""
+            alt={`${productName} being used`}
             layout="fill"
             objectFit="cover"
           />
