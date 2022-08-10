@@ -10,7 +10,7 @@ type Props = {
 const SEO = ({ title, description, image, url }: Props) => {
   return (
     <Head>
-      <title>Audiophile | {title}</title>
+      <title>{`Audiophile | ${title}`}</title>
       <meta name="description" content={description} />
       <meta name="og:title" content={`Audiophile | ${title}`} />
       <meta name="og:description" content={description} />
