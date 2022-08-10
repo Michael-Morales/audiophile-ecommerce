@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -12,6 +12,8 @@ import CartModal from "../CartModal";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
+import { Context as CartContext } from "../../../context/cartContext";
+
 import { styles, dynamicStyles } from "./styles";
 
 import logo from "../../../../public/images/icons/logo.svg";
@@ -21,6 +23,7 @@ const NavBar = () => {
   const [showModal, setShowModal] = useState(false);
   const [width] = useViewportWidth();
   const router = useRouter();
+  const { state } = useContext(CartContext);
 
   const toggleMenu = () => {
     if (showModal) setShowModal(false);
@@ -71,6 +74,7 @@ const NavBar = () => {
             disabled={router.pathname === "/checkout"}
           >
             <CartIcon active={showModal} />
+            {state.length > 0 && <span className="cart-indicator" />}
           </button>
           {showModal && (
             <Modal show={showModal} onClose={() => setShowModal(false)}>

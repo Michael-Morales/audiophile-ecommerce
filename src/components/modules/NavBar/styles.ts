@@ -65,11 +65,21 @@ export const styles = css`
   }
 
   .cart-icon {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 0;
     background-color: unset;
     border: unset;
+  }
+
+  .cart-indicator {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
   }
 
   @media screen and (min-width: 600px) {
@@ -175,5 +185,9 @@ export const dynamicStyles = css`
 
   .background {
     background-color: ${colors.secondaryButton};
+  }
+
+  .cart-indicator {
+    background-color: ${colors.primary};
   }
 `;
