@@ -26,12 +26,25 @@ const CartItem = ({
   checkout,
 }: Props) => {
   const { dispatch } = useContext(CartContext);
-  const [, , removeItem] = useLocalStorage();
+  const [, , removeItem, increaseQuantity, decreaseQuantity] =
+    useLocalStorage();
 
   const handleRemove = () => {
     removeItem(id);
 
     dispatch({ type: "remove_item", payload: id });
+  };
+
+  const handleIncrease = () => {
+    increaseQuantity(id);
+
+    dispatch({ type: "increase_quantity", payload: id });
+  };
+
+  const handleDecrease = () => {
+    decreaseQuantity(id);
+
+    dispatch({ type: "decrease_quantity", payload: id });
   };
 
   return (
@@ -51,12 +64,8 @@ const CartItem = ({
         ) : (
           <ProductQuantity
             quantity={quantity}
-            increment={() =>
-              dispatch({ type: "increase_quantity", payload: id })
-            }
-            decrement={() =>
-              dispatch({ type: "decrease_quantity", payload: id })
-            }
+            increment={handleIncrease}
+            decrement={handleDecrease}
             remove={handleRemove}
             small
           />

@@ -50,7 +50,49 @@ const useLocalStorage = () => {
     }
   };
 
-  return [addItem, removeAllItems, removeItem] as const;
+  const increaseQuantity = (itemId: number) => {
+    if (typeof window !== "undefined") {
+      const currentStorage = localStorage.getItem("cart");
+
+      if (currentStorage) {
+        const parsedStorage = JSON.parse(currentStorage);
+
+        const newStorage = parsedStorage.map((cartItem: CartItemType) =>
+          cartItem.id === itemId
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+
+        return localStorage.setItem("cart", JSON.stringify(newStorage));
+      }
+    }
+  };
+
+  const decreaseQuantity = (itemId: number) => {
+    if (typeof window !== "undefined") {
+      const currentStorage = localStorage.getItem("cart");
+
+      if (currentStorage) {
+        const parsedStorage = JSON.parse(currentStorage);
+
+        const newStorage = parsedStorage.map((cartItem: CartItemType) =>
+          cartItem.id === itemId
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        );
+
+        return localStorage.setItem("cart", JSON.stringify(newStorage));
+      }
+    }
+  };
+
+  return [
+    addItem,
+    removeAllItems,
+    removeItem,
+    increaseQuantity,
+    decreaseQuantity,
+  ] as const;
 };
 
 export default useLocalStorage;
