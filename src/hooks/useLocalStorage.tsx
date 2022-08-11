@@ -11,10 +11,20 @@ const useLocalStorage = () => {
 
       const parsedStorage = JSON.parse(currentStorage);
 
-      return localStorage.setItem(
-        "cart",
-        JSON.stringify([...parsedStorage, item])
-      );
+      if (parsedStorage.find(({ id }: { id: number }) => item.id === id)) {
+        const newStorage = parsedStorage.map((cartItem: CartItemType) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + item.quantity }
+            : cartItem
+        );
+
+        return localStorage.setItem("cart", JSON.stringify(newStorage));
+      } else {
+        return localStorage.setItem(
+          "cart",
+          JSON.stringify([...parsedStorage, item])
+        );
+      }
     }
   };
 
