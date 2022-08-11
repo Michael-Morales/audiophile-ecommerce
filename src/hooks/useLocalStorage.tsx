@@ -18,7 +18,11 @@ const useLocalStorage = () => {
     }
   };
 
-  return [addToLocalStorage] as const;
+  const removeAllLocalStorage = () => {
+    if (typeof window !== "undefined") localStorage.removeItem("cart");
+  };
+
+  return [addToLocalStorage, removeAllLocalStorage] as const;
 };
 
 export default useLocalStorage;
