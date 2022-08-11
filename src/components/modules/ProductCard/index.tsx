@@ -7,6 +7,7 @@ import Button from "../../elements/Button";
 import ProductQuantity from "../ProductQuantity";
 
 import useViewPortWidth from "../../../hooks/useViewportWidth";
+import useLocalStorage from "../../../hooks/useLocalStorage";
 
 import { Context as CartContext } from "../../../context/cartContext";
 
@@ -36,20 +37,25 @@ const ProductCard = ({
   slug,
 }: Props) => {
   const [width] = useViewPortWidth();
+  const [addToLocalStorage] = useLocalStorage();
   const [count, setCount] = useState(1);
   const { dispatch } = useContext(CartContext);
 
   const addToCart = () => {
+    const item = {
+      id,
+      quantity: count,
+      price,
+      name: cartName,
+      image: image.mobile,
+      slug,
+    };
+
+    addToLocalStorage(item);
+
     dispatch({
       type: "add_item",
-      payload: {
-        id,
-        quantity: count,
-        price,
-        name: cartName,
-        image: image.mobile,
-        slug,
-      },
+      payload: item,
     });
   };
 

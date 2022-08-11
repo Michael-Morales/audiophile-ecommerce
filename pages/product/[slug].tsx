@@ -14,7 +14,6 @@ import data from "../../src/data.json";
 const Product: NextPage = ({
   product,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  console.log(product);
   return (
     <>
       <SEO
