@@ -6,6 +6,8 @@ import Link from "next/link";
 
 import ProductQuantity from "../ProductQuantity";
 
+import useLocalStorage from "../../../hooks/useLocalStorage";
+
 import { Context as CartContext } from "../../../context/cartContext";
 
 import formatPrice from "../../../utils/formatPrice";
@@ -24,6 +26,13 @@ const CartItem = ({
   checkout,
 }: Props) => {
   const { dispatch } = useContext(CartContext);
+  const [, , removeItem] = useLocalStorage();
+
+  const handleRemove = () => {
+    removeItem(id);
+
+    dispatch({ type: "remove_item", payload: id });
+  };
 
   return (
     <>
@@ -48,7 +57,7 @@ const CartItem = ({
             decrement={() =>
               dispatch({ type: "decrease_quantity", payload: id })
             }
-            remove={() => dispatch({ type: "remove_item", payload: id })}
+            remove={handleRemove}
             small
           />
         )}

@@ -1,7 +1,7 @@
 import type { CartItemType } from "../types";
 
 const useLocalStorage = () => {
-  const addToLocalStorage = (item: CartItemType) => {
+  const addItem = (item: CartItemType) => {
     if (typeof window !== "undefined") {
       const currentStorage = localStorage.getItem("cart");
 
@@ -18,11 +18,29 @@ const useLocalStorage = () => {
     }
   };
 
-  const removeAllLocalStorage = () => {
+  const removeAllItems = () => {
     if (typeof window !== "undefined") localStorage.removeItem("cart");
   };
 
-  return [addToLocalStorage, removeAllLocalStorage] as const;
+  const removeItem = (itemId: number) => {
+    if (typeof window !== "undefined") {
+      const currentStorage = localStorage.getItem("cart");
+
+      if (currentStorage) {
+        const parsedStorage = JSON.parse(currentStorage);
+
+        const newStorage = parsedStorage.filter(
+          ({ id }: { id: number }) => id !== itemId
+        );
+
+        if (newStorage.length === 0) return localStorage.removeItem("cart");
+
+        return localStorage.setItem("cart", JSON.stringify(newStorage));
+      }
+    }
+  };
+
+  return [addItem, removeAllItems, removeItem] as const;
 };
 
 export default useLocalStorage;

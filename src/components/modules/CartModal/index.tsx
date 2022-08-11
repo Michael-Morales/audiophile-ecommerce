@@ -13,13 +13,13 @@ import getTotalPrice from "../../../utils/getTotalPrice";
 import { styles, dynamicStyles } from "./styles";
 
 const CartModal = () => {
-  const [, removeAllLocalStorage] = useLocalStorage();
+  const [, removeAllItems] = useLocalStorage();
   const { state, dispatch } = useContext(CartContext);
 
   const totalPrice = getTotalPrice(state);
 
   const handleRemoveAll = () => {
-    removeAllLocalStorage();
+    removeAllItems();
 
     dispatch({ type: "remove_all" });
   };

@@ -37,7 +37,7 @@ const ProductCard = ({
   slug,
 }: Props) => {
   const [width] = useViewPortWidth();
-  const [addToLocalStorage] = useLocalStorage();
+  const [addItem] = useLocalStorage();
   const [count, setCount] = useState(1);
   const { dispatch } = useContext(CartContext);
 
@@ -51,7 +51,7 @@ const ProductCard = ({
       slug,
     };
 
-    addToLocalStorage(item);
+    addItem(item);
 
     dispatch({
       type: "add_item",

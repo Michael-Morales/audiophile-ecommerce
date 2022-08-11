@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import Button from "../../elements/Button";
 import CheckoutRecap from "../CheckoutRecap";
 
+import useLocalStorage from "../../../hooks/useLocalStorage";
+
 import { Context as CartContext } from "../../../context/cartContext";
 
 import checkoutImg from "../../../../public/images/icons/icon-order-confirmation.svg";
@@ -14,8 +16,11 @@ import { styles, dynamicStyles } from "./styles";
 const CheckoutModal = () => {
   const router = useRouter();
   const { dispatch } = useContext(CartContext);
+  const [, removeAllItems] = useLocalStorage();
 
   const backToHome = async () => {
+    removeAllItems();
+
     await router.replace("/");
 
     dispatch({ type: "remove_all" });
