@@ -9,10 +9,10 @@ type Props = {
 
 type ActionsMap = {
   add_item: CartItemType;
-  remove_item: number;
+  remove_item: string;
   remove_all: undefined;
-  increase_quantity: number;
-  decrease_quantity: number;
+  increase_quantity: string;
+  decrease_quantity: string;
   fetch_cart: Array<CartItemType>;
 };
 

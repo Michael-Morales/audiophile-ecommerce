@@ -3,15 +3,13 @@ import type {
   GetServerSideProps,
   NextPage,
 } from "next";
-import type { ProductType } from "../../src/types";
 
 import { collection, getDocs, query, where } from "firebase/firestore";
 
-import { db } from "../../src/firebase";
 import CategoryPage from "../../src/components/templates/CategoryPage";
 import SEO from "../../src/components/modules/SEO";
 
-import data from "../../src/data.json";
+import { db } from "../../src/firebase";
 
 const Category: NextPage = ({
   products,
@@ -43,10 +41,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     id: doc.id,
     ...doc.data(),
   }));
-
-  // const products: Array<ProductType> = data
-  //   .filter((product) => product.category === params?.category)
-  //   .sort((x, y) => (x === y ? 0 : x ? -1 : 1));
 
   return { props: { products } };
 };

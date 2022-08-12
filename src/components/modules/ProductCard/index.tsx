@@ -16,7 +16,7 @@ import formatPrice from "../../../utils/formatPrice";
 import { styles, dynamicStyles } from "./styles";
 
 type Props = {
-  id: number;
+  id: string;
   isNew: boolean;
   name: string;
   cartName: string;

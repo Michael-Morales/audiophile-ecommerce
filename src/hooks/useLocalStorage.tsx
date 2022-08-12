@@ -11,7 +11,7 @@ const useLocalStorage = () => {
 
       const parsedStorage = JSON.parse(currentStorage);
 
-      if (parsedStorage.find(({ id }: { id: number }) => item.id === id)) {
+      if (parsedStorage.find(({ id }: { id: string }) => item.id === id)) {
         const newStorage = parsedStorage.map((cartItem: CartItemType) =>
           cartItem.id === item.id
             ? { ...cartItem, quantity: cartItem.quantity + item.quantity }
@@ -32,7 +32,7 @@ const useLocalStorage = () => {
     if (typeof window !== "undefined") localStorage.removeItem("cart");
   };
 
-  const removeItem = (itemId: number) => {
+  const removeItem = (itemId: string) => {
     if (typeof window !== "undefined") {
       const currentStorage = localStorage.getItem("cart");
 
@@ -40,7 +40,7 @@ const useLocalStorage = () => {
         const parsedStorage = JSON.parse(currentStorage);
 
         const newStorage = parsedStorage.filter(
-          ({ id }: { id: number }) => id !== itemId
+          ({ id }: { id: string }) => id !== itemId
         );
 
         if (newStorage.length === 0) return localStorage.removeItem("cart");
@@ -50,7 +50,7 @@ const useLocalStorage = () => {
     }
   };
 
-  const increaseQuantity = (itemId: number) => {
+  const increaseQuantity = (itemId: string) => {
     if (typeof window !== "undefined") {
       const currentStorage = localStorage.getItem("cart");
 
@@ -68,7 +68,7 @@ const useLocalStorage = () => {
     }
   };
 
-  const decreaseQuantity = (itemId: number) => {
+  const decreaseQuantity = (itemId: string) => {
     if (typeof window !== "undefined") {
       const currentStorage = localStorage.getItem("cart");
 

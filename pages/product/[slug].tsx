@@ -3,13 +3,14 @@ import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
 } from "next";
-import type { ProductType } from "../../src/types";
+
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 import ContainerMargins from "../../src/components/layouts/ContainerMargins";
 import ProductPage from "../../src/components/templates/ProductPage";
 import SEO from "../../src/components/modules/SEO";
 
-import data from "../../src/data.json";
+import { db } from "../../src/firebase";
 
 const Product: NextPage = ({
   product,
@@ -31,9 +32,17 @@ const Product: NextPage = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const product: ProductType | undefined = data.find(
-    ({ slug }) => slug === params?.slug
+  const q = query(
+    collection(db, "products"),
+    where("slug", "==", params?.slug)
   );
+
+  const querySnapshot = await getDocs(q);
+
+  const product = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }))[0];
 
   return { props: { product } };
 };
