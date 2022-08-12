@@ -5,6 +5,9 @@ import type {
 } from "next";
 import type { ProductType } from "../../src/types";
 
+import { collection, getDocs, query, where } from "firebase/firestore";
+
+import { db } from "../../src/firebase";
 import CategoryPage from "../../src/components/templates/CategoryPage";
 import SEO from "../../src/components/modules/SEO";
 
@@ -30,9 +33,20 @@ const Category: NextPage = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const products: Array<ProductType> = data
-    .filter((product) => product.category === params?.category)
-    .sort((x, y) => (x === y ? 0 : x ? -1 : 1));
+  const q = query(
+    collection(db, "products"),
+    where("category", "==", params?.category)
+  );
+  const querySnapshot = await getDocs(q);
+
+  const products = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  // const products: Array<ProductType> = data
+  //   .filter((product) => product.category === params?.category)
+  //   .sort((x, y) => (x === y ? 0 : x ? -1 : 1));
 
   return { props: { products } };
 };

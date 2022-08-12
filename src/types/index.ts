@@ -36,6 +36,27 @@ export type ProductType = {
   others: Array<OtherProductType>;
 };
 
+export type FirebaseProductType = {
+  id: string;
+  slug: string;
+  name: string;
+  cartName: string;
+  image: ImagePathsType;
+  category: string;
+  categoryImage: ImagePathsType;
+  isNew: boolean;
+  price: number;
+  description: string;
+  features: string;
+  includes: Array<IncludedItemType>;
+  gallery: {
+    first: ImagePathsType;
+    second: ImagePathsType;
+    third: ImagePathsType;
+  };
+  others: Array<OtherProductType>;
+};
+
 export type CategoryProductType = {
   id: number;
   slug: string;
