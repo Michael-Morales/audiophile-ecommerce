@@ -48,7 +48,7 @@ const ProductPage = ({ product }: Props) => {
           <div className="features-container">
             <div className="features">
               <h2>features</h2>
-              <p>{features}</p>
+              <p>{features.replaceAll("\\n", "\n")}</p>
             </div>
             <ProductContent items={includes} />
           </div>
