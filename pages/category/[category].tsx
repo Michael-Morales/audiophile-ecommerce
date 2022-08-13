@@ -3,6 +3,7 @@ import type {
   GetServerSideProps,
   NextPage,
 } from "next";
+import { ProductType } from "../../src/types";
 
 import { collection, getDocs, query, where } from "firebase/firestore";
 
@@ -14,6 +15,10 @@ import { db } from "../../src/firebase";
 const Category: NextPage = ({
   products,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const sortedProducts: Array<ProductType> = products.sort(
+    (x: ProductType, y: ProductType) => +y.isNew - +x.isNew
+  );
+
   return (
     <>
       <SEO
@@ -25,7 +30,7 @@ const Category: NextPage = ({
         url={`http://localhost:3000/category/${products[0].category}`}
       />
 
-      <CategoryPage products={products} />
+      <CategoryPage products={sortedProducts} />
     </>
   );
 };
