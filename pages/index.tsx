@@ -1,16 +1,23 @@
 import type { NextPage } from "next";
-import Head from "next/head";
+
+import HomePage from "../src/components/templates/HomePage";
+import ContainerMargins from "../src/components/layouts/ContainerMargins";
+import SEO from "../src/components/modules/SEO";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <Head>
-        <title>Audiophile</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <SEO
+        title="Bringing you the best audio gear"
+        description="Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories."
+        image="/images/desktop/img-best-gear.jpg"
+        url="http://localhost:3000"
+      />
 
-      <div>Audiophile App</div>
-    </div>
+      <ContainerMargins>
+        <HomePage />
+      </ContainerMargins>
+    </>
   );
 };
 
