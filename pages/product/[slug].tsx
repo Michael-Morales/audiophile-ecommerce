@@ -21,7 +21,7 @@ const Product: NextPage = ({
         title={product.name}
         description={product.description}
         image={product.image.desktop}
-        url={`http://localhost:3000/product/${product.slug}`}
+        url={`https://audiophile-morales.netlify.app/product/${product.slug}`}
       />
 
       <ContainerMargins>

@@ -27,7 +27,7 @@ const Category: NextPage = ({
         }
         description={`Discover our selection of best quality ${products[0].category}.`}
         image={products[0].image.desktop}
-        url={`http://localhost:3000/category/${products[0].category}`}
+        url={`https://audiophile-morales.netlify.app/category/${products[0].category}`}
       />
 
       <CategoryPage products={sortedProducts} />

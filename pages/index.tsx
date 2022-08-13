@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         title="Bringing you the best audio gear"
         description="Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories."
         image="/images/desktop/img-best-gear.jpg"
-        url="http://localhost:3000"
+        url="https://audiophile-morales.netlify.app"
       />
 
       <ContainerMargins>
