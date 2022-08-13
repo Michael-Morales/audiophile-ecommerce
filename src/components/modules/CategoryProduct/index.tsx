@@ -6,6 +6,8 @@ import Button from "../../elements/Button";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
+import getImgURL from "../../../utils/getImgURL";
+
 import { styles, dynamicStyles } from "./styles";
 
 const CategoryProduct = ({
@@ -25,10 +27,10 @@ const CategoryProduct = ({
           <Image
             src={
               width && width < 600
-                ? mobile
+                ? getImgURL(mobile)
                 : width && width < 1240
-                ? tablet
-                : desktop
+                ? getImgURL(tablet)
+                : getImgURL(desktop)
             }
             alt={name}
             layout="fill"

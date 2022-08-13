@@ -2,9 +2,7 @@ import Image from "next/image";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
-import mobileImg from "../../../../public/images/mobile/image-best-gear.jpg";
-import tabletImg from "../../../../public/images/tablet/image-best-gear.jpg";
-import desktopImg from "../../../../public/images/desktop/image-best-gear.jpg";
+import getImgURL from "../../../utils/getImgURL";
 
 import { styles, dynamicStyles } from "./styles";
 
@@ -19,10 +17,10 @@ const DescriptionSection = () => {
             <Image
               src={
                 width && width < 600
-                  ? mobileImg
+                  ? getImgURL("mobile/image-best-gear")
                   : width && width < 1240
-                  ? tabletImg
-                  : desktopImg
+                  ? getImgURL("tablet/image-best-gear")
+                  : getImgURL("desktop/image-best-gear")
               }
               alt="a man listening to music with headphones"
               layout="fill"

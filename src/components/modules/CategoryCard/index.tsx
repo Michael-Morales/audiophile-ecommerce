@@ -2,6 +2,8 @@ import Image from "next/image";
 
 import Button from "../../elements/Button";
 
+import getImgURL from "../../../utils/getImgURL";
+
 import { styles, dynamicStyles } from "./styles";
 
 type Props = {
@@ -28,7 +30,7 @@ const CategoryCard = ({
       <div className="container">
         <div className="img-wrapper">
           <Image
-            src={`/images/shared/image-category-thumbnail-${title}.png`}
+            src={getImgURL(`shared/image-category-thumbnail-${title}`)}
             alt={title}
             width={imgWidth * imgRatio}
             height={imgHeight * imgRatio}

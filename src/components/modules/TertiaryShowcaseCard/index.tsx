@@ -4,9 +4,7 @@ import Button from "../../elements/Button";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
-import mobileImg from "../../../../public/images/mobile/image-earphones-yx1.jpg";
-import tabletImg from "../../../../public/images/tablet/image-earphones-yx1.jpg";
-import desktopImg from "../../../../public/images/desktop/image-earphones-yx1.jpg";
+import getImgURL from "../../../utils/getImgURL";
 
 import { styles, dynamicStyles } from "./styles";
 
@@ -20,10 +18,10 @@ const TertiaryShowcaseCard = () => {
           <Image
             src={
               width && width < 600
-                ? mobileImg
+                ? getImgURL("mobile/image-earphones-yx1")
                 : width && width < 1240
-                ? tabletImg
-                : desktopImg
+                ? getImgURL("tablet/image-earphones-yx1")
+                : getImgURL("desktop/image-earphones-yx1")
             }
             alt="earphones in a charging pod"
             layout="fill"

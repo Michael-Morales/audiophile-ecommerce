@@ -6,6 +6,8 @@ import Button from "../../elements/Button";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
+import getImgURL from "../../../utils/getImgURL";
+
 import { styles, dynamicStyles } from "./styles";
 
 type Props = {
@@ -23,10 +25,10 @@ const SuggestionCard = ({ suggestion }: Props) => {
           <Image
             src={
               width && width < 600
-                ? image.mobile
+                ? getImgURL(image.mobile)
                 : width && width < 1240
-                ? image.tablet
-                : image.desktop
+                ? getImgURL(image.tablet)
+                : getImgURL(image.desktop)
             }
             alt={name}
             layout="fill"

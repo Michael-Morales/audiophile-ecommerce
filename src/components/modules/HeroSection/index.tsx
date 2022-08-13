@@ -4,11 +4,9 @@ import Button from "../../elements/Button";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
-import { styles, dynamicStyles } from "./styles";
+import getImgURL from "../../../utils/getImgURL";
 
-import mobileImage from "../../../../public/images/mobile/image-header.jpg";
-import tabletImage from "../../../../public/images/tablet/image-header.jpg";
-import desktopImage from "../../../../public/images/desktop/image-hero.jpg";
+import { styles, dynamicStyles } from "./styles";
 
 const Hero = () => {
   const [width] = useViewportWidth();
@@ -20,10 +18,10 @@ const Hero = () => {
           <Image
             src={
               width && width < 600
-                ? mobileImage
+                ? getImgURL("mobile/image-header")
                 : width && width < 1240
-                ? tabletImage
-                : desktopImage
+                ? getImgURL("tablet/image-header")
+                : getImgURL("desktop/image-hero")
             }
             alt="black headphones"
             layout="fill"

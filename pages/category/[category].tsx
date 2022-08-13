@@ -12,6 +12,8 @@ import SEO from "../../src/components/modules/SEO";
 
 import { db } from "../../src/firebase";
 
+import getImgURL from "../../src/utils/getImgURL";
+
 const Category: NextPage = ({
   products,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -26,7 +28,7 @@ const Category: NextPage = ({
           products[0].category[0].toUpperCase() + products[0].category.slice(1)
         }
         description={`Discover our selection of best quality ${products[0].category}.`}
-        image={products[0].image.desktop}
+        image={getImgURL(products[0].image.desktop)}
         url={`https://audiophile-morales.netlify.app/category/${products[0].category}`}
       />
 
