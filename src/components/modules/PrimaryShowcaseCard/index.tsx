@@ -2,16 +2,21 @@ import Image from "next/image";
 
 import Button from "../../elements/Button";
 
-import { styles, dynamicStyles } from "./styles";
+import getImgURL from "../../../utils/getImgURL";
 
-import imageSrc from "../../../../public/images/shared/image-speaker-zx9.png";
+import { styles, dynamicStyles } from "./styles";
 
 const PrimaryShowcaseCard = () => {
   return (
     <>
       <div className="container">
         <div className="img-wrapper">
-          <Image src={imageSrc} alt="a speaker" />
+          <Image
+            src={getImgURL("shared/image-speaker-zx9")}
+            alt="a speaker"
+            width={756}
+            height={918}
+          />
         </div>
         <div className="content">
           <h2>

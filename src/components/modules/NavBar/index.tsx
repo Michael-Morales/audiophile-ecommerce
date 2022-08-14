@@ -58,7 +58,7 @@ const NavBar = () => {
             <MenuIcon />
           </button>
           <Link href="/">
-            <a className="logo">
+            <a className="logo" aria-label="home">
               <Image src={logo} alt="" />
             </a>
           </Link>
@@ -72,6 +72,7 @@ const NavBar = () => {
             onClick={toggleCart}
             className="cart-icon"
             disabled={router.pathname === "/checkout"}
+            aria-label="cart"
           >
             <CartIcon active={showModal} />
             {state.length > 0 && <span className="cart-indicator" />}

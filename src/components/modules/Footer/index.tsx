@@ -35,18 +35,18 @@ const Footer = () => {
           <div className="socials-section">
             <p>Copyright 2022. All Rights Reserved</p>
             <div className="socials-links">
-              <Link href="/">
-                <a>
+              <Link href="https://www.facebook.com">
+                <a target="_blank" rel="noreferrer" aria-label="facebook">
                   <FacebookIcon />
                 </a>
               </Link>
-              <Link href="/">
-                <a>
+              <Link href="https://twitter.com">
+                <a target="_blank" rel="noreferrer" aria-label="twitter">
                   <TwitterIcon />
                 </a>
               </Link>
-              <Link href="/">
-                <a>
+              <Link href="https://www.instagram.com">
+                <a target="_blank" rel="noreferrer" aria-label="instagram">
                   <InstagramIcon />
                 </a>
               </Link>

@@ -12,6 +12,8 @@ import SEO from "../../src/components/modules/SEO";
 
 import { db } from "../../src/firebase";
 
+import getImgURL from "../../src/utils/getImgURL";
+
 const Product: NextPage = ({
   product,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -20,8 +22,8 @@ const Product: NextPage = ({
       <SEO
         title={product.name}
         description={product.description}
-        image={product.image.desktop}
-        url={`http://localhost:3000/product/${product.slug}`}
+        image={getImgURL(product.image.desktop)}
+        url={`https://audiophile-morales.netlify.app/product/${product.slug}`}
       />
 
       <ContainerMargins>

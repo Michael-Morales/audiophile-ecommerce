@@ -2,6 +2,8 @@ import css from "styled-jsx/css";
 
 import { colors, sizes } from "../../../styles/theme";
 
+import getImgURL from "../../../utils/getImgURL";
+
 export const styles = css`
   .container {
     display: flex;
@@ -26,7 +28,6 @@ export const styles = css`
     left: 50%;
     width: 324%;
     height: 324%;
-    background-image: url("/images/shared/pattern-circles.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -106,6 +107,10 @@ export const dynamicStyles = css`
 
   .h2 {
     letter-spacing: ${sizes.mobile.letterSpacing.h5};
+  }
+
+  .img-wrapper::before {
+    background-image: url(${getImgURL("shared/pattern-circles")});
   }
 
   @media screen and (min-width: 600px) {

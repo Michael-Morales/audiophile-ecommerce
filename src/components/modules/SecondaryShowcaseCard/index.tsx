@@ -4,9 +4,7 @@ import Button from "../../elements/Button";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
-import mobileImg from "../../../../public/images/mobile/image-speaker-zx7.jpg";
-import tabletImg from "../../../../public/images/tablet/image-speaker-zx7.jpg";
-import desktopImg from "../../../../public/images/desktop/image-speaker-zx7.jpg";
+import getImgURL from "../../../utils/getImgURL";
 
 import { styles, dynamicStyles } from "./styles";
 
@@ -20,10 +18,10 @@ const SecondaryShowcaseCard = () => {
           <Image
             src={
               width && width < 600
-                ? mobileImg
+                ? getImgURL("mobile/image-speaker-zx7")
                 : width && width < 1240
-                ? tabletImg
-                : desktopImg
+                ? getImgURL("tablet/image-speaker-zx7")
+                : getImgURL("desktop/image-speaker-zx7")
             }
             alt="a speaker on a table"
             layout="fill"

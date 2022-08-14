@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
+import getImgURL from "../../../utils/getImgURL";
+
 import { styles } from "./styles";
 
 type Props = {
@@ -23,10 +25,10 @@ const GallerySection = ({ first, second, third, productName }: Props) => {
           <Image
             src={
               width && width < 600
-                ? first.mobile
+                ? getImgURL(first.mobile)
                 : width && width < 1240
-                ? first.tablet
-                : first.desktop
+                ? getImgURL(first.tablet)
+                : getImgURL(first.desktop)
             }
             alt={`${productName} being used`}
             layout="fill"
@@ -37,10 +39,10 @@ const GallerySection = ({ first, second, third, productName }: Props) => {
           <Image
             src={
               width && width < 600
-                ? second.mobile
+                ? getImgURL(second.mobile)
                 : width && width < 1240
-                ? second.tablet
-                : second.desktop
+                ? getImgURL(second.tablet)
+                : getImgURL(second.desktop)
             }
             alt={`${productName} being used`}
             layout="fill"
@@ -51,10 +53,10 @@ const GallerySection = ({ first, second, third, productName }: Props) => {
           <Image
             src={
               width && width < 600
-                ? third.mobile
+                ? getImgURL(third.mobile)
                 : width && width < 1240
-                ? third.tablet
-                : third.desktop
+                ? getImgURL(third.tablet)
+                : getImgURL(third.desktop)
             }
             alt={`${productName} being used`}
             layout="fill"

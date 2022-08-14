@@ -11,6 +11,7 @@ import useLocalStorage from "../../../hooks/useLocalStorage";
 import { Context as CartContext } from "../../../context/cartContext";
 
 import formatPrice from "../../../utils/formatPrice";
+import getImgURL from "../../../utils/getImgURL";
 
 import { styles, dynamicStyles } from "./styles";
 
@@ -51,7 +52,12 @@ const CartItem = ({
     <>
       <div className="container">
         <div className="img-wrapper">
-          <Image src={image} alt={name} layout="fill" objectFit="cover" />
+          <Image
+            src={getImgURL(image)}
+            alt={name}
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
         <div className="informations">
           <Link href={`/product/${slug}`}>

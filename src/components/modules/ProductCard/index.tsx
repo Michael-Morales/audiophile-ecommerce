@@ -12,6 +12,7 @@ import useLocalStorage from "../../../hooks/useLocalStorage";
 import { Context as CartContext } from "../../../context/cartContext";
 
 import formatPrice from "../../../utils/formatPrice";
+import getImgURL from "../../../utils/getImgURL";
 
 import { styles, dynamicStyles } from "./styles";
 
@@ -66,10 +67,10 @@ const ProductCard = ({
           <Image
             src={
               width && width < 600
-                ? image.mobile
+                ? getImgURL(image.mobile)
                 : width && width < 1240
-                ? image.tablet
-                : image.desktop
+                ? getImgURL(image.tablet)
+                : getImgURL(image.desktop)
             }
             alt={name}
             layout="fill"
