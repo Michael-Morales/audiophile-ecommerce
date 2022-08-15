@@ -16,6 +16,7 @@ const PrimaryShowcaseCard = () => {
             alt="a speaker"
             width={756}
             height={918}
+            priority
           />
         </div>
         <div className="content">

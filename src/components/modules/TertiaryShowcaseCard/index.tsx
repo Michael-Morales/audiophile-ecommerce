@@ -26,6 +26,7 @@ const TertiaryShowcaseCard = () => {
             alt="earphones in a charging pod"
             layout="fill"
             objectFit="cover"
+            priority
           />
         </div>
         <div className="content">
