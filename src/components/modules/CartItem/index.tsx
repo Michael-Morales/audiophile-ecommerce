@@ -58,6 +58,8 @@ const CartItem = ({
             layout="fill"
             objectFit="cover"
             priority
+            placeholder="blur"
+            blurDataURL={getImgURL(image, "blur")}
           />
         </div>
         <div className="informations">
