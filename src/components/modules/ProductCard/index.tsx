@@ -75,6 +75,7 @@ const ProductCard = ({
             alt={name}
             layout="fill"
             objectFit="cover"
+            priority
           />
         </div>
         <div className="content">

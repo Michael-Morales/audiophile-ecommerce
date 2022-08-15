@@ -26,6 +26,7 @@ const Hero = () => {
             alt="black headphones"
             layout="fill"
             objectFit="cover"
+            priority
           />
         </div>
         <p className="overline">new product</p>

@@ -26,6 +26,7 @@ const SecondaryShowcaseCard = () => {
             alt="a speaker on a table"
             layout="fill"
             objectFit="cover"
+            priority
           />
         </div>
         <h2>zx7 speaker</h2>
