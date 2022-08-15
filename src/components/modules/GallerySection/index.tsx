@@ -1,10 +1,8 @@
 import type { ImagePathsType } from "../../../types";
 
-import Image from "next/image";
+import Image from "../../elements/Image";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
-
-import getImgURL from "../../../utils/getImgURL";
 
 import { styles } from "./styles";
 
@@ -23,68 +21,29 @@ const GallerySection = ({ first, second, third, productName }: Props) => {
       <div className="container">
         <div className="img-wrapper">
           <Image
-            src={
-              width && width < 600
-                ? getImgURL(first.mobile)
-                : width && width < 1240
-                ? getImgURL(first.tablet)
-                : getImgURL(first.desktop)
-            }
+            mobile={first.mobile}
+            tablet={first.tablet}
+            desktop={first.desktop}
             alt={`${productName} being used`}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-            blurDataURL={
-              width && width < 600
-                ? getImgURL(first.mobile, "blur")
-                : width && width < 1240
-                ? getImgURL(first.tablet, "blur")
-                : getImgURL(first.desktop, "blur")
-            }
+            width={width}
           />
         </div>
         <div className="img-wrapper">
           <Image
-            src={
-              width && width < 600
-                ? getImgURL(second.mobile)
-                : width && width < 1240
-                ? getImgURL(second.tablet)
-                : getImgURL(second.desktop)
-            }
+            mobile={second.mobile}
+            tablet={second.tablet}
+            desktop={second.desktop}
             alt={`${productName} being used`}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-            blurDataURL={
-              width && width < 600
-                ? getImgURL(second.mobile, "blur")
-                : width && width < 1240
-                ? getImgURL(second.tablet, "blur")
-                : getImgURL(second.desktop, "blur")
-            }
+            width={width}
           />
         </div>
         <div className="img-wrapper">
           <Image
-            src={
-              width && width < 600
-                ? getImgURL(third.mobile)
-                : width && width < 1240
-                ? getImgURL(third.tablet)
-                : getImgURL(third.desktop)
-            }
+            mobile={third.mobile}
+            tablet={third.tablet}
+            desktop={third.desktop}
             alt={`${productName} being used`}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-            blurDataURL={
-              width && width < 600
-                ? getImgURL(third.mobile, "blur")
-                : width && width < 1240
-                ? getImgURL(third.tablet, "blur")
-                : getImgURL(third.desktop, "blur")
-            }
+            width={width}
           />
         </div>
       </div>
