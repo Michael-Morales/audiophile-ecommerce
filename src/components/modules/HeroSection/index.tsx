@@ -1,10 +1,7 @@
-import Image from "next/image";
-
 import Button from "../../elements/Button";
+import Image from "../../elements/Image";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
-
-import getImgURL from "../../../utils/getImgURL";
 
 import { styles, dynamicStyles } from "./styles";
 
@@ -16,25 +13,12 @@ const Hero = () => {
       <div className="container">
         <div className="img-wrapper">
           <Image
-            src={
-              width && width < 600
-                ? getImgURL("mobile/image-header")
-                : width && width < 1240
-                ? getImgURL("tablet/image-header")
-                : getImgURL("desktop/image-hero")
-            }
+            mobile="mobile/image-header"
+            tablet="tablet/image-header"
+            desktop="desktop/image-header"
             alt="black headphones"
-            layout="fill"
-            objectFit="cover"
+            width={width}
             priority
-            placeholder="blur"
-            blurDataURL={
-              width && width < 600
-                ? getImgURL("mobile/image-header", "blur")
-                : width && width < 1240
-                ? getImgURL("tablet/image-header", "blur")
-                : getImgURL("desktop/image-hero", "blur")
-            }
           />
         </div>
         <p className="overline">new product</p>

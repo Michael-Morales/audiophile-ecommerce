@@ -1,9 +1,9 @@
 import type { ImagePathsType } from "../../../types";
 
 import { useState, memo, useContext } from "react";
-import Image from "next/image";
 
 import Button from "../../elements/Button";
+import Image from "../../elements/Image";
 import ProductQuantity from "../ProductQuantity";
 
 import useViewPortWidth from "../../../hooks/useViewportWidth";
@@ -12,7 +12,6 @@ import useLocalStorage from "../../../hooks/useLocalStorage";
 import { Context as CartContext } from "../../../context/cartContext";
 
 import formatPrice from "../../../utils/formatPrice";
-import getImgURL from "../../../utils/getImgURL";
 
 import { styles, dynamicStyles } from "./styles";
 
@@ -65,25 +64,12 @@ const ProductCard = ({
       <article>
         <div className="img-wrapper">
           <Image
-            src={
-              width && width < 600
-                ? getImgURL(image.mobile)
-                : width && width < 1240
-                ? getImgURL(image.tablet)
-                : getImgURL(image.desktop)
-            }
+            mobile={image.mobile}
+            tablet={image.tablet}
+            desktop={image.desktop}
             alt={name}
-            layout="fill"
-            objectFit="cover"
+            width={width}
             priority
-            placeholder="blur"
-            blurDataURL={
-              width && width < 600
-                ? getImgURL(image.mobile, "blur")
-                : width && width < 1240
-                ? getImgURL(image.tablet, "blur")
-                : getImgURL(image.desktop, "blur")
-            }
           />
         </div>
         <div className="content">

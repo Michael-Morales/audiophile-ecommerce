@@ -1,8 +1,6 @@
-import Image from "next/image";
+import Image from "../../elements/Image";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
-
-import getImgURL from "../../../utils/getImgURL";
 
 import { styles, dynamicStyles } from "./styles";
 
@@ -15,24 +13,11 @@ const DescriptionSection = () => {
         <div className="img-container">
           <div className="img-wrapper">
             <Image
-              src={
-                width && width < 600
-                  ? getImgURL("mobile/image-best-gear")
-                  : width && width < 1240
-                  ? getImgURL("tablet/image-best-gear")
-                  : getImgURL("desktop/image-best-gear")
-              }
+              mobile="mobile/image-best-gear"
+              tablet="tablet/image-best-gear"
+              desktop="desktop/image-best-gear"
               alt="a man listening to music with headphones"
-              layout="fill"
-              objectFit="cover"
-              placeholder="blur"
-              blurDataURL={
-                width && width < 600
-                  ? getImgURL("mobile/image-best-gear", "blur")
-                  : width && width < 1240
-                  ? getImgURL("tablet/image-best-gear", "blur")
-                  : getImgURL("desktop/image-best-gear", "blur")
-              }
+              width={width}
             />
           </div>
         </div>

@@ -1,12 +1,9 @@
 import type { CategoryProductType } from "../../../types";
 
-import Image from "next/image";
-
 import Button from "../../elements/Button";
+import Image from "../../elements/Image";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
-
-import getImgURL from "../../../utils/getImgURL";
 
 import { styles, dynamicStyles } from "./styles";
 
@@ -25,25 +22,12 @@ const CategoryProduct = ({
       <article>
         <div className="img-wrapper">
           <Image
-            src={
-              width && width < 600
-                ? getImgURL(mobile)
-                : width && width < 1240
-                ? getImgURL(tablet)
-                : getImgURL(desktop)
-            }
+            mobile={mobile}
+            tablet={tablet}
+            desktop={desktop}
             alt={name}
-            layout="fill"
-            objectFit="cover"
+            width={width}
             priority
-            placeholder="blur"
-            blurDataURL={
-              width && width < 600
-                ? getImgURL(mobile, "blur")
-                : width && width < 1240
-                ? getImgURL(tablet, "blur")
-                : getImgURL(desktop, "blur")
-            }
           />
         </div>
         <div className="content">
