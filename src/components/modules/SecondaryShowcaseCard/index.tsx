@@ -27,6 +27,14 @@ const SecondaryShowcaseCard = () => {
             layout="fill"
             objectFit="cover"
             priority
+            placeholder="blur"
+            blurDataURL={
+              width && width < 600
+                ? getImgURL("mobile/image-speaker-zx7", "blur")
+                : width && width < 1240
+                ? getImgURL("tablet/image-speaker-zx7", "blur")
+                : getImgURL("desktop/image-speaker-zx7", "blur")
+            }
           />
         </div>
         <h2>zx7 speaker</h2>

@@ -35,6 +35,11 @@ const CategoryCard = ({
             width={imgWidth * imgRatio}
             height={imgHeight * imgRatio}
             layout="fixed"
+            placeholder="blur"
+            blurDataURL={getImgURL(
+              `shared/image-category-thumbnail-${title}`,
+              "blur"
+            )}
           />
         </div>
         <h3>{title}</h3>

@@ -33,6 +33,14 @@ const GallerySection = ({ first, second, third, productName }: Props) => {
             alt={`${productName} being used`}
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL={
+              width && width < 600
+                ? getImgURL(first.mobile, "blur")
+                : width && width < 1240
+                ? getImgURL(first.tablet, "blur")
+                : getImgURL(first.desktop, "blur")
+            }
           />
         </div>
         <div className="img-wrapper">
@@ -47,6 +55,14 @@ const GallerySection = ({ first, second, third, productName }: Props) => {
             alt={`${productName} being used`}
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL={
+              width && width < 600
+                ? getImgURL(second.mobile, "blur")
+                : width && width < 1240
+                ? getImgURL(second.tablet, "blur")
+                : getImgURL(second.desktop, "blur")
+            }
           />
         </div>
         <div className="img-wrapper">
@@ -61,6 +77,14 @@ const GallerySection = ({ first, second, third, productName }: Props) => {
             alt={`${productName} being used`}
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL={
+              width && width < 600
+                ? getImgURL(third.mobile, "blur")
+                : width && width < 1240
+                ? getImgURL(third.tablet, "blur")
+                : getImgURL(third.desktop, "blur")
+            }
           />
         </div>
       </div>

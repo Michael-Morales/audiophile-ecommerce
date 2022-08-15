@@ -36,6 +36,14 @@ const CategoryProduct = ({
             layout="fill"
             objectFit="cover"
             priority
+            placeholder="blur"
+            blurDataURL={
+              width && width < 600
+                ? getImgURL(mobile, "blur")
+                : width && width < 1240
+                ? getImgURL(tablet, "blur")
+                : getImgURL(desktop, "blur")
+            }
           />
         </div>
         <div className="content">

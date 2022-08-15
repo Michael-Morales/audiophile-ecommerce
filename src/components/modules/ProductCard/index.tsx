@@ -76,6 +76,14 @@ const ProductCard = ({
             layout="fill"
             objectFit="cover"
             priority
+            placeholder="blur"
+            blurDataURL={
+              width && width < 600
+                ? getImgURL(image.mobile, "blur")
+                : width && width < 1240
+                ? getImgURL(image.tablet, "blur")
+                : getImgURL(image.desktop, "blur")
+            }
           />
         </div>
         <div className="content">

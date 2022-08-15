@@ -27,6 +27,14 @@ const TertiaryShowcaseCard = () => {
             layout="fill"
             objectFit="cover"
             priority
+            placeholder="blur"
+            blurDataURL={
+              width && width < 600
+                ? getImgURL("mobile/image-earphones-yx1", "blur")
+                : width && width < 1240
+                ? getImgURL("tablet/image-earphones-yx1", "blur")
+                : getImgURL("desktop/image-earphones-yx1", "blur")
+            }
           />
         </div>
         <div className="content">

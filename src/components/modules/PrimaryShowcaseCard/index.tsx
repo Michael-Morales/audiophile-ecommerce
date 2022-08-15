@@ -17,6 +17,8 @@ const PrimaryShowcaseCard = () => {
             width={756}
             height={918}
             priority
+            placeholder="blur"
+            blurDataURL={getImgURL("shared/image-speaker-zx9", "blur")}
           />
         </div>
         <div className="content">

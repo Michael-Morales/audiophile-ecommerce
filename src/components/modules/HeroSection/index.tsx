@@ -27,6 +27,14 @@ const Hero = () => {
             layout="fill"
             objectFit="cover"
             priority
+            placeholder="blur"
+            blurDataURL={
+              width && width < 600
+                ? getImgURL("mobile/image-header", "blur")
+                : width && width < 1240
+                ? getImgURL("tablet/image-header", "blur")
+                : getImgURL("desktop/image-hero", "blur")
+            }
           />
         </div>
         <p className="overline">new product</p>

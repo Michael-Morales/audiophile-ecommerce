@@ -25,6 +25,14 @@ const DescriptionSection = () => {
               alt="a man listening to music with headphones"
               layout="fill"
               objectFit="cover"
+              placeholder="blur"
+              blurDataURL={
+                width && width < 600
+                  ? getImgURL("mobile/image-best-gear", "blur")
+                  : width && width < 1240
+                  ? getImgURL("tablet/image-best-gear", "blur")
+                  : getImgURL("desktop/image-best-gear", "blur")
+              }
             />
           </div>
         </div>
