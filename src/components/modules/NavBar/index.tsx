@@ -54,7 +54,11 @@ const NavBar = () => {
     <>
       <header>
         <div className="top-bar">
-          <button onClick={toggleMenu} className="mobile-menu">
+          <button
+            onClick={toggleMenu}
+            className="mobile-menu"
+            aria-label="menu"
+          >
             <MenuIcon />
           </button>
           <Link href="/">
