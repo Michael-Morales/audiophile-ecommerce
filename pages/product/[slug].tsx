@@ -1,7 +1,8 @@
 import type {
   NextPage,
-  GetServerSideProps,
-  InferGetServerSidePropsType,
+  GetStaticProps,
+  GetStaticPaths,
+  InferGetStaticPropsType,
 } from "next";
 
 import { getDocs, collection, query, where } from "firebase/firestore";
@@ -16,7 +17,7 @@ import getImgURL from "../../src/utils/getImgURL";
 
 const Product: NextPage = ({
   product,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <SEO
@@ -33,7 +34,20 @@ const Product: NextPage = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const querySnapShot = await getDocs(collection(db, "products"));
+
+  const paths = querySnapShot.docs.map((doc) => ({
+    params: { slug: doc.data().slug },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const q = query(
     collection(db, "products"),
     where("slug", "==", params?.slug)

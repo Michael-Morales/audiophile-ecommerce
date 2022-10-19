@@ -1,6 +1,7 @@
 import type {
-  InferGetServerSidePropsType,
-  GetServerSideProps,
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
   NextPage,
 } from "next";
 import { ProductType } from "../../src/types";
@@ -16,7 +17,7 @@ import getImgURL from "../../src/utils/getImgURL";
 
 const Category: NextPage = ({
   products,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const sortedProducts: Array<ProductType> = products.sort(
     (x: ProductType, y: ProductType) => +y.isNew - +x.isNew
   );
@@ -37,7 +38,20 @@ const Category: NextPage = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const querySnapShot = await getDocs(collection(db, "products"));
+
+  const paths = querySnapShot.docs.map((doc) => ({
+    params: { category: doc.data().category },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const q = query(
     collection(db, "products"),
     where("category", "==", params?.category)
