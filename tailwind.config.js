@@ -43,6 +43,12 @@ module.exports = {
       "medium-grey": "#CFCFCF",
       "dark-grey": "#4C4C4C",
     },
+    screens: {
+      sm: "600px",
+      md: "905px",
+      lg: "1240px",
+      xl: "1440px",
+    },
     extend: {
       letterSpacing: {
         1: "1.07px",
