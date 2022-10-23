@@ -47,13 +47,18 @@ const CheckoutForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="container">
-          <h1>checkout</h1>
+      <form
+        className="flex flex-col gap-8 xl:flex-1 xl:grow-[2] xl:flex-row xl:items-start xl:gap-[1.875rem] xl:px-12 xl:pb-12 xl:pt-[3.375rem]"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <div className="rounded-lg bg-white py-[1.875rem] px-6 sm:px-7">
+          <h1 className="mb-8 text-2xl leading-3xl tracking-4 sm:mb-10 sm:leading-4xl sm:tracking-6">
+            checkout
+          </h1>
           <Fieldsets register={register} watch={watch} errors={errors} />
         </div>
 
-        <div className="container">
+        <div className="flex flex-col rounded-lg bg-white py-[1.875rem] px-6 sm:px-7 xl:flex-1 xl:p-8">
           <h2>summary</h2>
           <ul>
             {state.map((item) => (

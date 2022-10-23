@@ -59,6 +59,9 @@ module.exports = {
         6: "2px",
         extra: "10px",
       },
+      backgroundSize: {
+        "100%": "100%",
+      },
     },
   },
   plugins: [],

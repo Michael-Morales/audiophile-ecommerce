@@ -23,7 +23,7 @@ const Button = ({
       {route && (
         <Link href={route}>
           <a
-            className={`flex content-center items-center py-4 px-8  text-xs font-bold uppercase tracking-1 transition  ${
+            className={`flex items-center justify-center py-4 px-8  text-xs font-bold uppercase tracking-1 transition  ${
               type === "primary"
                 ? "bg-orange text-white hover:bg-pale-orange"
                 : ""
@@ -55,7 +55,7 @@ const Button = ({
       )}
       {action && (
         <button
-          className={`flex content-center items-center py-4 px-8  text-xs font-bold uppercase tracking-1 transition  ${
+          className={`flex items-center justify-center py-4 px-8  text-xs font-bold uppercase tracking-1 transition  ${
             type === "primary"
               ? "bg-orange text-white hover:bg-pale-orange"
               : ""

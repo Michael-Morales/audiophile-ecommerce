@@ -13,8 +13,6 @@ import { Context as CartContext } from "../../../context/cartContext";
 
 import formatPrice from "../../../utils/formatPrice";
 
-import { styles, dynamicStyles } from "./styles";
-
 type Props = {
   id: string;
   isNew: boolean;
@@ -60,37 +58,40 @@ const ProductCard = ({
   };
 
   return (
-    <>
-      <article>
-        <div className="img-wrapper">
-          <Image
-            mobile={image.mobile}
-            tablet={image.tablet}
-            desktop={image.desktop}
-            alt={name}
-            width={width}
-            priority
+    <article className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-[5%] lg:gap-[10%]">
+      <div className="relative aspect-square w-full overflow-hidden rounded-lg sm:h-[480px] sm:flex-1 sm:grow-[0.4] lg:h-[560px] lg:grow">
+        <Image
+          mobile={image.mobile}
+          tablet={image.tablet}
+          desktop={image.desktop}
+          alt={name}
+          width={width}
+          priority
+        />
+      </div>
+      <div className="sm:flex-1 sm:grow-[0.6] lg:grow">
+        {isNew && (
+          <p className="mb-6 text-sm uppercase leading-tight tracking-extra text-orange sm:mb-4">
+            new product
+          </p>
+        )}
+        <h1 className="mb-6 max-w-[300px] text-2xl leading-large tracking-6 sm:mb-8 lg:text-4xl lg:leading-3xl lg:tracking-4">
+          {name}
+        </h1>
+        <p className="mb-6 opacity-50 sm:mb-8">{description}</p>
+        <p className="mb-8 text-lg font-bold tracking-3 lg:mb-12">
+          {formatPrice(price)}
+        </p>
+        <div className="flex gap-4">
+          <ProductQuantity
+            quantity={count}
+            decrement={() => setCount(count - 1)}
+            increment={() => setCount(count + 1)}
           />
+          <Button title="add to cart" action={addToCart} />
         </div>
-        <div className="content">
-          {isNew && <p className="overline">new product</p>}
-          <h1>{name}</h1>
-          <p className="description">{description}</p>
-          <p className="price">{formatPrice(price)}</p>
-          <div className="add-to-cart">
-            <ProductQuantity
-              quantity={count}
-              decrement={() => setCount(count - 1)}
-              increment={() => setCount(count + 1)}
-            />
-            <Button title="add to cart" action={addToCart} />
-          </div>
-        </div>
-      </article>
-
-      <style jsx>{styles}</style>
-      <style jsx>{dynamicStyles}</style>
-    </>
+      </div>
+    </article>
   );
 };
 

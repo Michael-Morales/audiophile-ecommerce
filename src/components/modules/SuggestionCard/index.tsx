@@ -5,8 +5,6 @@ import Image from "../../elements/Image";
 
 import useViewportWidth from "../../../hooks/useViewportWidth";
 
-import { styles, dynamicStyles } from "./styles";
-
 type Props = {
   suggestion: OtherProductType;
 };
@@ -16,26 +14,21 @@ const SuggestionCard = ({ suggestion }: Props) => {
   const { slug, name, image } = suggestion;
 
   return (
-    <>
-      <div className="container">
-        <div className="img-wrapper">
-          <Image
-            mobile={image.mobile}
-            tablet={image.tablet}
-            desktop={image.desktop}
-            alt={name}
-            width={width}
-          />
-        </div>
-        <div className="content">
-          <p>{name}</p>
-          <Button title="see product" route={`/product/${slug}`} />
-        </div>
+    <div className="flex w-full flex-col gap-8 sm:gap-10">
+      <div className="relative h-[120px] w-full overflow-hidden rounded-lg sm:h-[318px]">
+        <Image
+          mobile={image.mobile}
+          tablet={image.tablet}
+          desktop={image.desktop}
+          alt={name}
+          width={width}
+        />
       </div>
-
-      <style jsx>{styles}</style>
-      <style jsx>{dynamicStyles}</style>
-    </>
+      <div className="flex flex-col items-center gap-8">
+        <p className="text-xl font-bold tracking-5">{name}</p>
+        <Button title="see product" route={`/product/${slug}`} />
+      </div>
+    </div>
   );
 };
 
