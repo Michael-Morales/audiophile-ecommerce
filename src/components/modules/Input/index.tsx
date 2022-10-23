@@ -29,39 +29,34 @@ const Input = ({
   size,
 }: Props) => {
   return (
-    <>
-      <label>
-        <div>
-          <span>{label}</span>
-          {error?.type === "required" && (
-            <span className="error">required</span>
-          )}
-          {error?.type !== "required" && (
-            <span className="error">{error?.message}</span>
-          )}
-        </div>
-        <input type={inputType} {...register(formValue, options)} />
-      </label>
-
-      <style jsx>{styles}</style>
-      <style jsx>{dynamicStyles}</style>
-      <style jsx>{`
-        div > span {
-          color: ${error ? colors.error : "initial"};
-        }
-
-        input {
-          border-color: ${error ? colors.error : colors.inputBorder};
-          border-width: ${error ? "2px" : "1px"};
-        }
-
-        @media screen and (min-width: 600px) {
-          label {
-            grid-column: ${size ? "1 / 3" : "default"};
-          }
-        }
-      `}</style>
-    </>
+    <label className={`flex flex-col gap-2 ${size ? "sm:col-[1/3]" : ""}`}>
+      <div className="flex justify-between">
+        <span
+          className={`text-[.75rem] font-bold capitalize leading-[1] ${
+            error ? "text-red" : ""
+          }`}
+        >
+          {label}
+        </span>
+        {error?.type === "required" && (
+          <span className="text-[.75rem] font-bold capitalize leading-[1] text-red">
+            required
+          </span>
+        )}
+        {error?.type !== "required" && (
+          <span className="text-[.75rem] font-bold capitalize leading-[1] text-red">
+            {error?.message}
+          </span>
+        )}
+      </div>
+      <input
+        className={`rounded-lg py-[1.125rem] px-6 text-sm font-bold leading-[1] focus:border-orange ${
+          error ? "border-2 border-red" : "border border-medium-grey"
+        }`}
+        type={inputType}
+        {...register(formValue, options)}
+      />
+    </label>
   );
 };
 
