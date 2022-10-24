@@ -1,5 +1,3 @@
-import { styles, dynamicStyles } from "./styles";
-
 type Props = {
   quantity: number;
   increment: () => void;
@@ -16,27 +14,28 @@ const ProductQuantity = ({
   remove,
 }: Props) => {
   return (
-    <>
-      <div>
-        <button
-          onClick={quantity <= 1 && remove ? remove : decrement}
-          disabled={!remove && quantity <= 1}
-        >
-          -
-        </button>
-        <span>{quantity}</span>
-        <button onClick={increment}>+</button>
-      </div>
-
-      <style jsx>{styles}</style>
-      <style jsx>{dynamicStyles}</style>
-      <style jsx>{`
-        div {
-          padding: ${small ? "0.7rem 1.2rem" : "1.5rem"};
-          min-width: ${small ? "96px" : "120px"};
-        }
-      `}</style>
-    </>
+    <div
+      className={`flex justify-between bg-light-grey ${
+        small
+          ? "min-w-[96px] py-[.438rem] px-[.75rem]"
+          : "min-w-[120px] p-[.938rem]"
+      }`}
+    >
+      <button
+        className="px-2 font-bold opacity-25 transition hover:text-orange hover:opacity-100 disabled:pointer-events-none disabled:opacity-5"
+        onClick={quantity <= 1 && remove ? remove : decrement}
+        disabled={!remove && quantity <= 1}
+      >
+        -
+      </button>
+      <span>{quantity}</span>
+      <button
+        className="px-2 font-bold opacity-25 transition hover:text-orange hover:opacity-100"
+        onClick={increment}
+      >
+        +
+      </button>
+    </div>
   );
 };
 

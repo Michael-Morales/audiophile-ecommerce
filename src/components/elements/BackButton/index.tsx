@@ -1,17 +1,15 @@
 import { useRouter } from "next/router";
 
-import { styles, dynamicStyles } from "./styles";
-
 const BackButton = () => {
   const router = useRouter();
 
   return (
-    <>
-      <button onClick={() => router.back()}>go back</button>
-
-      <style jsx>{styles}</style>
-      <style jsx>{dynamicStyles}</style>
-    </>
+    <button
+      className="mb-6 block capitalize opacity-50 transition hover:text-orange hover:opacity-100 xl:mb-14"
+      onClick={() => router.back()}
+    >
+      go back
+    </button>
   );
 };
 

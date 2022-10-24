@@ -13,8 +13,6 @@ import { Context as CartContext } from "../../../context/cartContext";
 import formatPrice from "../../../utils/formatPrice";
 import getImgURL from "../../../utils/getImgURL";
 
-import { styles, dynamicStyles } from "./styles";
-
 type Props = CartItemType & { checkout?: boolean };
 
 const CartItem = ({
@@ -49,41 +47,36 @@ const CartItem = ({
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="img-wrapper">
-          <Image
-            src={getImgURL(image)}
-            alt={name}
-            layout="fill"
-            objectFit="cover"
-            priority
-            placeholder="blur"
-            blurDataURL={getImgURL(image, "blur")}
-          />
-        </div>
-        <div className="informations">
-          <Link href={`/product/${slug}`}>
-            <a>{name}</a>
-          </Link>
-          <p className="price">{formatPrice(price)}</p>
-        </div>
-        {checkout ? (
-          <span className="quantity">x{quantity}</span>
-        ) : (
-          <ProductQuantity
-            quantity={quantity}
-            increment={handleIncrease}
-            decrement={handleDecrease}
-            remove={handleRemove}
-            small
-          />
-        )}
+    <div className="flex items-center">
+      <div className="relative h-16 w-16 overflow-hidden rounded-lg bg-pale-grey">
+        <Image
+          src={getImgURL(image)}
+          alt={name}
+          layout="fill"
+          objectFit="cover"
+          priority
+          placeholder="blur"
+          blurDataURL={getImgURL(image, "blur")}
+        />
       </div>
-
-      <style jsx>{styles}</style>
-      <style jsx>{dynamicStyles}</style>
-    </>
+      <div className="ml-4 mr-auto">
+        <Link href={`/product/${slug}`}>
+          <a className="font-bold text-black">{name}</a>
+        </Link>
+        <p className="text-sm font-bold opacity-50">{formatPrice(price)}</p>
+      </div>
+      {checkout ? (
+        <span className="font-bold opacity-50">x{quantity}</span>
+      ) : (
+        <ProductQuantity
+          quantity={quantity}
+          increment={handleIncrease}
+          decrement={handleDecrease}
+          remove={handleRemove}
+          small
+        />
+      )}
+    </div>
   );
 };
 

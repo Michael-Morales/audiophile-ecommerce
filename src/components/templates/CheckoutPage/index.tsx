@@ -7,8 +7,6 @@ import CheckoutForm from "../../modules/CheckoutForm";
 
 import { Context as CartContext } from "../../../context/cartContext";
 
-import { styles, dynamicStyles } from "./styles";
-
 const CheckoutPage = () => {
   const router = useRouter();
   const { state } = useContext(CartContext);
@@ -18,19 +16,14 @@ const CheckoutPage = () => {
   }, [router, state]);
 
   return (
-    <>
-      <main>
-        <ContainerMargins>
-          <>
-            <BackButton />
-            <CheckoutForm />
-          </>
-        </ContainerMargins>
-      </main>
-
-      <style jsx>{styles}</style>
-      <style jsx>{dynamicStyles}</style>
-    </>
+    <main className="bg-light pt-[calc(5.625rem+1rem)] pb-[6.125rem] sm:pt-[calc(5.625rem+3rem)] sm:pb-[7.5rem] xl:pt-[calc(5.625rem+5rem)] xl:pb-[8.75rem]">
+      <ContainerMargins>
+        <>
+          <BackButton />
+          <CheckoutForm />
+        </>
+      </ContainerMargins>
+    </main>
   );
 };
 

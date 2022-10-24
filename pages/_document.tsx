@@ -14,7 +14,7 @@ const Document = () => {
         />
       </Head>
 
-      <body>
+      <body className="bg-light text-base font-medium leading-normal">
         <Main />
         <NextScript />
       </body>

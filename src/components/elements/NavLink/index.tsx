@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-import { styles, dynamicStyles } from "./styles";
-
 type Props = {
   name: string;
   route: string;
@@ -9,14 +7,11 @@ type Props = {
 
 const NavLink = ({ name, route }: Props) => {
   return (
-    <>
-      <Link href={route}>
-        <a>{name}</a>
-      </Link>
-
-      <style jsx>{styles}</style>
-      <style jsx>{dynamicStyles}</style>
-    </>
+    <Link href={route}>
+      <a className="inline-block text-xs font-bold uppercase leading-2xl tracking-6 text-white transition-colors hover:text-orange">
+        {name}
+      </a>
+    </Link>
   );
 };
 

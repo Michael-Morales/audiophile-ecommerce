@@ -2,9 +2,10 @@ import type { AppProps } from "next/app";
 
 import Head from "next/head";
 
-import GlobalStyles from "../src/components/layouts/GlobalStyles";
 import Default from "../src/components/layouts/Default";
 import { Provider as CartProvider } from "../src/context/cartContext";
+
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -15,11 +16,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <CartProvider>
-        <GlobalStyles>
-          <Default>
-            <Component {...pageProps} />
-          </Default>
-        </GlobalStyles>
+        <Default>
+          <Component {...pageProps} />
+        </Default>
       </CartProvider>
     </>
   );

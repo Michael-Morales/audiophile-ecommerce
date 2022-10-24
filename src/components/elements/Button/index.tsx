@@ -1,55 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { styles } from "./styles";
-import { colors } from "../../../styles/theme";
-
 type Props = {
   title: string;
   route?: string;
-  type?: keyof typeof buttonOptions;
+  type?: "primary" | "secondary" | "light" | "dark";
   action?: () => void;
   disabled?: boolean;
   fullWidth?: boolean;
-};
-
-type ButtonOption = {
-  color: string;
-  backgroundColor: string;
-  hoverColor: string;
-  hoverBackgroundColor: string;
-};
-
-const buttonOptions: {
-  primary: ButtonOption;
-  secondary: ButtonOption;
-  light: ButtonOption;
-  dark: ButtonOption;
-} = {
-  primary: {
-    color: colors.white,
-    backgroundColor: colors.primary,
-    hoverColor: colors.white,
-    hoverBackgroundColor: colors.primaryHover,
-  },
-  secondary: {
-    color: colors.secondaryButton,
-    backgroundColor: "transparent",
-    hoverColor: colors.primary,
-    hoverBackgroundColor: "transparent",
-  },
-  light: {
-    color: colors.black,
-    backgroundColor: "transparent",
-    hoverColor: colors.white,
-    hoverBackgroundColor: colors.black,
-  },
-  dark: {
-    color: colors.white,
-    backgroundColor: colors.black,
-    hoverColor: colors.white,
-    hoverBackgroundColor: colors.darkHover,
-  },
 };
 
 const Button = ({
@@ -64,7 +22,25 @@ const Button = ({
     <>
       {route && (
         <Link href={route}>
-          <a>
+          <a
+            className={`flex items-center justify-center py-4 px-8  text-xs font-bold uppercase tracking-1 transition  ${
+              type === "primary"
+                ? "bg-orange text-white hover:bg-pale-orange"
+                : ""
+            } ${
+              type === "secondary"
+                ? "gap-x-3 bg-transparent text-pale-grey hover:bg-transparent hover:text-orange"
+                : ""
+            } ${
+              type === "light"
+                ? "border border-solid border-black bg-transparent text-black hover:bg-black hover:text-white"
+                : ""
+            } ${
+              type === "dark" ? "bg-black text-white hover:bg-dark-grey" : ""
+            } ${fullWidth ? "w-full" : ""} ${
+              disabled ? "pointer-events-none bg-pale-orange" : ""
+            }`}
+          >
             {title}
             {type === "secondary" && (
               <Image
@@ -78,7 +54,26 @@ const Button = ({
         </Link>
       )}
       {action && (
-        <button onClick={action}>
+        <button
+          className={`flex items-center justify-center py-4 px-8  text-xs font-bold uppercase tracking-1 transition  ${
+            type === "primary"
+              ? "bg-orange text-white hover:bg-pale-orange"
+              : ""
+          } ${
+            type === "secondary"
+              ? "gap-x-3 bg-transparent text-pale-grey hover:bg-transparent hover:text-orange"
+              : ""
+          } ${
+            type === "light"
+              ? "border border-solid border-black bg-transparent text-black hover:bg-black hover:text-white"
+              : ""
+          } ${
+            type === "dark" ? "bg-black text-white hover:bg-dark-grey" : ""
+          } ${fullWidth ? "w-full" : ""} ${
+            disabled ? "pointer-events-none bg-pale-orange" : ""
+          }`}
+          onClick={action}
+        >
           {title}
           {type === "secondary" && (
             <Image
@@ -90,27 +85,6 @@ const Button = ({
           )}
         </button>
       )}
-
-      <style jsx>{styles}</style>
-      <style jsx>{`
-        a,
-        button {
-          gap: ${type === "secondary" ? "13px" : "unset"};
-          width: ${fullWidth ? "100%" : "initial"};
-          color: ${buttonOptions[type].color};
-          background-color: ${disabled
-            ? colors.primaryHover
-            : buttonOptions[type].backgroundColor};
-          border: ${type === "light" ? `1px solid ${colors.black}` : "none"};
-          pointer-events: ${disabled ? "none" : "initial"};
-        }
-
-        a:hover,
-        button:hover {
-          color: ${buttonOptions[type].hoverColor};
-          background-color: ${buttonOptions[type].hoverBackgroundColor};
-        }
-      `}</style>
     </>
   );
 };
