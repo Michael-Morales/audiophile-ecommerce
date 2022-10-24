@@ -5,10 +5,6 @@ import type {
 } from "react-hook-form";
 import type { FormValuesType } from "../../../types";
 
-import { styles, dynamicStyles } from "./styles";
-
-import { colors } from "../../../styles/theme";
-
 type Props = {
   label: string;
   inputType?: string;
@@ -50,7 +46,7 @@ const Input = ({
         )}
       </div>
       <input
-        className={`rounded-lg py-[1.125rem] px-6 text-sm font-bold leading-[1] focus:border-orange ${
+        className={`rounded-lg py-[1.125rem] px-6 text-sm font-bold leading-[1] focus:border-orange focus:ring-0 focus:ring-offset-0 ${
           error ? "border-2 border-red" : "border border-medium-grey"
         }`}
         type={inputType}

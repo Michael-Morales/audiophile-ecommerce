@@ -123,7 +123,7 @@ const Fieldsets = ({ register, watch, errors }: Props) => {
             <div className="flex flex-col gap-4 sm:flex-1">
               <label className="flex items-center gap-4 rounded-lg border border-solid border-medium-grey p-[1.125rem] text-sm font-bold capitalize leading-[1] transition">
                 <input
-                  className="form-radio h-5 w-5 border-medium-grey text-orange transition"
+                  className="h-5 w-5 border-medium-grey text-orange transition focus:ring-1 focus:ring-orange"
                   type="radio"
                   {...register("paymentMethod")}
                   value="e-money"
@@ -132,7 +132,7 @@ const Fieldsets = ({ register, watch, errors }: Props) => {
               </label>
               <label className="flex items-center gap-4 rounded-lg border border-solid border-medium-grey p-[1.125rem] text-sm font-bold capitalize leading-[1] transition">
                 <input
-                  className="form-radio h-5 w-5 border-medium-grey text-orange transition"
+                  className="h-5 w-5 border-medium-grey text-orange transition focus:ring-1 focus:ring-orange"
                   type="radio"
                   {...register("paymentMethod")}
                   value="cash on delivery"
