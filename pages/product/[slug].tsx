@@ -5,13 +5,11 @@ import type {
   InferGetStaticPropsType,
 } from "next";
 
-import { getDocs, collection, query, where } from "firebase/firestore";
-
 import ContainerMargins from "../../src/components/layouts/ContainerMargins";
 import ProductPage from "../../src/components/templates/ProductPage";
 import SEO from "../../src/components/modules/SEO";
 
-import { db } from "../../src/firebase";
+import { prisma } from "../../lib/prisma";
 
 import getImgURL from "../../src/utils/getImgURL";
 
@@ -35,11 +33,13 @@ const Product: NextPage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const querySnapShot = await getDocs(collection(db, "products"));
+  const slugs = await prisma.product.findMany({
+    select: {
+      slug: true,
+    },
+  });
 
-  const paths = querySnapShot.docs.map((doc) => ({
-    params: { slug: doc.data().slug },
-  }));
+  const paths = slugs.map(({ slug }) => ({ params: { slug } }));
 
   return {
     paths,
@@ -48,17 +48,82 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const q = query(
-    collection(db, "products"),
-    where("slug", "==", params?.slug)
-  );
-
-  const querySnapshot = await getDocs(q);
-
-  const product = querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }))[0];
+  const product = await prisma.product.findUnique({
+    where: {
+      slug: params?.slug as string | undefined,
+    },
+    include: {
+      category: {
+        select: { name: true },
+      },
+      categoryImg: {
+        select: {
+          mobile: true,
+          tablet: true,
+          desktop: true,
+        },
+      },
+      image: {
+        select: {
+          mobile: true,
+          tablet: true,
+          desktop: true,
+        },
+      },
+      gallery: {
+        select: {
+          first: {
+            select: {
+              mobile: true,
+              tablet: true,
+              desktop: true,
+            },
+          },
+          second: {
+            select: {
+              mobile: true,
+              tablet: true,
+              desktop: true,
+            },
+          },
+          third: {
+            select: {
+              mobile: true,
+              tablet: true,
+              desktop: true,
+            },
+          },
+        },
+      },
+      includes: {
+        select: {
+          quantity: true,
+          item: {
+            select: {
+              name: true,
+            },
+          },
+        },
+      },
+      others: {
+        select: {
+          other: {
+            select: {
+              name: true,
+              slug: true,
+              image: {
+                select: {
+                  mobile: true,
+                  tablet: true,
+                  desktop: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
 
   return { props: { product } };
 };

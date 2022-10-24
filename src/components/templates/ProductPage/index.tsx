@@ -43,7 +43,7 @@ const ProductPage = ({ product }: Props) => {
           slug={slug}
         />
         <div className="lg:my-40 lg:flex lg:justify-between lg:gap-[10%]">
-          <div className="lg:flex-2 my-[5.5rem] sm:my-[7.5rem] lg:my-0">
+          <div className="my-[5.5rem] sm:my-[7.5rem] lg:my-0 lg:flex-1 lg:grow-[2]">
             <h2 className="mb-6 text-xl leading-xl tracking-2 sm:mb-8 sm:text-3xl sm:leading-xl sm:tracking-2">
               features
             </h2>
@@ -55,7 +55,9 @@ const ProductPage = ({ product }: Props) => {
         </div>
         <GallerySection {...gallery} productName={name} />
       </section>
-      <SuggestionSection suggestions={others} />
+      <SuggestionSection
+        suggestions={others.map(({ other }) => ({ ...other }))}
+      />
       <CategorySection />
       <DescriptionSection />
     </main>

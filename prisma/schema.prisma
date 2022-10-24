@@ -8,8 +8,8 @@ datasource db {
 }
 
 model Product {
-  id          String    @id @default(cuid())
-  slug        String
+  id          String             @id @default(cuid())
+  slug        String             @unique
   name        String
   cartName    String
   isNew       Boolean
@@ -17,11 +17,11 @@ model Product {
   description String
   features    String
   categoryId  String
-  category    Category  @relation(fields: [categoryId], references: [id])
-  image       Image?    @relation(name: "image")
-  categoryImg Image?    @relation(name: "categoryImg")
+  category    Category           @relation(fields: [categoryId], references: [id])
+  image       Image?             @relation(name: "image")
+  categoryImg Image?             @relation(name: "categoryImg")
   gallery     Gallery?
-  others      Other[]
+  others      OthersOnProducts[]
   includes    Include[]
 }
 
@@ -75,10 +75,18 @@ model Gallery {
 }
 
 model Other {
-  id        String  @id @default(cuid())
-  slug      String
-  name      String
-  image     Image?  @relation(name: "otherImg")
+  id       String             @id @default(cuid())
+  slug     String
+  name     String
+  image    Image?             @relation(name: "otherImg")
+  products OthersOnProducts[]
+}
+
+model OthersOnProducts {
   productId String
   product   Product @relation(fields: [productId], references: [id])
+  otherId   String
+  other     Other   @relation(fields: [otherId], references: [id])
+
+  @@id([productId, otherId])
 }

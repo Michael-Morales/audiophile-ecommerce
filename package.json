@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^4.5.0",
     "cloudinary-build-url": "^0.2.4",
     "firebase": "^9.9.2",
     "next": "12.1.6",
