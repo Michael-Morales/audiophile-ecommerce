@@ -15,7 +15,7 @@ const SuggestionCard = ({ suggestion }: Props) => {
 
   return (
     <div className="flex w-full flex-col gap-8 sm:gap-10">
-      <div className="relative h-[120px] w-full overflow-hidden rounded-lg sm:h-[318px]">
+      <div className="relative h-[120px] w-full overflow-hidden rounded-lg bg-pale-grey sm:h-[318px]">
         <Image
           mobile={image.mobile}
           tablet={image.tablet}

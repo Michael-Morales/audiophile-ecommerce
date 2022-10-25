@@ -25,7 +25,7 @@ export type ProductType = {
   category: {
     name: string;
   };
-  categoryImage: ImagePathsType;
+  categoryImg: ImagePathsType;
   isNew: boolean;
   price: number;
   description: string;
@@ -43,7 +43,7 @@ export type CategoryProductType = {
   id: string;
   slug: string;
   name: string;
-  categoryImage: ImagePathsType;
+  categoryImg: ImagePathsType;
   isNew: boolean;
   description: string;
 };

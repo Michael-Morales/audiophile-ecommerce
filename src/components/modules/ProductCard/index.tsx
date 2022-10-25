@@ -59,7 +59,7 @@ const ProductCard = ({
 
   return (
     <article className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-[5%] lg:gap-[10%]">
-      <div className="relative aspect-square w-full overflow-hidden rounded-lg sm:h-[480px] sm:flex-1 sm:grow-[0.4] lg:h-[560px] lg:grow">
+      <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-pale-grey sm:h-[480px] sm:flex-1 sm:grow-[0.4] lg:h-[560px] lg:grow">
         <Image
           mobile={image.mobile}
           tablet={image.tablet}
