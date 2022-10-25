@@ -6,7 +6,7 @@ Live website hosted on Netlify: [visit here](https://audiophile-morales.netlify.
 
 ### TECHNOLOGIES
 
-- Framework: Next.js
+- Framework: Next.js with Tailwindcss
 - Database: Supabase (Postgresql)
 - ORM: Prisma
 - Image hosting: Cloudinary
