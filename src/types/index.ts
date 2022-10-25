@@ -6,7 +6,7 @@ export type ImagePathsType = {
 
 export type IncludedItemType = {
   quantity: number;
-  item: string;
+  item: { name: string };
 };
 
 export type OtherProductType = {
@@ -21,8 +21,11 @@ export type ProductType = {
   name: string;
   cartName: string;
   image: ImagePathsType;
-  category: string;
-  categoryImage: ImagePathsType;
+  categoryId: string;
+  category: {
+    name: string;
+  };
+  categoryImg: ImagePathsType;
   isNew: boolean;
   price: number;
   description: string;
@@ -33,14 +36,14 @@ export type ProductType = {
     second: ImagePathsType;
     third: ImagePathsType;
   };
-  others: Array<OtherProductType>;
+  others: Array<{ other: OtherProductType }>;
 };
 
 export type CategoryProductType = {
   id: string;
   slug: string;
   name: string;
-  categoryImage: ImagePathsType;
+  categoryImg: ImagePathsType;
   isNew: boolean;
   description: string;
 };

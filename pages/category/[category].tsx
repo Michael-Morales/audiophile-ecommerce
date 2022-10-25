@@ -6,12 +6,10 @@ import type {
 } from "next";
 import { ProductType } from "../../src/types";
 
-import { collection, getDocs, query, where } from "firebase/firestore";
-
 import CategoryPage from "../../src/components/templates/CategoryPage";
 import SEO from "../../src/components/modules/SEO";
 
-import { db } from "../../src/firebase";
+import { prisma } from "../../lib/prisma";
 
 import getImgURL from "../../src/utils/getImgURL";
 
@@ -26,11 +24,12 @@ const Category: NextPage = ({
     <>
       <SEO
         title={
-          products[0].category[0].toUpperCase() + products[0].category.slice(1)
+          products[0].category.name[0].toUpperCase() +
+          products[0].category.name.slice(1)
         }
-        description={`Discover our selection of best quality ${products[0].category}.`}
+        description={`Discover our selection of best quality ${products[0].category.name}.`}
         image={getImgURL(products[0].image.desktop)}
-        url={`https://audiophile-morales.netlify.app/category/${products[0].category}`}
+        url={`https://audiophile-morales.netlify.app/category/${products[0].category.name}`}
       />
 
       <CategoryPage products={sortedProducts} />
@@ -39,11 +38,13 @@ const Category: NextPage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const querySnapShot = await getDocs(collection(db, "products"));
+  const categories = await prisma.category.findMany({
+    select: {
+      name: true,
+    },
+  });
 
-  const paths = querySnapShot.docs.map((doc) => ({
-    params: { category: doc.data().category },
-  }));
+  const paths = categories.map(({ name }) => ({ params: { category: name } }));
 
   return {
     paths,
@@ -52,16 +53,30 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const q = query(
-    collection(db, "products"),
-    where("category", "==", params?.category)
-  );
-  const querySnapshot = await getDocs(q);
-
-  const products = querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
+  const products = await prisma.product.findMany({
+    where: {
+      category: { name: params?.category as string | undefined },
+    },
+    include: {
+      image: {
+        select: {
+          desktop: true,
+        },
+      },
+      categoryImg: {
+        select: {
+          mobile: true,
+          tablet: true,
+          desktop: true,
+        },
+      },
+      category: {
+        select: {
+          name: true,
+        },
+      },
+    },
+  });
 
   return { props: { products } };
 };

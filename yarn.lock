@@ -825,6 +825,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "@prisma/client@npm:4.5.0"
+  dependencies:
+    "@prisma/engines-version": 4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: 1e6b76c104f17e6fc78c537d17879a17dcde8443cd6d084530068453c4f2620050c273f5683d7cdb5012a0d5b4854907fe993fcf5752fb11f2bcca7221d34e59
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452":
+  version: 4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452
+  resolution: "@prisma/engines-version@npm:4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452"
+  checksum: 619626ff5dc16a292065a5318f76653f589bf170a769edbabb07d62b4a589ab0eba287a00faf3e31eaf3280c99662e210376a61a68f91b7690a955fd43f346eb
+  languageName: node
+  linkType: hard
+
+"@prisma/engines@npm:4.5.0":
+  version: 4.5.0
+  resolution: "@prisma/engines@npm:4.5.0"
+  checksum: d34ba4ceee67809b4a6d756763b118b3fbf273ab35378e568495248c7c62633c4cccca1e6b94411d5312a272f268f3dec5e8ae0a3e4177ad5f593f38daca7c58
+  languageName: node
+  linkType: hard
+
+"@prisma/prisma-fmt-wasm@npm:4.4.0-66.f352a33b70356f46311da8b00d83386dd9f145d6":
+  version: 4.4.0-66.f352a33b70356f46311da8b00d83386dd9f145d6
+  resolution: "@prisma/prisma-fmt-wasm@npm:4.4.0-66.f352a33b70356f46311da8b00d83386dd9f145d6"
+  checksum: 0fe378581a851d50022ddbd32c15ad1722c6908be930616b9e4ce9ded13e083c17e13b105c43a05ee17e8423cf58452fde4d2f3b81e98ff29b5e14e746f8e078
+  languageName: node
+  linkType: hard
+
 "@protobufjs/aspromise@npm:^1.1.1, @protobufjs/aspromise@npm:^1.1.2":
   version: 1.1.2
   resolution: "@protobufjs/aspromise@npm:1.1.2"
@@ -1321,6 +1356,7 @@ __metadata:
   resolution: "audiophile-app@workspace:."
   dependencies:
     "@cld-apis/types": ^0.1.6
+    "@prisma/client": ^4.5.0
     "@tailwindcss/forms": ^0.5.3
     "@types/node": 17.0.43
     "@types/react": 18.0.12
@@ -1333,7 +1369,9 @@ __metadata:
     next: 12.1.6
     postcss: ^8.4.18
     prettier: ^2.7.1
+    prettier-plugin-prisma: ^4.4.0
     prettier-plugin-tailwindcss: ^0.1.13
+    prisma: ^4.5.0
     react: 18.2.0
     react-dom: 18.2.0
     react-hook-form: ^7.33.1
@@ -4265,6 +4303,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier-plugin-prisma@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "prettier-plugin-prisma@npm:4.4.0"
+  dependencies:
+    "@prisma/prisma-fmt-wasm": 4.4.0-66.f352a33b70356f46311da8b00d83386dd9f145d6
+  peerDependencies:
+    prettier: ">=2"
+  checksum: c961d6890d96a2c020e7033fb6096c9b5a3bd6b05edfd26397f00b5f1c565f1242f50ba372a8b05b0a3d1e457e8d85e3238a72bddf77819668021e529f691dfb
+  languageName: node
+  linkType: hard
+
 "prettier-plugin-tailwindcss@npm:^0.1.13":
   version: 0.1.13
   resolution: "prettier-plugin-tailwindcss@npm:0.1.13"
@@ -4280,6 +4329,18 @@ __metadata:
   bin:
     prettier: bin-prettier.js
   checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
+  languageName: node
+  linkType: hard
+
+"prisma@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "prisma@npm:4.5.0"
+  dependencies:
+    "@prisma/engines": 4.5.0
+  bin:
+    prisma: build/index.js
+    prisma2: build/index.js
+  checksum: 83a6d28475a31e8d69b355f949c0484b6d64324c45c452c57bf9ed50f85129b8df22fecb671c00a28f0cb80360a3f691888c463548949e94078f7f9be4bd0c79
   languageName: node
   linkType: hard
 

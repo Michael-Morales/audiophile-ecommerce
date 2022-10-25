@@ -12,9 +12,9 @@ const ProductContent = ({ items }: Props) => {
       </h2>
       <ul className="mb-8 flex flex-col gap-2 sm:flex-1 lg:flex-none">
         {items.map(({ quantity, item }) => (
-          <li className="flex gap-6" key={item}>
+          <li className="flex gap-6" key={item.name}>
             <span className="font-bold text-orange">{quantity}x</span>
-            <span className="capitalize opacity-50">{item}</span>
+            <span className="capitalize opacity-50">{item.name}</span>
           </li>
         ))}
       </ul>

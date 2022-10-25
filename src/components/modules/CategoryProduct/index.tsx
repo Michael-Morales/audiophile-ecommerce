@@ -8,7 +8,7 @@ import useViewportWidth from "../../../hooks/useViewportWidth";
 const CategoryProduct = ({
   slug,
   name,
-  categoryImage: { mobile, tablet, desktop },
+  categoryImg: { mobile, tablet, desktop },
   isNew,
   description,
   reversed,

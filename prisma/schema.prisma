@@ -1,0 +1,92 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          String             @id @default(cuid())
+  slug        String             @unique
+  name        String
+  cartName    String
+  isNew       Boolean
+  price       Float
+  description String
+  features    String
+  categoryId  String
+  category    Category           @relation(fields: [categoryId], references: [id])
+  image       Image?             @relation(name: "image")
+  categoryImg Image?             @relation(name: "categoryImg")
+  gallery     Gallery?
+  others      OthersOnProducts[]
+  includes    Include[]
+}
+
+model Image {
+  id                   String   @id @default(cuid())
+  mobile               String
+  tablet               String
+  desktop              String
+  productImgId         String?  @unique
+  productImg           Product? @relation(name: "image", fields: [productImgId], references: [id])
+  productCategoryImgId String?  @unique
+  productCategoryImg   Product? @relation(name: "categoryImg", fields: [productCategoryImgId], references: [id])
+  firstImgId           String?  @unique
+  firstImg             Gallery? @relation(name: "firstImg", fields: [firstImgId], references: [id])
+  secondImgId          String?  @unique
+  secondImg            Gallery? @relation(name: "secondImg", fields: [secondImgId], references: [id])
+  thirdImgId           String?  @unique
+  thirdImg             Gallery? @relation(name: "thirdImg", fields: [thirdImgId], references: [id])
+  otherImgId           String?  @unique
+  otherImg             Other?   @relation(name: "otherImg", fields: [otherImgId], references: [id])
+}
+
+model Category {
+  id       String    @id @default(cuid())
+  name     String
+  products Product[]
+}
+
+model Item {
+  id       String    @id @default(cuid())
+  name     String
+  includes Include[]
+}
+
+model Include {
+  id        String  @id @default(cuid())
+  quantity  Int
+  itemId    String
+  item      Item    @relation(fields: [itemId], references: [id])
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model Gallery {
+  id        String  @id @default(cuid())
+  first     Image?  @relation(name: "firstImg")
+  second    Image?  @relation(name: "secondImg")
+  third     Image?  @relation(name: "thirdImg")
+  productId String  @unique
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model Other {
+  id       String             @id @default(cuid())
+  slug     String
+  name     String
+  image    Image?             @relation(name: "otherImg")
+  products OthersOnProducts[]
+}
+
+model OthersOnProducts {
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  otherId   String
+  other     Other   @relation(fields: [otherId], references: [id])
+
+  @@id([productId, otherId])
+}
