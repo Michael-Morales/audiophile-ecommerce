@@ -1,5 +1,12 @@
-### AUDIOPHILE
+## AUDIOPHILE
 
-An e-commerce website created with Next.js and Firebase based on a Figma design provided by [Frontend Mentor](https://www.frontendmentor.io). Images are hosted on Cloudinary.
+A mock e-commerce website based on a Figma design provided by [Frontend Mentor](https://www.frontendmentor.io).
 
 Live website hosted on Netlify: [visit here](https://audiophile-morales.netlify.app)
+
+### TECHNOLOGIES
+
+- Framework: Next.js
+- Database: Supabase (Postgresql)
+- ORM: Prisma
+- Image hosting: Cloudinary
